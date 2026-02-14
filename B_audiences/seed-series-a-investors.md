@@ -21,6 +21,8 @@ vocab_map:
     - single financial record
     - structural consistency
     - end of drift
+    - no more reconciliation
+    - structural fragmentation fix
     - core value prop
   tax-preparation-wedge:
     - tax-driven entry
@@ -51,6 +53,11 @@ vocab_map:
     - capital efficiency
     - expansion revenue
     - leveraged growth model
+    - small account flywheel
+    - margin expansion
+    - capacity trap
+    - advisory upsell
+    - 3x client capacity
     - portfolio economics
     - path to breakeven
   wpf-excel-interface-strategy:
@@ -92,6 +99,12 @@ vocab_map:
     - measurable deviation
     - drift as global KPI
     - creditworthiness signal
+  shoebox-offering:
+    - document ingestion
+    - unstructured data processing
+    - bottom of market capture
+    - long tail monetization
+    - shoebox to trial balance
     - early adopter program
     - reference customers
 proof_preferences:

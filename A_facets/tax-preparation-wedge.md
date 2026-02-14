@@ -20,6 +20,7 @@ claims:
 evidence_refs:
   - investor-market-evaluation-feb2026
   - accounting-podcast-ai-bookkeeping-sep2024
+  - bancroft-beta-user-feb2026
 owner: product-team
 status: active
 ---

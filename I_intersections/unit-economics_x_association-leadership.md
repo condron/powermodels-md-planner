@@ -3,9 +3,12 @@ type: intersection
 id: unit-economics_x_association-leadership
 aspect: unit-economics
 audience: association-leadership
-dimension: 1
+dimension: 3+
 hooks:
 - unit-economics—capital efficiency
+- unit-economics—margin expansion
+- unit-economics—small account flywheel
+- unit-economics—staff leverage
 q_holes:
 - unit-economics—member value and retention
 - unit-economics—association relevance and modernization
@@ -38,7 +41,7 @@ risk_flags:
 # Intersection Summary
 
 This intersection analyzes how **unit-economics** relates to the **association-leadership** audience. 
-There are 1 connection point(s) (hooks) between the facet and audience concerns.
+There are 4 connection point(s) (hooks) between the facet and audience concerns.
  There are 10 gap(s) (q-holes) that may need attention.
 
 ## Narrative Path (Traffic)

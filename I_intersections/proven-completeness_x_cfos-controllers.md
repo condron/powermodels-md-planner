@@ -3,10 +3,8 @@ type: intersection
 id: proven-completeness_x_cfos-controllers
 aspect: proven-completeness
 audience: cfos-controllers
-dimension: 2
+dimension: 1
 hooks:
-- proven-completeness—completeness contract
-- proven-completeness—acceptance criteria
 - proven-completeness—preparation quality standard
 q_holes:
 - proven-completeness—financial close efficiency
@@ -16,6 +14,8 @@ q_holes:
 - proven-completeness—cross-entity consolidation
 - proven-completeness—internal controls and auditability
 - proven-completeness—system integration and data flows
+- proven-completeness—completeness contract
+- proven-completeness—acceptance criteria
 - proven-completeness—audit-ready preparation
 bridges:
 - Add `financial close efficiency` as a synonym or linked facet on `proven-completeness` (matches audience concern).
@@ -25,6 +25,8 @@ bridges:
 - Add `cross-entity consolidation` as a synonym or linked facet on `proven-completeness` (matches audience concern).
 - Add `internal controls and auditability` as a synonym or linked facet on `proven-completeness` (matches audience concern).
 - Add `system integration and data flows` as a synonym or linked facet on `proven-completeness` (matches audience concern).
+- Add `completeness contract` as a synonym or linked facet on `proven-completeness` (matches vocab_map term).
+- Add `acceptance criteria` as a synonym or linked facet on `proven-completeness` (matches vocab_map term).
 - Add `audit-ready preparation` as a synonym or linked facet on `proven-completeness` (matches vocab_map term).
 message_invariants:
 - Maintain consistent terminology aligned with audience vocabulary
@@ -36,8 +38,8 @@ risk_flags:
 # Intersection Summary
 
 This intersection analyzes how **proven-completeness** relates to the **cfos-controllers** audience. 
-There are 3 connection point(s) (hooks) between the facet and audience concerns.
- There are 8 gap(s) (q-holes) that may need attention.
+There are 1 connection point(s) (hooks) between the facet and audience concerns.
+ There are 10 gap(s) (q-holes) that may need attention.
 
 ## Narrative Path (Traffic)
 

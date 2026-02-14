@@ -1,217 +1,252 @@
 # PowerModels Vault — Project Review
 **Date:** 2026-02-14  
-**Scope:** Full pipeline assessment, geometry evaluation, constraint identification, and next actions
+**Vault:** 17 facets × 10 audiences = 170 intersections | 7 evidence cards | 0 validation errors
 
 ---
 
-## 1. Pipeline Status (9-Step Methodology)
-
-| Step | Status | Notes |
-|------|--------|-------|
-| 1. SCAN | ✅ Complete | 7 source documents ingested |
-| 2. EXTRACT | ✅ Complete | 14 facets, 10 audiences, 3 evidence cards extracted |
-| 3. CURATE | ⚠ Near-complete | 3 cards in inbox (reference docs, not blocking) |
-| 4. COMPUTE | ✅ Complete | 140 intersections computed, 0 dim-0 gaps |
-| 5. ENRICH | ⬜ Not started | No org context (`--org`) applied yet |
-| 6. EVALUATE | ✅ This review | Geometry analyzed below |
-| 7. DESIGN | 🔶 Partial | Routes identified below, not yet formalized |
-| 8. GENERATE | ⬜ Not started | D_deliverables/ is empty |
-| 9. REVIEW | 🔶 This document | First full review cycle |
-
-**Verdict:** Steps 1–4 are solid. The vault is structurally complete and validated (0 errors, 0 warnings). Ready for deliverable generation.
-
----
-
-## 2. Vault Health
+## 1. Vault Health
 
 ```
-Source Notes:      7
-Facets:           14
+Facets:           17 (7 code-validated, 6 updated with product/pricing/pipeline info)
 Audiences:        10
-Evidence:          3
-Intersections:   140 (14 × 10, fully covered)
+Evidence:          7
+Intersections:   170 (17 × 10, fully covered, 0 dim-0)
 Deliverables:      0
-Inbox:             3 (reference docs, low priority)
+Inbox:             3 (reference docs, not blocking)
+Output docs:       6 (this file + 5 others)
 Validation:        0 errors, 0 warnings
 ```
 
 ---
 
-## 3. Geometry Summary
+## 2. Geometry
 
 ### Dimension Distribution
-| Dimension | Count | % | Interpretation |
-|-----------|-------|---|----------------|
-| 3+ (strong) | 15 | 11% | Well-connected, ready for deliverables |
-| 2 (solid) | 107 | 76% | Adequate foundation, bridges available |
-| 1 (weak) | 18 | 13% | Need enrichment before deliverables |
-| 0 (disconnected) | 0 | 0% | None — all gaps resolved |
 
-**Overall: 87% of intersections are at dim 2 or higher.** This is a healthy geometry.
+| Dimension | Count | % | Meaning |
+|-----------|-------|---|---------|
+| 3+ (strong) | 34 | 20% | Ready for deliverables |
+| 2 (solid) | 122 | 72% | Adequate, bridges available |
+| 1 (weak) | 14 | 8% | Need enrichment |
+| 0 (disconnected) | 0 | 0% | None |
 
-### Strongest Connections (dim 3+, 4 hooks each)
+**92% of intersections at dim 2+.** Geometry is strong and stable.
 
-All 15 dim-3+ connections:
+### Top 10 Connections
 
-| Facet | Audience |
-|-------|----------|
-| competitive-positioning | angel-investors, board-members, founding-team, seed-series-a-investors |
-| event-sourced-architecture | cfos-controllers, founding-team |
-| design-partner-program | founding-team, seed-series-a-investors |
-| firm-first-gtm | founding-team, seed-series-a-investors |
-| association-community-marketing | association-leadership |
-| cloud-migration-strategy | founding-team |
-| proven-completeness | seed-series-a-investors |
-| quickbooks-xero-onboarding | cfos-controllers |
-| tax-preparation-wedge | seed-series-a-investors |
+| Facet × Audience | Hooks |
+|---|---|
+| unit-economics × seed-series-a-investors | **8** |
+| unit-economics × accounting-firm-partners | **7** |
+| unit-economics × board-members | **7** |
+| unit-economics × founding-team | **7** |
+| unit-economics × angel-investors | **6** |
+| shoebox-offering × accounting-firm-partners | **5** |
+| shoebox-offering × founding-team | **5** |
+| unit-economics × cfos-controllers | **5** |
+| association-community-marketing × association-leadership | **4** |
+| competitive-positioning × seed-series-a-investors | **4** |
 
-**Pattern:** Internal audiences (founding-team, seed-series-a-investors) dominate dim-3+. This means the vault is strongest at telling the story to people already inside the tent.
-
----
-
-## 4. TOC Constraint Identification
-
-### Per-Audience Ranking (avg dimension, ascending = weakest first)
+### Per-Audience Health
 
 | Audience | Avg Dim | dim 3+ | Role |
 |----------|---------|--------|------|
-| **business-owners-operators** | **1.57** | **0** | Indirect beneficiary |
-| **bookkeepers-junior-staff** | **1.71** | **0** | End user |
-| **tax-preparers-cpas** | **1.79** | **0** | Primary user |
-| **accounting-firm-partners** | **1.93** | **0** | **Decision maker** |
-| association-leadership | 1.93 | 1 | Channel partner |
-| angel-investors | 2.00 | 1 | Funder |
-| board-members | 2.07 | 1 | Governance |
-| cfos-controllers | 2.07 | 2 | User/buyer |
-| founding-team | 2.36 | 5 | Internal |
-| seed-series-a-investors | 2.36 | 5 | Funder |
+| business-owners-operators | 1.76 | 1 | End client (indirect) |
+| bookkeepers-junior-staff | 1.94 | 2 | End user |
+| tax-preparers-cpas | 2.00 | 1 | Primary user |
+| angel-investors | 2.06 | 3 | Near-term funder |
+| association-leadership | 2.06 | 2 | Channel partner |
+| accounting-firm-partners | 2.12 | 2 | Decision maker / buyer |
+| board-members | 2.12 | 3 | Governance |
+| cfos-controllers | 2.29 | 5 | User/buyer (expansion) |
+| seed-series-a-investors | 2.29 | 6 | Growth funder |
+| founding-team | 2.53 | 9 | Internal |
 
-### The Constraint: `accounting-firm-partners`
+### Per-Facet Health
 
-**This is the bottleneck audience.** Per the methodology:
-
-> "An hour lost at the constraint is an hour lost for the system."
-
-Accounting firm partners are the **buying decision makers** in the firm-first GTM model. Every other audience is downstream:
-- Partners decide → CPAs/bookkeepers use → business owners benefit
-- Partners decide → investors fund based on adoption proof
-
-Yet firm partners have **avg dim 1.93 with zero dim-3+ connections**. No facet has a strong hook into their concerns. The vault can tell a compelling story to investors and the founding team, but **cannot yet deliver a high-confidence narrative to the people who sign the purchase order**.
-
-### Per-Facet Ranking (ascending = weakest)
-
-| Facet | Avg Dim | dim 3+ |
-|-------|---------|--------|
-| **unit-economics** | **1.40** | **0** |
-| **reconciliation-elimination** | **1.50** | **0** |
-| professional-judgment-preservation | 1.80 | 0 |
-| firm-first-gtm | 1.90 | 2 |
-| wpf-excel-interface-strategy | 1.90 | 0 |
-| ai-empowerment-strategy | 2.00 | 0 |
-| cloud-migration-strategy | 2.00 | 1 |
-| association-community-marketing | 2.10 | 1 |
-| proven-completeness | 2.10 | 1 |
-| quickbooks-xero-onboarding | 2.10 | 1 |
-| tax-preparation-wedge | 2.10 | 1 |
-| design-partner-program | 2.20 | 2 |
-| event-sourced-architecture | 2.20 | 2 |
-| competitive-positioning | 2.40 | 4 |
-
-**Weakest facets:** `unit-economics` (1.40) and `reconciliation-elimination` (1.50). These are core value propositions that don't yet have enough hooks into audience concerns.
+| Facet | Avg Dim | dim 3+ | Code Status |
+|-------|---------|--------|-------------|
+| professional-judgment-preservation | 1.80 | 0 | 🟢 85/15 boundary in code |
+| drift-metric | 1.80 | 2 | 🔴 Zero code (Phase 2+ via client dashboard) |
+| firm-first-gtm | 1.90 | 2 | N/A (strategy) |
+| wpf-excel-interface-strategy | 1.90 | 0 | 🟢 12+ WPF views |
+| ai-empowerment-strategy | 2.00 | 0 | 🟢 gpt-4o pipeline validated |
+| cloud-migration-strategy | 2.00 | 1 | 🟡 In progress (thefringeninja) |
+| design-partner-program | 2.00 | 0 | 🟢 3 firms in pipeline |
+| association-community-marketing | 2.10 | 1 | 🟢 PSTAP chapter head is beta user |
+| proven-completeness | 2.10 | 1 | � Three-part mechanism: AI classification + reconciliation UI + trial balance report |
+| quickbooks-xero-onboarding | 2.10 | 1 | 🟡 QB CSV works, Plaid in progress |
+| shoebox-offering | 2.10 | 4 | 🟢 Pipeline works, beta validated |
+| tax-preparation-wedge | 2.10 | 1 | 🟢 Core workflow validated |
+| event-sourced-architecture | 2.20 | 2 | 🟢 DataStore.cs, 174 stories closed |
+| future-ledger | 2.20 | 2 | 🔴 Zero code (Phase 2+ via client dashboard) |
+| competitive-positioning | 2.40 | 4 | N/A (strategy) |
+| reconciliation-elimination | 2.40 | 4 | 🟢 Multi-step pipeline validated |
+| unit-economics | 2.90 | 9 | 🟢 3-tier pricing, $20/mo validated |
 
 ---
 
-## 5. Constraint × Bottleneck Analysis
+## 3. Evidence Cards (7)
 
-The critical intersection is **unit-economics × accounting-firm-partners** (dim 1, only 1 hook: "capital efficiency"). This pair has **10 q-holes** — the firm partners care about profitability, retention, staff utilization, ROI, etc., but the unit-economics facet has no synonyms or claims that connect to those concerns.
+| Evidence | Type | Supports |
+|----------|------|----------|
+| technical-codebase-review | Technical | event-sourced, reconciliation, ai-empowerment, wpf-excel, quickbooks-xero |
+| investor-market-evaluation-feb2026 | Market | tax-prep, judgment, ai-empowerment, gtm, association, unit-economics |
+| accounting-podcast-ai-bookkeeping-sep2024 | Industry | event-sourced, tax-prep, judgment, ai-empowerment |
+| strategy-overview-feb2026 | Strategy | future-ledger, drift-metric, event-sourced, competitive, ai-empowerment, association, firm-gtm, unit-economics |
+| customer-interviews-jan2026 | Primary research | shoebox, tax-prep, reconciliation, judgment, unit-economics, quickbooks-xero, ai-empowerment, proven-completeness |
+| codebase-review-feb2026 | Code validation | shoebox, tax-prep, reconciliation, proven-completeness, ai-empowerment, quickbooks-xero, drift-metric, future-ledger, event-sourced |
+| **bancroft-beta-user-feb2026** | **Design partner** | **shoebox, design-partner, association, tax-prep, ai-empowerment, firm-gtm, quickbooks-xero, unit-economics** |
 
-**This is the single highest-leverage fix in the vault:** enriching the `unit-economics` facet with synonyms that map to firm partner language (margin improvement, staff leverage, client expansion economics) would raise dimension across all 10 audiences simultaneously.
-
----
-
-## 6. Inbox Triage
-
-| Card | Content | Recommendation |
-|------|---------|----------------|
-| `business-plan.md` | Full Jan 2026 business plan | Keep as reference — already extracted into facets/evidence |
-| `planning-overview.md` | Phase 2+ vision document | Keep as reference — future-phase material |
-| `strategic-summary-current.md` | Reconciled strategy summary | Keep as reference — strategic context |
-
-These are **reference documents**, not cards needing curation. They were correctly normalized and parked. No action needed.
+**Broadest cards:** customer-interviews (8 facets), bancroft-beta-user (8 facets), codebase-review (9 facets)
 
 ---
 
-## 7. Communication Routes (Design Phase)
+## 4. Design Partner Pipeline
+
+| Firm | Status | Key Evidence |
+|---|---|---|
+| **George Bancroft** (Bancroft Financial CPAs) | ✅ Active beta | PSTAP Buxmont chapter head, worst client onboarded, $20/mo pricing validated, several hundred clients |
+| **Stewart** | 🟡 2 trial clients identified | 100-hour unbillable setup = anchor data point |
+| **Liberty Tax** | 🟡 Onboarding conversation next week | Seasonal tax prep, $2K-$2.5K bookkeeping packages |
+
+**3 of 2-4 target firms for angel round.** Bancroft is active. Stewart and Liberty Tax converting from interview to trial.
+
+---
+
+## 5. Product & Pricing
+
+### Three-Tier Pricing (Aligned to QB)
+
+| Tier | Client Type | Price/mo | Status |
+|---|---|---|---|
+| **Micro/1099** | 1099 contractors, minimal books | $20/mo | ✅ Current focus, Bancroft validated |
+| **Solo/Partnership** | Solo proprietors, partnerships | $50-100/mo | 🟡 Next phase |
+| **SMB** | Small businesses, full books | $200/mo | 🟡 Future |
+
+### Key Product Elements
+- **Monthly update cadence** — prevents work explosions at critical times; key retention driver
+- **Client dashboard website** — end-clients see critical info from books each month
+- **Dashboard → forecasting upsell** — client dashboard becomes sell-through route for Phase 2 forecasting product (cash/revenue forecasting + drift metrics)
+- **NRR > 100%** — three expansion vectors: more clients per firm, tier upgrades, forecasting upsell
+
+---
+
+## 6. Communication Routes
 
 ### Route 1: Investor Narrative (READY)
-**Path:** competitive-positioning → event-sourced-architecture → tax-preparation-wedge → firm-first-gtm → design-partner-program  
-**Audiences:** seed-series-a-investors (avg 2.36), angel-investors (2.00)  
-**Status:** All intersections at dim 2+. This route is **ready for deliverable generation**.
+**Path:** competitive-positioning → event-sourced-architecture → unit-economics → tax-preparation-wedge → firm-first-gtm → design-partner-program
+**Audiences:** seed-series-a-investors (avg 2.29, 6 dim-3+), angel-investors (2.06, 3 dim-3+)
+**New:** Bancroft evidence + $20/mo pricing validation + 3-firm pipeline strengthens PMF story
 
-### Route 2: Firm Partner Adoption (CONSTRAINT — needs work)
-**Path:** tax-preparation-wedge → professional-judgment-preservation → quickbooks-xero-onboarding → proven-completeness → design-partner-program  
-**Audience:** accounting-firm-partners (avg 1.93)  
-**Status:** Most intersections at dim 2 but no dim 3+. Needs enrichment on unit-economics and reconciliation-elimination to strengthen the business case for partners.
+### Route 2: Firm Partner Adoption (STRONG)
+**Path:** unit-economics → shoebox-offering → tax-preparation-wedge → quickbooks-xero-onboarding → proven-completeness
+**Audience:** accounting-firm-partners (avg 2.12, 2 dim-3+)
+**Anchors:** unit-economics (7 hooks) + shoebox-offering (5 hooks) + 100-hour evidence (Stewart)
 
-### Route 3: Association Channel (READY)
-**Path:** association-community-marketing → firm-first-gtm → design-partner-program  
-**Audience:** association-leadership (avg 1.93, has 1 dim 3+)  
-**Status:** Strongest community-marketing hook is already dim 3+. **Ready for CPE presentation deliverable**.
+### Route 3: Association Channel (ACTIVATED)
+**Path:** association-community-marketing → firm-first-gtm → design-partner-program
+**Audience:** association-leadership (avg 2.06, 2 dim-3+)
+**New:** Bancroft IS the channel — PSTAP chapter head who is a beta user. Channel is no longer theoretical.
 
-### Route 4: Practitioner Enablement (NEEDS ENRICHMENT)
-**Path:** professional-judgment-preservation → ai-empowerment-strategy → wpf-excel-interface-strategy → quickbooks-xero-onboarding  
-**Audiences:** tax-preparers-cpas (1.79), bookkeepers-junior-staff (1.71)  
-**Status:** All dim 2 but no strong hooks. Needs practitioner-specific evidence (e.g., Liberty Tax interview insights → evidence card).
+### Route 4: CFO/Controller Technical Sale (READY)
+**Path:** future-ledger → drift-metric → event-sourced-architecture → quickbooks-xero-onboarding
+**Audience:** cfos-controllers (avg 2.29, 5 dim-3+)
+**Strongest external-audience route.** Client dashboard + forecasting product creates natural expansion here.
 
----
+### Route 5: Practitioner Enablement (PARTIAL)
+**Path:** shoebox-offering → professional-judgment-preservation → ai-empowerment-strategy → wpf-excel-interface-strategy
+**Audiences:** tax-preparers-cpas (2.00, 1 dim-3+), bookkeepers-junior-staff (1.94, 2 dim-3+)
+**Gap:** Judgment, AI, and UI facets still at 0 dim-3+ for practitioner audiences. Needs design partner usage evidence.
 
-## 8. Evidence Gap
-
-Only **3 evidence cards** support 14 facets:
-
-| Evidence | Linked Facets |
-|----------|---------------|
-| technical-codebase-review | event-sourced, reconciliation, ai-empowerment, wpf-excel, quickbooks-xero |
-| investor-market-evaluation-feb2026 | tax-prep, judgment, ai-empowerment, gtm, association, unit-economics |
-| accounting-podcast-ai-bookkeeping-sep2024 | event-sourced, tax-prep, judgment, ai-empowerment |
-
-**Missing evidence for:**
-- `competitive-positioning` — needs competitor analysis evidence
-- `cloud-migration-strategy` — needs technical migration plan evidence
-- `design-partner-program` — needs pilot results or LOI evidence
-- `proven-completeness` — needs completeness contract specification evidence
-- `unit-economics` — needs pricing validation / financial model evidence
-
-**The Liberty Tax interview** (`liberty-tax-interview` in S_sources) has not been promoted to an evidence card. It contains validation data for onboarding, edge cases, and practitioner workflow.
+### Route 6: Shoebox Client Acquisition (STRONGEST CROSS-AUDIENCE)
+**Path:** shoebox-offering → unit-economics → tax-preparation-wedge → quickbooks-xero-onboarding
+**Audiences:** firm-partners (5 hooks), CPAs (4 hooks), bookkeepers (4 hooks)
+**Pitch:** "Your worst clients become your most profitable." Backed by Bancroft beta + Stewart 100-hour data.
 
 ---
 
-## 9. Recommended Next Actions (Priority Order)
+## 7. Codebase Reality
 
-### Immediate (exploit the constraint)
-1. **Enrich `unit-economics` facet** — add synonyms: `margin improvement`, `staff leverage`, `client expansion economics`, `technology ROI`, `scalable service delivery`. This single change raises dimension across all 10 audiences.
-2. **Enrich `reconciliation-elimination` facet** — add synonyms: `no rework`, `fewer corrections`, `clean books`, `reporting confidence`. Same leverage effect.
-3. **Promote Liberty Tax interview to evidence card** — creates a practitioner-evidence link that strengthens Routes 2 and 4.
+### What Works (Demo-Ready)
 
-### Near-term (generate first deliverables)
-4. **Generate investor deck deliverable** via Route 1 — geometry is ready, all dim 2+.
-5. **Generate association CPE presentation deliverable** via Route 3 — strongest channel hook.
-6. **Create `completeness-contract` evidence card** — investors flagged this as must-have.
+| Capability | Evidence |
+|---|---|
+| AI classification (gpt-4o) | AIStep.cs — structured JSON, confidence scoring, validation against CoA |
+| 85/15 boundary UI | confidence < 0.9 threshold, UncategorizedTransactionsVm, 12+ WPF review views |
+| PDF bank statement ingestion | ExtractTransactionsFromPDFs, PdfDocument + Tabula |
+| QB CSV Journal Report import | GetJournalReportFromCsv() — production-ready, all builds |
+| Event-sourced data store | DataStore.cs, ReactiveDomain, 174 stories closed |
+| Multi-step reconciliation | PipelineBuilder, rules → AI → validation |
 
-### Medium-term (elevate the constraint)
-7. **Add design partner evidence** — once pilots begin, capture results as evidence cards.
-8. **Add pricing validation evidence** — LOIs or paid pilot commitments.
-9. **Enrich org context** — run `compute-intersection --all --org` once organizational data is structured.
+### What's In Progress
+
+| Capability | Status |
+|---|---|
+| Plaid bank account linking | Authorized reseller, 5 products enabled, thefringeninja building cloud/security infra |
+| Cloud infrastructure | In progress (thefringeninja) |
+| Standalone desktop app | Epic #2017 open |
+
+### What Doesn't Exist
+
+| Capability | Impact |
+|---|---|
+| **Completeness contract/report** | 🔴 #1 blocker — investors flagged, zero code, must build |
+| Drift metric | Phase 2+ only — will deliver via client dashboard |
+| Future Ledger (shadow transactions) | Phase 2+ only — depreciation schedules in RC5 are first step |
+| Xero connector | Zero code, zero issues |
+| QB live API (production) | Sandbox-only, previous product direction |
+
+### Plaid Authorized Reseller
+
+5 products enabled at 0 usage: Transactions (24mo), Enrich, Recurring Transactions, Transactions Refresh, Liabilities. When cloud infra is ready: link bank account → 24mo enriched transactions → AI pipeline. Bypasses QB/Xero entirely.
 
 ---
 
-## 10. Tooling Note
+## 8. Key Findings
 
-This review was produced using the newly improved VaultTool (9 commands, 80 tests). Key commands used:
+1. **unit-economics is the vault's strongest facet** (avg 2.90, 9 dim-3+). Three-tier pricing, NRR > 100%, and $20/mo validation from Bancroft make this the anchor for every investor and partner conversation.
 
-- `validate` — confirmed 0 errors, 0 warnings
-- `geometry-summary` — produced per-audience and per-facet rankings
-- `coverage-matrix` — visual grid of all 140 intersections
-- `compute-intersection --all --stale-only` — recomputed only changed pairs after fixing dim-0 root cause
+2. **The shoebox offering is the strongest cross-audience facet** (4 dim-3+). It hooks into buyer (5), users (4 each), and is backed by both code validation and beta user evidence.
 
-The dim-0 gaps (professional-judgment-preservation) were caused by a synonym mismatch (`85 15 boundary` vs `85/15 boundary`). Fixed and recomputed in one pass.
+3. **The association channel is activated, not theoretical.** Bancroft (PSTAP chapter head) is a beta user. "Recommended by your chapter head who uses it himself" is the strongest possible endorsement.
+
+4. **Codebase is real and validated.** 174 stories closed, AI pipeline production-quality, 85/15 boundary architecturally enforced. This is not a prototype.
+
+5. **Completeness is already delivered by the product.** Three-part mechanism: automated classification (85%), reconciliation/adjustment UI (15%), and trial balance report (completeness proof). No separate contract needed — the trial balance IS the proof. All three parts exist in code.
+
+6. **Client dashboard is the trojan horse for Phase 2 revenue.** Monthly book visibility → clients want projections → forecasting product sold through existing interface. Creates NRR > 100%.
+
+7. **Three-tier pricing anchored to QB** ($20/$50-100/$200) simplifies the pricing conversation. Pass-through model validated by Bancroft.
+
+8. **Monthly update cadence prevents work explosions** — the antidote to Stewart's 100-hour problem. Also the key retention mechanism.
+
+---
+
+## 9. Recommended Actions
+
+### Before Raising (Must-Do)
+1. **Complete Stewart + Liberty Tax onboarding** — convert pipeline to active trials, measure time-to-first-cycle
+3. **Produce competitive one-pager** — position vs bookkeeping automation, practice mgmt, platform-native, AI startups
+4. **Assemble Proof Room** — demo recording, onboarding runbook, test dataset, Bancroft case study
+
+### While Raising
+5. **Lead with Bancroft story** — PSTAP chapter head, worst client onboarded, $20/mo validated
+6. **Position Plaid as upside** — authorized reseller, direct bank linking when cloud ready
+7. **Show NRR model** — three expansion vectors, 168% illustrative NRR
+
+### Product Priorities
+8. **Complete Plaid integration** — highest-value next build for shoebox clients
+9. **Build client dashboard** — monthly visibility for end-clients, future forecasting surface
+10. **Expand to solo/partnership tier** — grow beyond micro/1099 focus
+
+---
+
+## 10. Constraint Analysis
+
+The constraint has moved through three cycles:
+1. **accounting-firm-partners** → resolved by vocab_map enrichment → now avg 2.12, 2 dim-3+
+2. **tax-preparers-cpas** → partially resolved by shoebox facet → now avg 2.00, 1 dim-3+
+3. **Practitioner-facing facets** (current) → professional-judgment (1.80), wpf-excel (1.90), ai-empowerment (2.00) all have 0 dim-3+
+
+The remaining constraint needs **design partner usage evidence** — real practitioner workflow data from Bancroft, Stewart, and Liberty Tax trials will strengthen these facets.

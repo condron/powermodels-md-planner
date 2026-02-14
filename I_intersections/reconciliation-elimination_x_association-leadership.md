@@ -3,9 +3,11 @@ type: intersection
 id: reconciliation-elimination_x_association-leadership
 aspect: reconciliation-elimination
 audience: association-leadership
-dimension: 1
+dimension: 2
 hooks:
+- reconciliation-elimination—no more reconciliation
 - reconciliation-elimination—single financial record
+- reconciliation-elimination—end of drift
 q_holes:
 - reconciliation-elimination—member value and retention
 - reconciliation-elimination—association relevance and modernization
@@ -16,6 +18,7 @@ q_holes:
 - reconciliation-elimination—alignment with association mission
 - reconciliation-elimination—no reconciliation
 - reconciliation-elimination—member efficiency
+- reconciliation-elimination—fewer corrections
 - reconciliation-elimination—practice improvement
 bridges:
 - Add `member value and retention` as a synonym or linked facet on `reconciliation-elimination` (matches audience concern).
@@ -27,6 +30,7 @@ bridges:
 - Add `alignment with association mission` as a synonym or linked facet on `reconciliation-elimination` (matches audience concern).
 - Add `no reconciliation` as a synonym or linked facet on `reconciliation-elimination` (matches vocab_map term).
 - Add `member efficiency` as a synonym or linked facet on `reconciliation-elimination` (matches vocab_map term).
+- Add `fewer corrections` as a synonym or linked facet on `reconciliation-elimination` (matches vocab_map term).
 - Add `practice improvement` as a synonym or linked facet on `reconciliation-elimination` (matches vocab_map term).
 message_invariants:
 - Maintain consistent terminology aligned with audience vocabulary
@@ -38,8 +42,8 @@ risk_flags:
 # Intersection Summary
 
 This intersection analyzes how **reconciliation-elimination** relates to the **association-leadership** audience. 
-There are 1 connection point(s) (hooks) between the facet and audience concerns.
- There are 10 gap(s) (q-holes) that may need attention.
+There are 3 connection point(s) (hooks) between the facet and audience concerns.
+ There are 11 gap(s) (q-holes) that may need attention.
 
 ## Narrative Path (Traffic)
 

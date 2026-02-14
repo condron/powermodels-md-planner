@@ -13,14 +13,18 @@ links_to_facets:
   - event-sourced-architecture
   - reconciliation-elimination
   - proven-completeness
+  - unit-economics
+  - drift-metric
 claims:
-  - Platform treats committed future events as first-class ledger entries alongside historical actuals
-  - Signed contracts payroll and lease schedules are ingested as shadow transactions with known timing and amounts
-  - Future Ledger enables deterministic forecasting not probabilistic guessing
-  - Predictions are mathematically provable calculations based on committed events not statistical inference
-  - System of Truth combines event sourcing with formal logical models
+  - Platform treats committed future events as first-class ledger entries alongside historical actuals [ASPIRATIONAL — zero code exists, Feb 2026 code review]
+  - Signed contracts payroll and lease schedules are ingested as shadow transactions with known timing and amounts [ASPIRATIONAL — no shadow transaction code]
+  - Future Ledger enables deterministic forecasting not probabilistic guessing [ASPIRATIONAL — no implementation]
+  - Predictions are mathematically provable calculations based on committed events not statistical inference [ASPIRATIONAL — no implementation]
+  - System of Truth combines event sourcing with formal logical models [PARTIAL — event sourcing exists via DataStore.cs but no formal logical models]
+  - Depreciation schedules are in active development in RC5 which could be the first shadow transaction type [IN PROGRESS — 6 stories in RC5 backlog]
 evidence_refs:
   - strategy-overview-feb2026
+  - codebase-review-feb2026
 owner: product-team
 status: active
 ---
@@ -68,6 +72,9 @@ The key insight: most of a business's near-term financial future is already comm
 - Creates a moat: committed-event forecasting requires event-sourced architecture that incumbents can't retrofit
 
 ### For Product Vision
-- Phase 1 (current): Preparation and reporting with historical events
-- Phase 2: Future Ledger activates, enabling deterministic forecasting
-- Phase 3: Full Financial OS with real-time lending, embedded finance, M&A simulations via Future Ledger API
+- Phase 1 (current): Preparation and reporting with historical events — micro/1099 clients first
+- Phase 2: Client dashboard exposes monthly books to end-clients — creates the surface for forecasting
+- Phase 3: Future Ledger activates via client dashboard — full business cash and revenue forecasting with drift metrics, sold as upsell through existing dashboard interface
+- Phase 4: Full Financial OS with real-time lending, embedded finance, M&A simulations via Future Ledger API
+
+**Delivery route:** The client dashboard website (Phase 1 = monthly book visibility) becomes the forecasting surface (Phase 3). Clients who see their books monthly will naturally want projections. The dashboard is the trojan horse.

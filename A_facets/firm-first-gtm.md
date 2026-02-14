@@ -20,9 +20,13 @@ claims:
   - Growth occurs through internal firm rollout not per-client selling
   - Firms control tools standards and workflows across client portfolios
   - Customer acquisition cost is incurred once per firm while revenue expands per client
+  - Client dashboard website creates a direct relationship surface with end-clients managed by the firm
+  - Monthly update cadence is critical for firms as it prevents work explosions at critical times
+  - Client dashboard becomes sell-through route for forecasting product — expanding firm revenue per client
 evidence_refs:
   - investor-market-evaluation-feb2026
   - strategy-overview-feb2026
+  - bancroft-beta-user-feb2026
 owner: gtm-team
 status: active
 ---

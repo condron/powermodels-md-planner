@@ -3,10 +3,14 @@ type: intersection
 id: unit-economics_x_angel-investors
 aspect: unit-economics
 audience: angel-investors
-dimension: 2
+dimension: 3+
 hooks:
 - unit-economics—capital efficiency
 - unit-economics—leveraged growth model
+- unit-economics—margin expansion
+- unit-economics—small account flywheel
+- unit-economics—capacity trap
+- unit-economics—advisory upsell
 q_holes:
 - unit-economics—founder quality and commitment
 - unit-economics—problem-solution fit
@@ -37,7 +41,7 @@ risk_flags:
 # Intersection Summary
 
 This intersection analyzes how **unit-economics** relates to the **angel-investors** audience. 
-There are 2 connection point(s) (hooks) between the facet and audience concerns.
+There are 6 connection point(s) (hooks) between the facet and audience concerns.
  There are 9 gap(s) (q-holes) that may need attention.
 
 ## Narrative Path (Traffic)

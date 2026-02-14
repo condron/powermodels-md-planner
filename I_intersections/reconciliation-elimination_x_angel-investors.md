@@ -3,9 +3,12 @@ type: intersection
 id: reconciliation-elimination_x_angel-investors
 aspect: reconciliation-elimination
 audience: angel-investors
-dimension: 1
+dimension: 3+
 hooks:
+- reconciliation-elimination—no more reconciliation
+- reconciliation-elimination—structural fragmentation fix
 - reconciliation-elimination—single financial record
+- reconciliation-elimination—end of drift
 q_holes:
 - reconciliation-elimination—founder quality and commitment
 - reconciliation-elimination—problem-solution fit
@@ -38,7 +41,7 @@ risk_flags:
 # Intersection Summary
 
 This intersection analyzes how **reconciliation-elimination** relates to the **angel-investors** audience. 
-There are 1 connection point(s) (hooks) between the facet and audience concerns.
+There are 4 connection point(s) (hooks) between the facet and audience concerns.
  There are 10 gap(s) (q-holes) that may need attention.
 
 ## Narrative Path (Traffic)

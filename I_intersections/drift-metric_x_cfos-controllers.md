@@ -18,7 +18,6 @@ q_holes:
 - drift-metric—internal controls and auditability
 - drift-metric—system integration and data flows
 - drift-metric—forecast accuracy
-- drift-metric—measurable outcomes
 bridges:
 - Add `financial close efficiency` as a synonym or linked facet on `drift-metric` (matches audience concern).
 - Add `reporting accuracy and timeliness` as a synonym or linked facet on `drift-metric` (matches audience concern).
@@ -28,7 +27,6 @@ bridges:
 - Add `internal controls and auditability` as a synonym or linked facet on `drift-metric` (matches audience concern).
 - Add `system integration and data flows` as a synonym or linked facet on `drift-metric` (matches audience concern).
 - Add `forecast accuracy` as a synonym or linked facet on `drift-metric` (matches vocab_map term).
-- Add `measurable outcomes` as a synonym or linked facet on `drift-metric` (matches vocab_map term).
 message_invariants:
 - Maintain consistent terminology aligned with audience vocabulary
 - All claims must reference supporting evidence
@@ -40,7 +38,7 @@ risk_flags:
 
 This intersection analyzes how **drift-metric** relates to the **cfos-controllers** audience. 
 There are 4 connection point(s) (hooks) between the facet and audience concerns.
- There are 9 gap(s) (q-holes) that may need attention.
+ There are 8 gap(s) (q-holes) that may need attention.
 
 ## Narrative Path (Traffic)
 

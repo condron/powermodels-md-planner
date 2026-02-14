@@ -3,10 +3,15 @@ type: intersection
 id: unit-economics_x_founding-team
 aspect: unit-economics
 audience: founding-team
-dimension: 2
+dimension: 3+
 hooks:
 - unit-economics—capital efficiency
 - unit-economics—leveraged growth model
+- unit-economics—margin expansion
+- unit-economics—small account flywheel
+- unit-economics—capacity trap
+- unit-economics—advisory upsell
+- unit-economics—staff leverage
 q_holes:
 - unit-economics—equity value and dilution
 - unit-economics—sweat equity recognition
@@ -37,7 +42,7 @@ risk_flags:
 # Intersection Summary
 
 This intersection analyzes how **unit-economics** relates to the **founding-team** audience. 
-There are 2 connection point(s) (hooks) between the facet and audience concerns.
+There are 7 connection point(s) (hooks) between the facet and audience concerns.
  There are 9 gap(s) (q-holes) that may need attention.
 
 ## Narrative Path (Traffic)

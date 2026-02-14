@@ -6,6 +6,9 @@
 # Media files
 _documents/media/
 
+# Embedded repos
+powermodels-repo/
+
 # OS files
 .DS_Store
 Thumbs.db

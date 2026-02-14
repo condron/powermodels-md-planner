@@ -3,9 +3,8 @@ type: intersection
 id: proven-completeness_x_business-owners-operators
 aspect: proven-completeness
 audience: business-owners-operators
-dimension: 2
+dimension: 1
 hooks:
-- proven-completeness—completeness contract
 - proven-completeness—preparation quality standard
 q_holes:
 - proven-completeness—timely financial visibility
@@ -14,6 +13,7 @@ q_holes:
 - proven-completeness—ability to make operational decisions
 - proven-completeness—reporting clarity and usability
 - proven-completeness—minimal operational disruption
+- proven-completeness—completeness contract
 - proven-completeness—accurate books
 - proven-completeness—trustworthy output
 bridges:
@@ -23,6 +23,7 @@ bridges:
 - Add `ability to make operational decisions` as a synonym or linked facet on `proven-completeness` (matches audience concern).
 - Add `reporting clarity and usability` as a synonym or linked facet on `proven-completeness` (matches audience concern).
 - Add `minimal operational disruption` as a synonym or linked facet on `proven-completeness` (matches audience concern).
+- Add `completeness contract` as a synonym or linked facet on `proven-completeness` (matches vocab_map term).
 - Add `accurate books` as a synonym or linked facet on `proven-completeness` (matches vocab_map term).
 - Add `trustworthy output` as a synonym or linked facet on `proven-completeness` (matches vocab_map term).
 message_invariants:
@@ -35,8 +36,8 @@ risk_flags:
 # Intersection Summary
 
 This intersection analyzes how **proven-completeness** relates to the **business-owners-operators** audience. 
-There are 2 connection point(s) (hooks) between the facet and audience concerns.
- There are 8 gap(s) (q-holes) that may need attention.
+There are 1 connection point(s) (hooks) between the facet and audience concerns.
+ There are 9 gap(s) (q-holes) that may need attention.
 
 ## Narrative Path (Traffic)
 

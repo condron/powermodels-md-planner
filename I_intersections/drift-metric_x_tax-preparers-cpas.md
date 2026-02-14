@@ -17,7 +17,6 @@ q_holes:
 - drift-metric—learning curve for new tools
 - drift-metric—client attention flag
 - drift-metric—proactive review trigger
-- drift-metric—early feedback influence
 bridges:
 - Add `workload reduction during tax season` as a synonym or linked facet on `drift-metric` (matches audience concern).
 - Add `trust in automated categorization` as a synonym or linked facet on `drift-metric` (matches audience concern).
@@ -28,7 +27,6 @@ bridges:
 - Add `learning curve for new tools` as a synonym or linked facet on `drift-metric` (matches audience concern).
 - Add `client attention flag` as a synonym or linked facet on `drift-metric` (matches vocab_map term).
 - Add `proactive review trigger` as a synonym or linked facet on `drift-metric` (matches vocab_map term).
-- Add `early feedback influence` as a synonym or linked facet on `drift-metric` (matches vocab_map term).
 message_invariants:
 - Maintain consistent terminology aligned with audience vocabulary
 - All claims must reference supporting evidence
@@ -40,7 +38,7 @@ risk_flags:
 
 This intersection analyzes how **drift-metric** relates to the **tax-preparers-cpas** audience. 
 There are 2 connection point(s) (hooks) between the facet and audience concerns.
- There are 10 gap(s) (q-holes) that may need attention.
+ There are 9 gap(s) (q-holes) that may need attention.
 
 ## Narrative Path (Traffic)
 

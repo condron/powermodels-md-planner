@@ -3,9 +3,12 @@ type: intersection
 id: unit-economics_x_business-owners-operators
 aspect: unit-economics
 audience: business-owners-operators
-dimension: 1
+dimension: 3+
 hooks:
 - unit-economics—capital efficiency
+- unit-economics—capacity trap
+- unit-economics—advisory upsell
+- unit-economics—technology ROI
 q_holes:
 - unit-economics—timely financial visibility
 - unit-economics—cost of accounting services
@@ -34,7 +37,7 @@ risk_flags:
 # Intersection Summary
 
 This intersection analyzes how **unit-economics** relates to the **business-owners-operators** audience. 
-There are 1 connection point(s) (hooks) between the facet and audience concerns.
+There are 4 connection point(s) (hooks) between the facet and audience concerns.
  There are 8 gap(s) (q-holes) that may need attention.
 
 ## Narrative Path (Traffic)

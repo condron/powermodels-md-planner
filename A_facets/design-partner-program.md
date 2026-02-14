@@ -19,8 +19,14 @@ claims:
   - 10-30 entities processed end-to-end validates preparation workflow
   - Pilot results create proof artifacts for investor materials
   - Association channel provides design partner pipeline
+  - First beta user George Bancroft is a PSTAP chapter head who onboarded his worst client via semi-automated pipeline [VALIDATED Feb 2026]
+  - Pricing validated at $20/mo/client minimum — matches QB cost, pass-through to clients confirmed viable [VALIDATED Feb 2026]
+  - Liberty Tax set for onboarding conversation next week [IN PROGRESS Feb 2026]
+  - Stewart has identified 2 specific clients to trial with [IN PROGRESS Feb 2026]
+  - Design partner pipeline now at 3 firms — 1 active beta plus 2 moving to trial — approaching 2-4 target for angel round
 evidence_refs:
   - investor-market-evaluation-feb2026
+  - bancroft-beta-user-feb2026
 owner: gtm-team
 status: active
 ---
@@ -79,6 +85,16 @@ PowerModels uses a structured **design partner program** to validate the product
 - **Beta test**: Liberty Tax (shadow mode, real data, not ICP)
 - **Validation**: Repeat cleanup is universal, judgment is necessary, capacity is constrained
 
-### Gap
-- No PSTAP member firms interviewed yet
-- Need association-sourced design partners for April pilot
+### Design Partner Pipeline (Feb 2026)
+
+| Firm | Status | Key Detail |
+|---|---|---|
+| **George Bancroft** (Bancroft Financial CPAs) | ✅ Active beta user | PSTAP chapter head, worst client onboarded, $20/mo pricing validated |
+| **Stewart** | 🟡 2 trial clients identified | 100-hour unbillable setup is anchor data point |
+| **Liberty Tax** | 🟡 Onboarding conversation next week | Seasonal tax prep, $2K-$2.5K bookkeeping packages |
+
+**Pipeline: 3 of 2-4 target firms.** Bancroft is active. Stewart and Liberty Tax are converting from interview to trial.
+
+### Remaining Gap
+- Need at least 1 more firm to reach target of 2-4
+- Need to measure time-to-first-cycle and hours saved per client from active trials

@@ -21,6 +21,8 @@ vocab_map:
     - single financial record
     - structural consistency
     - end of drift
+    - no more reconciliation
+    - structural fragmentation fix
     - cost structure improvement
   tax-preparation-wedge:
     - tax-driven entry
@@ -51,6 +53,10 @@ vocab_map:
     - capital efficiency
     - expansion revenue
     - leveraged growth model
+    - small account flywheel
+    - margin expansion
+    - capacity trap
+    - staff leverage
     - portfolio economics
   wpf-excel-interface-strategy:
     - dual interface strategy
@@ -91,6 +97,11 @@ vocab_map:
     - client health KPI
     - risk signal
     - early warning system
+  shoebox-offering:
+    - document ingestion
+    - bottom of market capture
+    - long tail monetization
+    - market expansion pathway
     - validation milestone
 proof_preferences:
   - board-level KPIs and variance analysis

@@ -3,9 +3,11 @@ type: intersection
 id: unit-economics_x_tax-preparers-cpas
 aspect: unit-economics
 audience: tax-preparers-cpas
-dimension: 1
+dimension: 2
 hooks:
 - unit-economics—capital efficiency
+- unit-economics—capacity trap
+- unit-economics—staff leverage
 q_holes:
 - unit-economics—workload reduction during tax season
 - unit-economics—trust in automated categorization
@@ -16,6 +18,7 @@ q_holes:
 - unit-economics—learning curve for new tools
 - unit-economics—expansion revenue
 - unit-economics—time savings per client
+- unit-economics—less burnout from rework
 - unit-economics—more clients per preparer
 bridges:
 - Add `workload reduction during tax season` as a synonym or linked facet on `unit-economics` (matches audience concern).
@@ -27,6 +30,7 @@ bridges:
 - Add `learning curve for new tools` as a synonym or linked facet on `unit-economics` (matches audience concern).
 - Add `expansion revenue` as a synonym or linked facet on `unit-economics` (matches vocab_map term).
 - Add `time savings per client` as a synonym or linked facet on `unit-economics` (matches vocab_map term).
+- Add `less burnout from rework` as a synonym or linked facet on `unit-economics` (matches vocab_map term).
 - Add `more clients per preparer` as a synonym or linked facet on `unit-economics` (matches vocab_map term).
 message_invariants:
 - Maintain consistent terminology aligned with audience vocabulary
@@ -38,8 +42,8 @@ risk_flags:
 # Intersection Summary
 
 This intersection analyzes how **unit-economics** relates to the **tax-preparers-cpas** audience. 
-There are 1 connection point(s) (hooks) between the facet and audience concerns.
- There are 10 gap(s) (q-holes) that may need attention.
+There are 3 connection point(s) (hooks) between the facet and audience concerns.
+ There are 11 gap(s) (q-holes) that may need attention.
 
 ## Narrative Path (Traffic)
 

@@ -17,7 +17,6 @@ q_holes:
 - drift-metric—compensation and cash needs
 - drift-metric—role clarity and growth
 - drift-metric—mission alignment and impact
-- drift-metric—proof room
 bridges:
 - Add `equity value and dilution` as a synonym or linked facet on `drift-metric` (matches audience concern).
 - Add `sweat equity recognition` as a synonym or linked facet on `drift-metric` (matches audience concern).
@@ -26,7 +25,6 @@ bridges:
 - Add `compensation and cash needs` as a synonym or linked facet on `drift-metric` (matches audience concern).
 - Add `role clarity and growth` as a synonym or linked facet on `drift-metric` (matches audience concern).
 - Add `mission alignment and impact` as a synonym or linked facet on `drift-metric` (matches audience concern).
-- Add `proof room` as a synonym or linked facet on `drift-metric` (matches vocab_map term).
 message_invariants:
 - Maintain consistent terminology aligned with audience vocabulary
 - All claims must reference supporting evidence
@@ -38,7 +36,7 @@ risk_flags:
 
 This intersection analyzes how **drift-metric** relates to the **founding-team** audience. 
 There are 4 connection point(s) (hooks) between the facet and audience concerns.
- There are 8 gap(s) (q-holes) that may need attention.
+ There are 7 gap(s) (q-holes) that may need attention.
 
 ## Narrative Path (Traffic)
 

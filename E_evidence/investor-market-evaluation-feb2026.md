@@ -13,9 +13,10 @@ supports_claims:
   - QB/Xero integration is critical scaling mechanism
   - Association channel provides credible distribution
 challenges_claims:
-  - Onboarding capacity is still perceived as throttle (need to show QB/Xero solves this)
-  - Pricing validation is unproven (need LOIs or paid pilots)
+  - Onboarding capacity is still perceived as throttle (QB CSV works, Plaid in progress)
+  - Pricing validation now has first data point ($20/mo/client from Bancroft) but needs more
   - Competitive positioning needs explicit frame
+  - Completeness contract concern resolved — three-part mechanism exists: AI classification + reconciliation UI + trial balance report
 status: active
 ---
 
@@ -113,18 +114,17 @@ Comprehensive investor-grade evaluation of PowerModels fundability in current ma
 - **Gate 2 (March 2026)**: Association partnerships + CPE materials ready
 - **Gate 3 (April 2026)**: Cloud launch with 2-3 pilot firms through associations
 
-### 3. Pricing is Plausible But Unproven
-**Stated pricing**: $100/client/month
-**Investor concern**: No validation
+### 3. Pricing — First Validation (UPDATED Feb 2026)
+**Stated pricing**: $50-150/entity/month (business plan)
+**First validation**: $20/mo/client confirmed by George Bancroft (beta user)
 
-**Benchmark pressure**:
-- Workflow tools
-- Bookkeeping automation
-- Prep/time-saving tooling
+**Key findings:**
+- $20/mo matches QuickBooks cost — a price point clients already accept
+- Pass-through model: firm adds to client's monthly bill, same as QB
+- Several hundred clients × $20/mo = $4K-6K+ MRR per firm
+- This may be the base tier; higher tiers for advanced features
 
-**Required**: 3-5 design partner quotes or LOIs showing willingness to pay
-
-**Value mapping needed**: Price must map to hours saved or revenue created per client
+**Remaining need**: Additional pricing data from Stewart and Liberty Tax trials
 
 ### 4. Onboarding Capacity is "The Scariest Risk"
 **Investor perception**: Correctly identified constraint, no scaling mechanism shown
@@ -288,12 +288,13 @@ Two decisive factors:
 - ✅ "Wedge → platform" roadmap is clear and sequenced
 - ✅ TeamModelManagement = firms as teams already in code
 
-**Execution risks**:
-- ⚠️ Cloud migration by April 2026 (2 months, aggressive timeline)
-- ⚠️ Xero connector not built yet (critical for market coverage)
-- ⚠️ No design partners publicly named
-- ⚠️ Pricing not validated with LOIs
-- ⚠️ Association partnerships not secured
+**Execution risks (UPDATED Feb 2026):**
+- ⚠️ Cloud migration by April 2026 (thefringeninja building infra for Plaid + cloud)
+- ⚠️ Xero connector not built (zero code, but Plaid may reduce urgency)
+- ✅ Design partner pipeline: 3 firms (Bancroft active, Stewart 2 clients, Liberty Tax next week)
+- ✅ Pricing first validation: $20/mo/client pass-through (Bancroft)
+- ✅ Association champion: Bancroft is PSTAP Buxmont chapter head
+- ✅ Completeness: three-part mechanism exists (AI classification + reconciliation UI + trial balance report)
 
 **Risk mitigation**:
 - QB connector exists (proven technical approach, Xero is parallel)
@@ -373,9 +374,13 @@ Must differentiate from:
 - Xero connector is critical path item
 - Association partnerships are in progress (status TBD)
 
-**Lower confidence on proof artifacts**:
-- Need concrete deliverables for "Proof Room"
-- Pricing validation incomplete
-- Design partner pipeline not yet public
+**Higher confidence on early proof (UPDATED Feb 2026)**:
+- ✅ First beta user active (Bancroft) with real client data processed
+- ✅ Pricing validated at $20/mo pass-through
+- ✅ Association channel has a real champion (PSTAP chapter head)
+- ✅ Codebase validated: AI pipeline, 85/15 boundary, event sourcing all confirmed working
+- ✅ Plaid authorized reseller with 5 products enabled
+- ✅ Completeness resolved: trial balance IS the completeness proof (three-part mechanism in product)
+- ⚠️ Proof Room artifacts still need assembly
 
-**Overall**: Strong fundability potential, execution-dependent
+**Overall**: Fundability has materially improved from "contingent on proof" to "early proof exists, must complete"

@@ -19,9 +19,11 @@ claims:
   - Association membership provides built-in distribution network
   - Top-of-funnel trust accelerates firm adoption
   - Peer networks create organic expansion within associations
+  - PSTAP Buxmont chapter head George Bancroft is first beta user — association channel has a real champion [VALIDATED Feb 2026]
 evidence_refs:
   - investor-market-evaluation-feb2026
   - strategy-overview-feb2026
+  - bancroft-beta-user-feb2026
 owner: gtm-team
 status: active
 ---

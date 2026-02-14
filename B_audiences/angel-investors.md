@@ -21,6 +21,9 @@ vocab_map:
     - structural consistency
     - single financial record
     - core pain point
+    - no more reconciliation
+    - structural fragmentation fix
+    - end of drift
     - cost of rework
   tax-preparation-wedge:
     - tax-driven entry
@@ -51,6 +54,10 @@ vocab_map:
     - capital efficiency
     - expansion revenue
     - leveraged growth model
+    - small account flywheel
+    - margin expansion
+    - capacity trap
+    - advisory upsell
     - CAC payback
   wpf-excel-interface-strategy:
     - dual interface strategy
@@ -87,8 +94,13 @@ vocab_map:
   drift-metric:
     - novel industry metric
     - measurable deviation
-    - client health KPI
-    - early warning system
+    - drift as global KPI
+    - creditworthiness signal
+  shoebox-offering:
+    - document ingestion
+    - bottom of market capture
+    - long tail monetization
+    - shoebox to trial balance system
     - early traction
 proof_preferences:
   - founder background and track record

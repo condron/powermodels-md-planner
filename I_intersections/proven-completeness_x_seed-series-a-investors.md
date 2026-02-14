@@ -3,11 +3,8 @@ type: intersection
 id: proven-completeness_x_seed-series-a-investors
 aspect: proven-completeness
 audience: seed-series-a-investors
-dimension: 3+
+dimension: 1
 hooks:
-- proven-completeness—completeness contract
-- proven-completeness—completeness spec
-- proven-completeness—acceptance criteria
 - proven-completeness—preparation quality standard
 q_holes:
 - proven-completeness—product-market fit evidence
@@ -17,6 +14,9 @@ q_holes:
 - proven-completeness—team completeness and execution
 - proven-completeness—capital requirements and milestones
 - proven-completeness—path to Series B and beyond
+- proven-completeness—completeness contract
+- proven-completeness—acceptance criteria
+- proven-completeness—completeness spec
 bridges:
 - Add `product-market fit evidence` as a synonym or linked facet on `proven-completeness` (matches audience concern).
 - Add `go-to-market repeatability` as a synonym or linked facet on `proven-completeness` (matches audience concern).
@@ -25,6 +25,9 @@ bridges:
 - Add `team completeness and execution` as a synonym or linked facet on `proven-completeness` (matches audience concern).
 - Add `capital requirements and milestones` as a synonym or linked facet on `proven-completeness` (matches audience concern).
 - Add `path to Series B and beyond` as a synonym or linked facet on `proven-completeness` (matches audience concern).
+- Add `completeness contract` as a synonym or linked facet on `proven-completeness` (matches vocab_map term).
+- Add `acceptance criteria` as a synonym or linked facet on `proven-completeness` (matches vocab_map term).
+- Add `completeness spec` as a synonym or linked facet on `proven-completeness` (matches vocab_map term).
 message_invariants:
 - Maintain consistent terminology aligned with audience vocabulary
 - All claims must reference supporting evidence
@@ -35,8 +38,8 @@ risk_flags:
 # Intersection Summary
 
 This intersection analyzes how **proven-completeness** relates to the **seed-series-a-investors** audience. 
-There are 4 connection point(s) (hooks) between the facet and audience concerns.
- There are 7 gap(s) (q-holes) that may need attention.
+There are 1 connection point(s) (hooks) between the facet and audience concerns.
+ There are 10 gap(s) (q-holes) that may need attention.
 
 ## Narrative Path (Traffic)
 

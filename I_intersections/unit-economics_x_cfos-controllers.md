@@ -3,9 +3,13 @@ type: intersection
 id: unit-economics_x_cfos-controllers
 aspect: unit-economics
 audience: cfos-controllers
-dimension: 1
+dimension: 3+
 hooks:
 - unit-economics—capital efficiency
+- unit-economics—margin expansion
+- unit-economics—capacity trap
+- unit-economics—staff leverage
+- unit-economics—technology ROI
 q_holes:
 - unit-economics—financial close efficiency
 - unit-economics—reporting accuracy and timeliness
@@ -38,7 +42,7 @@ risk_flags:
 # Intersection Summary
 
 This intersection analyzes how **unit-economics** relates to the **cfos-controllers** audience. 
-There are 1 connection point(s) (hooks) between the facet and audience concerns.
+There are 5 connection point(s) (hooks) between the facet and audience concerns.
  There are 10 gap(s) (q-holes) that may need attention.
 
 ## Narrative Path (Traffic)

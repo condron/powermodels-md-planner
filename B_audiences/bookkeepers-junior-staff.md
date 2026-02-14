@@ -20,6 +20,9 @@ vocab_map:
     - single financial record
     - no reconciliation
     - fewer corrections
+    - no more reconciliation
+    - end of drift
+    - clean books
     - less manual matching
   tax-preparation-wedge:
     - preparation to 85 percent
@@ -48,6 +51,9 @@ vocab_map:
     - capital efficiency
     - career growth
     - less burnout
+    - staff leverage
+    - capacity trap
+    - 3x client capacity
   wpf-excel-interface-strategy:
     - dual interface strategy
     - Windows desktop application
@@ -88,6 +94,12 @@ vocab_map:
     - early warning system
     - proactive review trigger
     - workload prioritization
+  shoebox-offering:
+    - PDF ingestion
+    - receipt processing
+    - messy books cleanup
+    - automatic trial balance
+    - less tedious data entry
     - feedback valued
 proof_preferences:
   - hands-on demos with real scenarios

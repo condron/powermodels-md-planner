@@ -3,11 +3,15 @@ type: intersection
 id: unit-economics_x_board-members
 aspect: unit-economics
 audience: board-members
-dimension: 2
+dimension: 3+
 hooks:
 - unit-economics—capital efficiency
 - unit-economics—leveraged growth model
 - unit-economics—portfolio economics
+- unit-economics—margin expansion
+- unit-economics—small account flywheel
+- unit-economics—capacity trap
+- unit-economics—staff leverage
 q_holes:
 - unit-economics—governance and fiduciary responsibility
 - unit-economics—strategic direction and execution
@@ -36,7 +40,7 @@ risk_flags:
 # Intersection Summary
 
 This intersection analyzes how **unit-economics** relates to the **board-members** audience. 
-There are 3 connection point(s) (hooks) between the facet and audience concerns.
+There are 7 connection point(s) (hooks) between the facet and audience concerns.
  There are 8 gap(s) (q-holes) that may need attention.
 
 ## Narrative Path (Traffic)

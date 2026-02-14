@@ -3,11 +3,9 @@ type: intersection
 id: drift-metric_x_angel-investors
 aspect: drift-metric
 audience: angel-investors
-dimension: 2
+dimension: 1
 hooks:
 - drift-metric—measurable deviation
-- drift-metric—client health KPI
-- drift-metric—early warning system
 q_holes:
 - drift-metric—founder quality and commitment
 - drift-metric—problem-solution fit
@@ -17,7 +15,8 @@ q_holes:
 - drift-metric—market timing and opportunity
 - drift-metric—path to next milestone
 - drift-metric—novel industry metric
-- drift-metric—early traction
+- drift-metric—drift as global KPI
+- drift-metric—creditworthiness signal
 bridges:
 - Add `founder quality and commitment` as a synonym or linked facet on `drift-metric` (matches audience concern).
 - Add `problem-solution fit` as a synonym or linked facet on `drift-metric` (matches audience concern).
@@ -27,7 +26,8 @@ bridges:
 - Add `market timing and opportunity` as a synonym or linked facet on `drift-metric` (matches audience concern).
 - Add `path to next milestone` as a synonym or linked facet on `drift-metric` (matches audience concern).
 - Add `novel industry metric` as a synonym or linked facet on `drift-metric` (matches vocab_map term).
-- Add `early traction` as a synonym or linked facet on `drift-metric` (matches vocab_map term).
+- Add `drift as global KPI` as a synonym or linked facet on `drift-metric` (matches vocab_map term).
+- Add `creditworthiness signal` as a synonym or linked facet on `drift-metric` (matches vocab_map term).
 message_invariants:
 - Maintain consistent terminology aligned with audience vocabulary
 - All claims must reference supporting evidence
@@ -38,8 +38,8 @@ risk_flags:
 # Intersection Summary
 
 This intersection analyzes how **drift-metric** relates to the **angel-investors** audience. 
-There are 3 connection point(s) (hooks) between the facet and audience concerns.
- There are 9 gap(s) (q-holes) that may need attention.
+There are 1 connection point(s) (hooks) between the facet and audience concerns.
+ There are 10 gap(s) (q-holes) that may need attention.
 
 ## Narrative Path (Traffic)
 

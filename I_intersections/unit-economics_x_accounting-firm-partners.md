@@ -3,9 +3,15 @@ type: intersection
 id: unit-economics_x_accounting-firm-partners
 aspect: unit-economics
 audience: accounting-firm-partners
-dimension: 1
+dimension: 3+
 hooks:
 - unit-economics—capital efficiency
+- unit-economics—small account flywheel
+- unit-economics—capacity trap
+- unit-economics—advisory upsell
+- unit-economics—3x client capacity
+- unit-economics—staff leverage
+- unit-economics—technology ROI
 q_holes:
 - unit-economics—firm profitability and margins
 - unit-economics—client retention and satisfaction
@@ -38,7 +44,7 @@ risk_flags:
 # Intersection Summary
 
 This intersection analyzes how **unit-economics** relates to the **accounting-firm-partners** audience. 
-There are 1 connection point(s) (hooks) between the facet and audience concerns.
+There are 7 connection point(s) (hooks) between the facet and audience concerns.
  There are 10 gap(s) (q-holes) that may need attention.
 
 ## Narrative Path (Traffic)

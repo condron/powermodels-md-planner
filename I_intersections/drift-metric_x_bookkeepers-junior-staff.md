@@ -16,7 +16,6 @@ q_holes:
 - drift-metric—client attention flag
 - drift-metric—proactive review trigger
 - drift-metric—workload prioritization
-- drift-metric—feedback valued
 bridges:
 - Add `job security and role changes` as a synonym or linked facet on `drift-metric` (matches audience concern).
 - Add `daily workflow disruption` as a synonym or linked facet on `drift-metric` (matches audience concern).
@@ -27,7 +26,6 @@ bridges:
 - Add `client attention flag` as a synonym or linked facet on `drift-metric` (matches vocab_map term).
 - Add `proactive review trigger` as a synonym or linked facet on `drift-metric` (matches vocab_map term).
 - Add `workload prioritization` as a synonym or linked facet on `drift-metric` (matches vocab_map term).
-- Add `feedback valued` as a synonym or linked facet on `drift-metric` (matches vocab_map term).
 message_invariants:
 - Maintain consistent terminology aligned with audience vocabulary
 - All claims must reference supporting evidence
@@ -39,7 +37,7 @@ risk_flags:
 
 This intersection analyzes how **drift-metric** relates to the **bookkeepers-junior-staff** audience. 
 There are 1 connection point(s) (hooks) between the facet and audience concerns.
- There are 10 gap(s) (q-holes) that may need attention.
+ There are 9 gap(s) (q-holes) that may need attention.
 
 ## Narrative Path (Traffic)
 

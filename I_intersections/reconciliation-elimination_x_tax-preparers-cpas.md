@@ -3,9 +3,11 @@ type: intersection
 id: reconciliation-elimination_x_tax-preparers-cpas
 aspect: reconciliation-elimination
 audience: tax-preparers-cpas
-dimension: 1
+dimension: 2
 hooks:
+- reconciliation-elimination—no more reconciliation
 - reconciliation-elimination—single financial record
+- reconciliation-elimination—end of drift
 q_holes:
 - reconciliation-elimination—workload reduction during tax season
 - reconciliation-elimination—trust in automated categorization
@@ -16,6 +18,7 @@ q_holes:
 - reconciliation-elimination—learning curve for new tools
 - reconciliation-elimination—no reconciliation
 - reconciliation-elimination—fewer corrections
+- reconciliation-elimination—clean books
 - reconciliation-elimination—auto-reconciliation
 bridges:
 - Add `workload reduction during tax season` as a synonym or linked facet on `reconciliation-elimination` (matches audience concern).
@@ -27,6 +30,7 @@ bridges:
 - Add `learning curve for new tools` as a synonym or linked facet on `reconciliation-elimination` (matches audience concern).
 - Add `no reconciliation` as a synonym or linked facet on `reconciliation-elimination` (matches vocab_map term).
 - Add `fewer corrections` as a synonym or linked facet on `reconciliation-elimination` (matches vocab_map term).
+- Add `clean books` as a synonym or linked facet on `reconciliation-elimination` (matches vocab_map term).
 - Add `auto-reconciliation` as a synonym or linked facet on `reconciliation-elimination` (matches vocab_map term).
 message_invariants:
 - Maintain consistent terminology aligned with audience vocabulary
@@ -38,8 +42,8 @@ risk_flags:
 # Intersection Summary
 
 This intersection analyzes how **reconciliation-elimination** relates to the **tax-preparers-cpas** audience. 
-There are 1 connection point(s) (hooks) between the facet and audience concerns.
- There are 10 gap(s) (q-holes) that may need attention.
+There are 3 connection point(s) (hooks) between the facet and audience concerns.
+ There are 11 gap(s) (q-holes) that may need attention.
 
 ## Narrative Path (Traffic)
 

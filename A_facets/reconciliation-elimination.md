@@ -11,12 +11,14 @@ links_to_facets:
   - event-sourced-architecture
 claims:
   - Traditional accounting systems store financial reality in multiple places causing drift
-  - PowerModels eliminates reconciliation by maintaining single source of truth
-  - Reconciliation becomes completeness check not repair process
-  - Corrections propagate deterministically without manual intervention
-  - Excel rebuilds are replaced with deterministic refresh
+  - PowerModels eliminates reconciliation by maintaining single source of truth [VALIDATED — DataStore.cs implements single event stream with derived projections]
+  - Reconciliation becomes completeness check not repair process [VALIDATED — reconciliation pipeline is classification plus validation not repair]
+  - Corrections propagate deterministically without manual intervention [VALIDATED — event-sourced architecture with IsCompensation flag for corrections]
+  - Excel rebuilds are replaced with deterministic refresh [VALIDATED — event stream refresh derives all outputs]
+  - Multi-step reconciliation pipeline exists: MappingStep then RuleStep then AIStep then FormatConversionStep [VALIDATED by code review Feb 2026]
 evidence_refs:
   - technical-codebase-review
+  - codebase-review-feb2026
 owner: product-team
 status: active
 ---

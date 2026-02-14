@@ -3,10 +3,8 @@ type: intersection
 id: proven-completeness_x_association-leadership
 aspect: proven-completeness
 audience: association-leadership
-dimension: 2
+dimension: 1
 hooks:
-- proven-completeness—completeness contract
-- proven-completeness—acceptance criteria
 - proven-completeness—preparation quality standard
 q_holes:
 - proven-completeness—member value and retention
@@ -16,6 +14,8 @@ q_holes:
 - proven-completeness—member firm competitiveness
 - proven-completeness—risk of endorsing unproven products
 - proven-completeness—alignment with association mission
+- proven-completeness—completeness contract
+- proven-completeness—acceptance criteria
 - proven-completeness—credible endorsement
 bridges:
 - Add `member value and retention` as a synonym or linked facet on `proven-completeness` (matches audience concern).
@@ -25,6 +25,8 @@ bridges:
 - Add `member firm competitiveness` as a synonym or linked facet on `proven-completeness` (matches audience concern).
 - Add `risk of endorsing unproven products` as a synonym or linked facet on `proven-completeness` (matches audience concern).
 - Add `alignment with association mission` as a synonym or linked facet on `proven-completeness` (matches audience concern).
+- Add `completeness contract` as a synonym or linked facet on `proven-completeness` (matches vocab_map term).
+- Add `acceptance criteria` as a synonym or linked facet on `proven-completeness` (matches vocab_map term).
 - Add `credible endorsement` as a synonym or linked facet on `proven-completeness` (matches vocab_map term).
 message_invariants:
 - Maintain consistent terminology aligned with audience vocabulary
@@ -36,8 +38,8 @@ risk_flags:
 # Intersection Summary
 
 This intersection analyzes how **proven-completeness** relates to the **association-leadership** audience. 
-There are 3 connection point(s) (hooks) between the facet and audience concerns.
- There are 8 gap(s) (q-holes) that may need attention.
+There are 1 connection point(s) (hooks) between the facet and audience concerns.
+ There are 10 gap(s) (q-holes) that may need attention.
 
 ## Narrative Path (Traffic)
 

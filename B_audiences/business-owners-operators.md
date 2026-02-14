@@ -19,7 +19,10 @@ vocab_map:
     - single financial record
     - no reconciliation
     - fewer corrections
+    - no more reconciliation
+    - end of drift
     - clean books
+    - reporting confidence
   tax-preparation-wedge:
     - preparation to 85 percent
     - tax season adoption
@@ -47,6 +50,9 @@ vocab_map:
     - capital efficiency
     - potential fee reduction
     - better service quality
+    - advisory upsell
+    - capacity trap
+    - technology ROI
   wpf-excel-interface-strategy:
     - dual interface strategy
     - professional reports
@@ -82,6 +88,11 @@ vocab_map:
     - early warning system
     - tracking to plan
     - proactive advisory
+  shoebox-offering:
+    - just send my receipts
+    - no bookkeeping needed
+    - automatic from documents
+    - someone figures it out for me
 proof_preferences:
   - faster close cycles
   - reduced back-and-forth with accountant

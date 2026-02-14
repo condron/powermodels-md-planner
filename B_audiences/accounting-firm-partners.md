@@ -22,6 +22,10 @@ vocab_map:
     - no rework
     - structural consistency
     - end of drift
+    - no more reconciliation
+    - fewer corrections
+    - clean books
+    - reporting confidence
   tax-preparation-wedge:
     - preparation to 85 percent
     - tax season adoption
@@ -52,6 +56,12 @@ vocab_map:
     - expansion revenue
     - CAC per firm
     - margin improvement
+    - staff leverage
+    - advisory upsell
+    - capacity trap
+    - technology ROI
+    - small account flywheel
+    - 3x client capacity
   wpf-excel-interface-strategy:
     - dual interface strategy
     - Windows desktop application
@@ -92,6 +102,16 @@ vocab_map:
     - early warning system
     - proactive advisory trigger
     - portfolio triage tool
+  shoebox-offering:
+    - messy client automation
+    - document ingestion
+    - shoebox to trial balance
+    - small client profitability
+    - long tail monetization
+    - no more manual data entry
+    - turned-away clients
+    - unprofitable small clients
+    - cost benefit problem
 proof_preferences:
   - pilot results with existing clients
   - time savings per client

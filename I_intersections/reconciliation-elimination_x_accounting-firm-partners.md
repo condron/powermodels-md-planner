@@ -5,6 +5,7 @@ aspect: reconciliation-elimination
 audience: accounting-firm-partners
 dimension: 2
 hooks:
+- reconciliation-elimination—no more reconciliation
 - reconciliation-elimination—single financial record
 - reconciliation-elimination—end of drift
 q_holes:
@@ -17,6 +18,9 @@ q_holes:
 - reconciliation-elimination—technology investment ROI
 - reconciliation-elimination—no rework
 - reconciliation-elimination—structural consistency
+- reconciliation-elimination—fewer corrections
+- reconciliation-elimination—clean books
+- reconciliation-elimination—reporting confidence
 bridges:
 - Add `firm profitability and margins` as a synonym or linked facet on `reconciliation-elimination` (matches audience concern).
 - Add `client retention and satisfaction` as a synonym or linked facet on `reconciliation-elimination` (matches audience concern).
@@ -27,6 +31,9 @@ bridges:
 - Add `technology investment ROI` as a synonym or linked facet on `reconciliation-elimination` (matches audience concern).
 - Add `no rework` as a synonym or linked facet on `reconciliation-elimination` (matches vocab_map term).
 - Add `structural consistency` as a synonym or linked facet on `reconciliation-elimination` (matches vocab_map term).
+- Add `fewer corrections` as a synonym or linked facet on `reconciliation-elimination` (matches vocab_map term).
+- Add `clean books` as a synonym or linked facet on `reconciliation-elimination` (matches vocab_map term).
+- Add `reporting confidence` as a synonym or linked facet on `reconciliation-elimination` (matches vocab_map term).
 message_invariants:
 - Maintain consistent terminology aligned with audience vocabulary
 - All claims must reference supporting evidence
@@ -37,8 +44,8 @@ risk_flags:
 # Intersection Summary
 
 This intersection analyzes how **reconciliation-elimination** relates to the **accounting-firm-partners** audience. 
-There are 2 connection point(s) (hooks) between the facet and audience concerns.
- There are 9 gap(s) (q-holes) that may need attention.
+There are 3 connection point(s) (hooks) between the facet and audience concerns.
+ There are 12 gap(s) (q-holes) that may need attention.
 
 ## Narrative Path (Traffic)
 

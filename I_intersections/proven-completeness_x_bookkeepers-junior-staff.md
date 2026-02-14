@@ -3,10 +3,8 @@ type: intersection
 id: proven-completeness_x_bookkeepers-junior-staff
 aspect: proven-completeness
 audience: bookkeepers-junior-staff
-dimension: 2
+dimension: 1
 hooks:
-- proven-completeness—completeness contract
-- proven-completeness—acceptance criteria
 - proven-completeness—preparation quality standard
 q_holes:
 - proven-completeness—job security and role changes
@@ -15,6 +13,8 @@ q_holes:
 - proven-completeness—tool reliability during busy season
 - proven-completeness—clarity of what system did vs what they need to do
 - proven-completeness—recognition of their expertise
+- proven-completeness—completeness contract
+- proven-completeness—acceptance criteria
 - proven-completeness—explicit flagging
 - proven-completeness—clear handoff point
 bridges:
@@ -24,6 +24,8 @@ bridges:
 - Add `tool reliability during busy season` as a synonym or linked facet on `proven-completeness` (matches audience concern).
 - Add `clarity of what system did vs what they need to do` as a synonym or linked facet on `proven-completeness` (matches audience concern).
 - Add `recognition of their expertise` as a synonym or linked facet on `proven-completeness` (matches audience concern).
+- Add `completeness contract` as a synonym or linked facet on `proven-completeness` (matches vocab_map term).
+- Add `acceptance criteria` as a synonym or linked facet on `proven-completeness` (matches vocab_map term).
 - Add `explicit flagging` as a synonym or linked facet on `proven-completeness` (matches vocab_map term).
 - Add `clear handoff point` as a synonym or linked facet on `proven-completeness` (matches vocab_map term).
 message_invariants:
@@ -36,8 +38,8 @@ risk_flags:
 # Intersection Summary
 
 This intersection analyzes how **proven-completeness** relates to the **bookkeepers-junior-staff** audience. 
-There are 3 connection point(s) (hooks) between the facet and audience concerns.
- There are 8 gap(s) (q-holes) that may need attention.
+There are 1 connection point(s) (hooks) between the facet and audience concerns.
+ There are 10 gap(s) (q-holes) that may need attention.
 
 ## Narrative Path (Traffic)
 

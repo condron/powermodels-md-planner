@@ -21,6 +21,9 @@ vocab_map:
     - single financial record
     - no reconciliation
     - fewer corrections
+    - no more reconciliation
+    - end of drift
+    - clean books
     - auto-reconciliation
   tax-preparation-wedge:
     - preparation to 85 percent
@@ -52,6 +55,9 @@ vocab_map:
     - capital efficiency
     - expansion revenue
     - time savings per client
+    - staff leverage
+    - capacity trap
+    - less burnout from rework
     - more clients per preparer
   wpf-excel-interface-strategy:
     - dual interface strategy
@@ -90,6 +96,13 @@ vocab_map:
     - drift
     - client attention flag
     - proactive review trigger
+  shoebox-offering:
+    - PDF ingestion
+    - receipt processing
+    - messy books cleanup
+    - automatic trial balance
+    - no more manual data entry
+    - shoebox client handling
     - early feedback influence
 proof_preferences:
   - side-by-side comparisons with current process

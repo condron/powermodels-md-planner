@@ -17,8 +17,6 @@ q_holes:
 - drift-metric—novel industry metric
 - drift-metric—drift as global KPI
 - drift-metric—creditworthiness signal
-- drift-metric—early adopter program
-- drift-metric—reference customers
 bridges:
 - Add `product-market fit evidence` as a synonym or linked facet on `drift-metric` (matches audience concern).
 - Add `go-to-market repeatability` as a synonym or linked facet on `drift-metric` (matches audience concern).
@@ -30,8 +28,6 @@ bridges:
 - Add `novel industry metric` as a synonym or linked facet on `drift-metric` (matches vocab_map term).
 - Add `drift as global KPI` as a synonym or linked facet on `drift-metric` (matches vocab_map term).
 - Add `creditworthiness signal` as a synonym or linked facet on `drift-metric` (matches vocab_map term).
-- Add `early adopter program` as a synonym or linked facet on `drift-metric` (matches vocab_map term).
-- Add `reference customers` as a synonym or linked facet on `drift-metric` (matches vocab_map term).
 message_invariants:
 - Maintain consistent terminology aligned with audience vocabulary
 - All claims must reference supporting evidence
@@ -43,7 +39,7 @@ risk_flags:
 
 This intersection analyzes how **drift-metric** relates to the **seed-series-a-investors** audience. 
 There are 1 connection point(s) (hooks) between the facet and audience concerns.
- There are 12 gap(s) (q-holes) that may need attention.
+ There are 10 gap(s) (q-holes) that may need attention.
 
 ## Narrative Path (Traffic)
 

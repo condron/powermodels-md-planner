@@ -3,10 +3,8 @@ type: intersection
 id: proven-completeness_x_tax-preparers-cpas
 aspect: proven-completeness
 audience: tax-preparers-cpas
-dimension: 2
+dimension: 1
 hooks:
-- proven-completeness—completeness contract
-- proven-completeness—acceptance criteria
 - proven-completeness—preparation quality standard
 q_holes:
 - proven-completeness—workload reduction during tax season
@@ -16,6 +14,8 @@ q_holes:
 - proven-completeness—defensibility of positions
 - proven-completeness—client communication clarity
 - proven-completeness—learning curve for new tools
+- proven-completeness—completeness contract
+- proven-completeness—acceptance criteria
 - proven-completeness—explicit flagging
 bridges:
 - Add `workload reduction during tax season` as a synonym or linked facet on `proven-completeness` (matches audience concern).
@@ -25,6 +25,8 @@ bridges:
 - Add `defensibility of positions` as a synonym or linked facet on `proven-completeness` (matches audience concern).
 - Add `client communication clarity` as a synonym or linked facet on `proven-completeness` (matches audience concern).
 - Add `learning curve for new tools` as a synonym or linked facet on `proven-completeness` (matches audience concern).
+- Add `completeness contract` as a synonym or linked facet on `proven-completeness` (matches vocab_map term).
+- Add `acceptance criteria` as a synonym or linked facet on `proven-completeness` (matches vocab_map term).
 - Add `explicit flagging` as a synonym or linked facet on `proven-completeness` (matches vocab_map term).
 message_invariants:
 - Maintain consistent terminology aligned with audience vocabulary
@@ -36,8 +38,8 @@ risk_flags:
 # Intersection Summary
 
 This intersection analyzes how **proven-completeness** relates to the **tax-preparers-cpas** audience. 
-There are 3 connection point(s) (hooks) between the facet and audience concerns.
- There are 8 gap(s) (q-holes) that may need attention.
+There are 1 connection point(s) (hooks) between the facet and audience concerns.
+ There are 10 gap(s) (q-holes) that may need attention.
 
 ## Narrative Path (Traffic)
 

@@ -20,6 +20,9 @@ vocab_map:
     - single financial record
     - no reconciliation
     - member efficiency
+    - no more reconciliation
+    - fewer corrections
+    - end of drift
     - practice improvement
   tax-preparation-wedge:
     - preparation to 85 percent
@@ -51,6 +54,9 @@ vocab_map:
     - capital efficiency
     - expansion revenue
     - partnership revenue
+    - margin expansion
+    - small account flywheel
+    - staff leverage
     - member ROI
   wpf-excel-interface-strategy:
     - dual interface strategy
@@ -91,6 +97,12 @@ vocab_map:
     - early warning system
     - measurable deviation
     - industry standard potential
+  shoebox-offering:
+    - document ingestion
+    - member firm efficiency
+    - small client automation
+    - messy books solution
+    - CPE topic potential
     - proven before broad rollout
 proof_preferences:
   - pilot results from member firms

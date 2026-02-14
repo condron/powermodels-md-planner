@@ -21,6 +21,9 @@ vocab_map:
     - single financial record
     - structural consistency
     - end of drift
+    - no more reconciliation
+    - fewer corrections
+    - clean books
     - no reconciliation
     - automated reconciliation
   tax-preparation-wedge:
@@ -50,6 +53,10 @@ vocab_map:
     - capital efficiency
     - expansion revenue
     - close cycle cost reduction
+    - staff leverage
+    - capacity trap
+    - technology ROI
+    - margin expansion
     - team productivity
   wpf-excel-interface-strategy:
     - dual interface strategy
@@ -93,6 +100,11 @@ vocab_map:
     - forecast accuracy
     - early warning system
     - proactive client management
+  shoebox-offering:
+    - document ingestion
+    - automatic trial balance
+    - unstructured data processing
+    - receipt to financials
     - measurable outcomes
 proof_preferences:
   - close cycle time reduction

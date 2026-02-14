@@ -3,10 +3,8 @@ type: intersection
 id: proven-completeness_x_accounting-firm-partners
 aspect: proven-completeness
 audience: accounting-firm-partners
-dimension: 2
+dimension: 1
 hooks:
-- proven-completeness—completeness contract
-- proven-completeness—acceptance criteria
 - proven-completeness—preparation quality standard
 q_holes:
 - proven-completeness—firm profitability and margins
@@ -16,6 +14,8 @@ q_holes:
 - proven-completeness—scalable service delivery
 - proven-completeness—competitive differentiation
 - proven-completeness—technology investment ROI
+- proven-completeness—completeness contract
+- proven-completeness—acceptance criteria
 - proven-completeness—defensible output
 bridges:
 - Add `firm profitability and margins` as a synonym or linked facet on `proven-completeness` (matches audience concern).
@@ -25,6 +25,8 @@ bridges:
 - Add `scalable service delivery` as a synonym or linked facet on `proven-completeness` (matches audience concern).
 - Add `competitive differentiation` as a synonym or linked facet on `proven-completeness` (matches audience concern).
 - Add `technology investment ROI` as a synonym or linked facet on `proven-completeness` (matches audience concern).
+- Add `completeness contract` as a synonym or linked facet on `proven-completeness` (matches vocab_map term).
+- Add `acceptance criteria` as a synonym or linked facet on `proven-completeness` (matches vocab_map term).
 - Add `defensible output` as a synonym or linked facet on `proven-completeness` (matches vocab_map term).
 message_invariants:
 - Maintain consistent terminology aligned with audience vocabulary
@@ -36,8 +38,8 @@ risk_flags:
 # Intersection Summary
 
 This intersection analyzes how **proven-completeness** relates to the **accounting-firm-partners** audience. 
-There are 3 connection point(s) (hooks) between the facet and audience concerns.
- There are 8 gap(s) (q-holes) that may need attention.
+There are 1 connection point(s) (hooks) between the facet and audience concerns.
+ There are 10 gap(s) (q-holes) that may need attention.
 
 ## Narrative Path (Traffic)
 

@@ -17,7 +17,6 @@ q_holes:
 - drift-metric—exit timing and valuation
 - drift-metric—stakeholder alignment
 - drift-metric—risk signal
-- drift-metric—validation milestone
 bridges:
 - Add `governance and fiduciary responsibility` as a synonym or linked facet on `drift-metric` (matches audience concern).
 - Add `strategic direction and execution` as a synonym or linked facet on `drift-metric` (matches audience concern).
@@ -27,7 +26,6 @@ bridges:
 - Add `exit timing and valuation` as a synonym or linked facet on `drift-metric` (matches audience concern).
 - Add `stakeholder alignment` as a synonym or linked facet on `drift-metric` (matches audience concern).
 - Add `risk signal` as a synonym or linked facet on `drift-metric` (matches vocab_map term).
-- Add `validation milestone` as a synonym or linked facet on `drift-metric` (matches vocab_map term).
 message_invariants:
 - Maintain consistent terminology aligned with audience vocabulary
 - All claims must reference supporting evidence
@@ -39,7 +37,7 @@ risk_flags:
 
 This intersection analyzes how **drift-metric** relates to the **board-members** audience. 
 There are 3 connection point(s) (hooks) between the facet and audience concerns.
- There are 9 gap(s) (q-holes) that may need attention.
+ There are 8 gap(s) (q-holes) that may need attention.
 
 ## Narrative Path (Traffic)
 

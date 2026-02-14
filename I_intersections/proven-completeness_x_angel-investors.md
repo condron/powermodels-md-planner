@@ -3,10 +3,8 @@ type: intersection
 id: proven-completeness_x_angel-investors
 aspect: proven-completeness
 audience: angel-investors
-dimension: 2
+dimension: 1
 hooks:
-- proven-completeness—completeness contract
-- proven-completeness—acceptance criteria
 - proven-completeness—preparation quality standard
 q_holes:
 - proven-completeness—founder quality and commitment
@@ -16,6 +14,8 @@ q_holes:
 - proven-completeness—team capability and hustle
 - proven-completeness—market timing and opportunity
 - proven-completeness—path to next milestone
+- proven-completeness—completeness contract
+- proven-completeness—acceptance criteria
 - proven-completeness—underwritable proof
 bridges:
 - Add `founder quality and commitment` as a synonym or linked facet on `proven-completeness` (matches audience concern).
@@ -25,6 +25,8 @@ bridges:
 - Add `team capability and hustle` as a synonym or linked facet on `proven-completeness` (matches audience concern).
 - Add `market timing and opportunity` as a synonym or linked facet on `proven-completeness` (matches audience concern).
 - Add `path to next milestone` as a synonym or linked facet on `proven-completeness` (matches audience concern).
+- Add `completeness contract` as a synonym or linked facet on `proven-completeness` (matches vocab_map term).
+- Add `acceptance criteria` as a synonym or linked facet on `proven-completeness` (matches vocab_map term).
 - Add `underwritable proof` as a synonym or linked facet on `proven-completeness` (matches vocab_map term).
 message_invariants:
 - Maintain consistent terminology aligned with audience vocabulary
@@ -36,8 +38,8 @@ risk_flags:
 # Intersection Summary
 
 This intersection analyzes how **proven-completeness** relates to the **angel-investors** audience. 
-There are 3 connection point(s) (hooks) between the facet and audience concerns.
- There are 8 gap(s) (q-holes) that may need attention.
+There are 1 connection point(s) (hooks) between the facet and audience concerns.
+ There are 10 gap(s) (q-holes) that may need attention.
 
 ## Narrative Path (Traffic)
 

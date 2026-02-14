@@ -17,7 +17,6 @@ q_holes:
 - drift-metric—risk of endorsing unproven products
 - drift-metric—alignment with association mission
 - drift-metric—industry standard potential
-- drift-metric—proven before broad rollout
 bridges:
 - Add `member value and retention` as a synonym or linked facet on `drift-metric` (matches audience concern).
 - Add `association relevance and modernization` as a synonym or linked facet on `drift-metric` (matches audience concern).
@@ -27,7 +26,6 @@ bridges:
 - Add `risk of endorsing unproven products` as a synonym or linked facet on `drift-metric` (matches audience concern).
 - Add `alignment with association mission` as a synonym or linked facet on `drift-metric` (matches audience concern).
 - Add `industry standard potential` as a synonym or linked facet on `drift-metric` (matches vocab_map term).
-- Add `proven before broad rollout` as a synonym or linked facet on `drift-metric` (matches vocab_map term).
 message_invariants:
 - Maintain consistent terminology aligned with audience vocabulary
 - All claims must reference supporting evidence
@@ -39,7 +37,7 @@ risk_flags:
 
 This intersection analyzes how **drift-metric** relates to the **association-leadership** audience. 
 There are 3 connection point(s) (hooks) between the facet and audience concerns.
- There are 9 gap(s) (q-holes) that may need attention.
+ There are 8 gap(s) (q-holes) that may need attention.
 
 ## Narrative Path (Traffic)
 

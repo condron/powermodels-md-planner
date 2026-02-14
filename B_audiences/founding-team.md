@@ -21,6 +21,8 @@ vocab_map:
     - single financial record
     - no reconciliation
     - end of drift
+    - no more reconciliation
+    - structural fragmentation fix
     - customer pain solved
   tax-preparation-wedge:
     - preparation to 85 percent
@@ -51,6 +53,11 @@ vocab_map:
     - capital efficiency
     - expansion revenue
     - leveraged growth model
+    - small account flywheel
+    - margin expansion
+    - capacity trap
+    - staff leverage
+    - advisory upsell
     - path to compensation
   wpf-excel-interface-strategy:
     - dual interface strategy
@@ -68,10 +75,13 @@ vocab_map:
     - local to cloud transition
     - April 2026 launch
   proven-completeness:
-    - completeness contract
+    - completeness proof
+    - trial balance report
+    - accounting completeness
     - acceptance criteria
-    - completeness spec
-    - engineering target
+    - automated classification
+    - reconciliation UI
+    - three-part mechanism
   competitive-positioning:
     - competitive advantage
     - market differentiation
@@ -92,6 +102,13 @@ vocab_map:
     - drift
     - client health KPI
     - proactive client management
+  shoebox-offering:
+    - document ingestion
+    - PDF ingestion
+    - shoebox to trial balance
+    - messy books cleanup
+    - unstructured data processing
+    - sole proprietor preparation
     - proof room
 proof_preferences:
   - customer feedback and product validation
@@ -107,7 +124,7 @@ status: active
 
 ## Description
 
-The founding team has worked for sweat equity for nearly two years and collectively owns 12% of the company. They are deeply invested in PowerModels' success, both financially and emotionally, and have made significant personal sacrifices to build the product and validate the business model.
+PowerModels has three founders (Chris Condron, Lisa Payne, James Geall) and a development team that has worked together for 5+ years on average. The development team are experts in ES/DDD/CQRS and have worked for sweat equity for nearly two years, collectively owning 12% of the company.
 
 ## Primary Concerns
 
@@ -136,11 +153,28 @@ The founding team has worked for sweat equity for nearly two years and collectiv
 - **Personal growth**: Does this create learning and advancement opportunities?
 - **Compensation fairness**: When does sweat equity transition to cash? Is it equitable?
 
-## Context
+## Team
 
-The founding team has:
-- **Worked for sweat equity** for nearly 2 years (minimal or deferred cash compensation)
+| Name | Role | LinkedIn |
+|---|---|---|
+| **Chris Condron** | Primary Founder, CTO/CPO | [eventsourced](https://www.linkedin.com/in/eventsourced/) |
+| **Lisa Payne** | CEO | [lisa-j-payne](https://www.linkedin.com/in/lisa-j-payne/) |
+| **James Geall** | VP Engineering | [jamesgeall](https://www.linkedin.com/in/jamesgeall/) |
+
+### Chris Condron — CTO/CPO
+Former CTO & Head of Product at Event Store (Greg Young's company, EventStoreDB SaaS platform). ~25 years systems engineering. Chief Architect at Linedata (ES for portfolio management), Principal Architect at PerkinElmer (award-winning Solaris platform, 100M+ data points/sec), Lead Architect at Wellington Management ($1T+ AUM, introduced ES architectures), Lead Quality Architect at Hanover Insurance (5-year enterprise QA transformation). ES/DDD/CQRS across telecom, insurance, financial services, scientific instruments, SaaS infrastructure since 2012.
+
+### Lisa Payne — CEO
+Industry veteran CFO and CEO. Has raised $100M+ in funding across career. Founder of "Women Who Rock" — a Vancouver-based women-focused founders group.
+
+### James Geall — VP Engineering
+Cloud infrastructure, security, and Plaid integration. Currently building cloud/security infra for GTM launch.
+
+## Development Team
+
+- **5+ years working together** on average — this is not a team that just met
+- **ES/DDD/CQRS experts** — the architecture IS their domain expertise
+- **~2 years sweat equity** (minimal or deferred cash compensation)
 - **Collective ownership**: 12% of company equity
-- **Deep commitment**: Demonstrated by extended period of below-market compensation
-- **Skin in the game**: Personal financial sacrifice tied to company success
-- **Product builders**: Hands-on execution of technical and business development
+- **Deep commitment**: Extended period of below-market compensation demonstrates belief in the product
+- **Hands-on builders**: The codebase (174 stories, 5 milestones, AI pipeline, event-sourced architecture) is their work

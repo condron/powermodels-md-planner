@@ -15,12 +15,13 @@ links_to_facets:
   - professional-judgment-preservation
   - event-sourced-architecture
 claims:
-  - AI is a key element of PowerModels strategy
-  - AI positioned as professional enablement not replacement
-  - AI workflows constrained by verifiable data and audit trail
-  - Platform empowers accountants to work more efficiently while preserving judgment
-  - AI handles categorization and preparation while CPA maintains control
+  - AI is a key element of PowerModels strategy [VALIDATED — AIStep with gpt-4o structured output is core of reconciliation pipeline]
+  - AI positioned as professional enablement not replacement [VALIDATED — confidence scoring surfaces uncertainty for human review]
+  - AI workflows constrained by verifiable data and audit trail [VALIDATED — JSON schema constrains output to Chart of Accounts enum, ValidationEngine checks entries]
+  - Platform empowers accountants to work more efficiently while preserving judgment [VALIDATED — 12+ WPF review views, accept/reject/edit workflow]
+  - AI handles categorization and preparation while CPA maintains control [VALIDATED — UncategorizedTransactionsVm filters low-confidence items for CPA review]
 evidence_refs:
+  - codebase-review-feb2026
   - technical-codebase-review
   - investor-market-evaluation-feb2026
   - accounting-podcast-ai-bookkeeping-sep2024

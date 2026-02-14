@@ -5,6 +5,7 @@ aspect: reconciliation-elimination
 audience: cfos-controllers
 dimension: 2
 hooks:
+- reconciliation-elimination—no more reconciliation
 - reconciliation-elimination—single financial record
 - reconciliation-elimination—end of drift
 q_holes:
@@ -16,6 +17,8 @@ q_holes:
 - reconciliation-elimination—internal controls and auditability
 - reconciliation-elimination—system integration and data flows
 - reconciliation-elimination—structural consistency
+- reconciliation-elimination—fewer corrections
+- reconciliation-elimination—clean books
 - reconciliation-elimination—no reconciliation
 - reconciliation-elimination—automated reconciliation
 bridges:
@@ -27,6 +30,8 @@ bridges:
 - Add `internal controls and auditability` as a synonym or linked facet on `reconciliation-elimination` (matches audience concern).
 - Add `system integration and data flows` as a synonym or linked facet on `reconciliation-elimination` (matches audience concern).
 - Add `structural consistency` as a synonym or linked facet on `reconciliation-elimination` (matches vocab_map term).
+- Add `fewer corrections` as a synonym or linked facet on `reconciliation-elimination` (matches vocab_map term).
+- Add `clean books` as a synonym or linked facet on `reconciliation-elimination` (matches vocab_map term).
 - Add `no reconciliation` as a synonym or linked facet on `reconciliation-elimination` (matches vocab_map term).
 - Add `automated reconciliation` as a synonym or linked facet on `reconciliation-elimination` (matches vocab_map term).
 message_invariants:
@@ -39,8 +44,8 @@ risk_flags:
 # Intersection Summary
 
 This intersection analyzes how **reconciliation-elimination** relates to the **cfos-controllers** audience. 
-There are 2 connection point(s) (hooks) between the facet and audience concerns.
- There are 10 gap(s) (q-holes) that may need attention.
+There are 3 connection point(s) (hooks) between the facet and audience concerns.
+ There are 12 gap(s) (q-holes) that may need attention.
 
 ## Narrative Path (Traffic)
 

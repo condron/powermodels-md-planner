@@ -3,11 +3,16 @@ type: intersection
 id: unit-economics_x_seed-series-a-investors
 aspect: unit-economics
 audience: seed-series-a-investors
-dimension: 2
+dimension: 3+
 hooks:
 - unit-economics—capital efficiency
 - unit-economics—leveraged growth model
 - unit-economics—portfolio economics
+- unit-economics—margin expansion
+- unit-economics—small account flywheel
+- unit-economics—capacity trap
+- unit-economics—advisory upsell
+- unit-economics—3x client capacity
 q_holes:
 - unit-economics—product-market fit evidence
 - unit-economics—go-to-market repeatability
@@ -38,7 +43,7 @@ risk_flags:
 # Intersection Summary
 
 This intersection analyzes how **unit-economics** relates to the **seed-series-a-investors** audience. 
-There are 3 connection point(s) (hooks) between the facet and audience concerns.
+There are 8 connection point(s) (hooks) between the facet and audience concerns.
  There are 9 gap(s) (q-holes) that may need attention.
 
 ## Narrative Path (Traffic)
