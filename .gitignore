@@ -1,0 +1,12 @@
+# Binary documents (track with Git LFS or keep out of version control)
+*.xlsx
+*.docx
+*.prn
+
+# Media files
+_documents/media/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
