@@ -1,0 +1,17 @@
+# PowerModels — Project Configuration
+# Consumed by: VaultTool compute-intersection --org <path>
+# See: md-planner/organization/README.md for org context design
+
+project: PowerModels
+description: Financial preparation & reporting platform for accounting firms
+
+# Organization context includes
+# These reference cards in md-planner/organization/{section}/{id}.md
+# PowerModels org cards do not yet exist — add them to organization/ as needed
+organization_context:
+  systems:
+    include: []
+  drivers:
+    include: []
+  history:
+    include: []

@@ -1,0 +1,21 @@
+{
+  "codebasePath": "../../implementation-vault/PowerModels-src",
+  "vaultPath": "implementation",
+  "exclude": [".starter", ".working", "bin", "obj"],
+  "aggregateBaseClasses": ["AggregateRoot", "EventDrivenStateMachine"],
+  "commandBaseClass": "Command",
+  "eventBaseClass": "Event",
+  "handlerBaseClasses": ["QueuedSubscriber"],
+  "readModelBaseClasses": ["TransientSubscriber", "ReadModelBase"],
+  "godAggregates": ["ServerFinancialModel"],
+  "contextMap": {
+    "TeamModelManagement": "TeamModelMgmt",
+    "Domain/AccountingSystem": "ModelServer/AccountingSystem",
+    "SpreadsheetAdapter": "SpreadsheetAdapter",
+    "QBConnector": "Connectors",
+    "UIBehavior": "UIBehavior",
+    "Excel": "Excel",
+    "Utilities": "Utilities",
+    "ModelServer": "ModelServer"
+  }
+}

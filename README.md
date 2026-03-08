@@ -1,22 +1,27 @@
-# PowerModels — md-planner Project Vault
+# PowerModels — Project Vault
 
 Vault data for the PowerModels financial preparation & reporting platform, managed by [md-planner](https://github.com/condron/md-planner).
 
 ## Structure
 
 ```
-A_facets/           16 curated facet cards (aspects/themes)
-B_audiences/        10 curated audience cards (stakeholders + concerns)
-E_evidence/          4 curated evidence cards (data, studies, metrics)
-I_intersections/   160 computed intersection specs (facet × audience Q-analysis)
-D_deliverables/      Generated audience-targeted documents
-S_sources/           Raw ingested source notes
-C_cards_inbox/       Normalized cards awaiting curation
-_documents/          Input source material (research, business plans, interviews)
-_output/             Generated analysis documents (reviews, summaries)
-templates/           Card templates
-prompts/             LLM prompts for structuring
+powermodels-md-project/
+├── planning/          ← md-planner Q-analysis (STRATEGIC: what + who + why)
+│                        Facets, audiences, intersections, deliverables
+│                        Consumed by: work-decomposer agent
+│
+└── implementation/    ← Graph vault (STRUCTURAL: what exists in code)
+                         Aggregates, messages, handlers, read models
+                         Consumed by: planner, implementer, reviewers
 ```
+
+### planning/
+
+Source Notes → Cards → Intersection Specs → Deliverables workflow. Contains facet cards, audience cards, evidence cards, intersection specs, and generated deliverables. Answers **"what should we build and for whom?"**
+
+### implementation/
+
+Programmatically generated codebase index of ES/CQRS artifacts and their relationships. Agents consume this vault as pre-indexed context instead of grepping the codebase every run. Answers **"what have we already built and how is it structured?"**
 
 ## Usage with md-planner
 
@@ -27,16 +32,19 @@ This repo is designed to be linked into md-planner's `projects/` directory via a
 cmd /c "mklink /J projects\PowerModels C:\path\to\powermodels-md-project"
 ```
 
-Then VaultTool commands work normally:
+Then VaultTool commands work normally (from `src/VaultTool`):
 
 ```powershell
-dotnet run -- list-status --vault ../../projects/PowerModels
-dotnet run -- validate --vault ../../projects/PowerModels
-dotnet run -- geometry-summary --vault ../../projects/PowerModels
-dotnet run -- compute-intersection --all --vault ../../projects/PowerModels
+# Planning vault commands
+dotnet run -- list-status --vault ../../projects/PowerModels/planning
+dotnet run -- validate --vault ../../projects/PowerModels/planning
+dotnet run -- geometry-summary --vault ../../projects/PowerModels/planning
+dotnet run -- compute-intersection --all --vault ../../projects/PowerModels/planning
+
+# Implementation vault: refresh scan + drift detection
+dotnet run -- project-refresh --config ../../projects/PowerModels/graph-vault.json
 ```
 
-## Separation Rule
+### Junction Constraint
 
-- `_documents/` — input material that feeds the vault pipeline; generated docs that are part of input processing stay here
-- `_output/` — generated analysis and review documents (not input material)
+`graph-vault.json` uses relative paths (e.g., `../../implementation-vault/PowerModels-src`) that resolve correctly only when accessed through the md-planner junction at `projects/PowerModels/`. Running the config directly from this repo's root will resolve paths incorrectly. Always invoke VaultTool commands from `md-planner/src/VaultTool`.
