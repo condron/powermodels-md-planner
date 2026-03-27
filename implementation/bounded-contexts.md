@@ -1,6 +1,6 @@
 # Bounded Contexts
 
-Generated: 2026-03-08 00:08:55
+Generated: 2026-03-27 19:42:20
 
 ## App
 
@@ -21,7 +21,7 @@ Generated: 2026-03-08 00:08:55
 ## ModelServer
 
 ### Aggregates
-- **ClientWorkspace** — `src/ModelServer/ModelServer/Domain/ClientWorkspace.cs` (247 lines)
+- **ClientWorkspace** — `src/ModelServer/ModelServer/Domain/ClientWorkspace.cs` (253 lines)
 - **DataSourceMapping** — `src/ModelServer/ModelServer/Domain/DataSourceMapping.cs` (61 lines)
 - **DataTableDefinition** — `src/ModelServer/ModelServer/Domain/DataTableDefinition.cs` (176 lines)
 - **DataTableMap** — `src/ModelServer/ModelServer/Domain/DataTableMap.cs` (370 lines)
@@ -36,7 +36,7 @@ Generated: 2026-03-08 00:08:55
 - **UserDefinedWorksheets** — `src/ModelServer/ModelServer/Domain/UserDefinedWorksheets.cs` (69 lines)
 
 ### Handlers
-- **AccountingSystemService** — 34 commands
+- **AccountingSystemService** — 38 commands
 - **AccountStatementConfigService** — 4 commands
 - **ClientWorkspaceService** — 9 commands
 - **DataSourceModelMapService** — 3 commands
@@ -45,6 +45,7 @@ Generated: 2026-03-08 00:08:55
 - **EntrySetService** — 7 commands
 - **FileStoreService** — 3 commands
 - **FinancialModelService** — 166 commands
+- **JournalAggregatesService** — 8 commands
 - **ManualTableService** — 12 commands
 - **TasklistService** — 20 commands
 - **UserDefinedWorksheetsService** — 4 commands
@@ -56,6 +57,8 @@ Generated: 2026-03-08 00:08:55
 - **DataSourcesRm** — 1 events → Dictionary-based
 - **DataTableDefinitionRm** — 9 events → Dictionary-based
 - **DataTableMapRm** — 5 events → ReadModelProperty
+- **JournalEntriesRm** — 1 events → HashSet-based
+- **JournalsRm** — 1 events → HashSet-based
 - **ModelListRm** — 4 events → Dictionary-based
 - **ModelTemplateRm** — 82 events → Dictionary-based
 - **ModelWorksheetTablesRm** — 14 events → Dictionary-based
@@ -65,7 +68,7 @@ Generated: 2026-03-08 00:08:55
 ### Aggregates
 - **AccountBalance** — `src/ModelServer/ModelServer/Domain/AccountingSystem/AccountBalance.cs` (106 lines)
 - **AccountingSystem** — `src/ModelServer/ModelServer/Domain/AccountingSystem/AccountingSystem.cs` (29 lines)
-- **ChartOfAccounts** — `src/ModelServer/ModelServer/Domain/AccountingSystem/ChartOfAccounts.cs` (540 lines)
+- **ChartOfAccounts** — `src/ModelServer/ModelServer/Domain/AccountingSystem/ChartOfAccounts.cs` (628 lines)
 - **Contractor** — `src/ModelServer/ModelServer/Domain/AccountingSystem/Contractor.cs` (36 lines)
 - **Counterparty** — `src/ModelServer/ModelServer/Domain/AccountingSystem/Counterparty.cs` (224 lines)
 - **Customer** — `src/ModelServer/ModelServer/Domain/AccountingSystem/Customer.cs` (46 lines)
@@ -73,6 +76,8 @@ Generated: 2026-03-08 00:08:55
 - **DataElement** — `src/ModelServer/ModelServer/Domain/AccountingSystem/DataElement.cs` (143 lines)
 - **DataSource** — `src/ModelServer/ModelServer/Domain/AccountingSystem/DataSource.cs` (271 lines)
 - **Employee** — `src/ModelServer/ModelServer/Domain/AccountingSystem/Employee.cs` (36 lines)
+- **Journal** — `src/ModelServer/ModelServer/Domain/AccountingSystem/Journal.cs` (68 lines)
+- **JournalEntry** — `src/ModelServer/ModelServer/Domain/AccountingSystem/JournalEntry.cs` (290 lines)
 - **Product** — `src/ModelServer/ModelServer/Domain/AccountingSystem/Product.cs` (90 lines)
 - **Vendor** — `src/ModelServer/ModelServer/Domain/AccountingSystem/Vendor.cs` (49 lines)
 
@@ -151,6 +156,7 @@ Generated: 2026-03-08 00:08:55
 - **TransactionsRm** — 0 commands
 
 ### Read Models
+- **AccountingReportBase** — 6 events → Dictionary-based
 - **CompositeRowsRm** — 5 events → Dictionary-based
 - **ConnectionsRm** — 3 events → ReadModelProperty
 - **CounterpartiesRm** — 2 events → SourceCache<CounterpartyModel, Guid>
@@ -163,8 +169,9 @@ Generated: 2026-03-08 00:08:55
 - **FinancialModelListRm** — 15 events → SourceCache<FinancialModelListItemModel, Guid>
 - **FinancialModelTablesRm** — 54 events → SourceCache<TableSummary, Guid>
 - **JournalCashTransactionsRm** — 2 events → SourceCache<CashTransaction, Guid>
+- **JournalDataRm** — 1 events → SourceCache<JournalLineModel, Guid>
 - **ManualEntriesRm** — 4 events → Dictionary-based
-- **PreprocessorsRm** — 2 events → HashSet-based
+- **PreprocessorsRm** — 2 events → SourceCache<string, string>
 - **ReadableFormulasRm** — 5 events → SourceCache<ReadableRowFormula, Guid>
 - **ReferenceDataRm** — 6 events → Dictionary-based
 - **ReferencesRm** — 7 events → Dictionary-based

@@ -106,6 +106,29 @@ vocab_map:
     - unstructured data processing
     - receipt to financials
     - measurable outcomes
+  accounting-reports:
+    - financial statements
+    - balance sheet
+    - income statement
+    - cash flow statement
+    - general ledger
+    - trial balance
+    - standard reporting
+    - period-based reporting
+  data-ingestion-pipeline:
+    - transaction ingestion
+    - data import automation
+    - CSV import
+    - classification accuracy
+    - journal posting
+  business-seeding-api:
+    - demo environment
+    - evaluation setup
+    - sample data
+  agentic-development:
+    - AI-powered development
+    - rapid feature delivery
+    - development velocity
 proof_preferences:
   - close cycle time reduction
   - audit findings reduction

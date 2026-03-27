@@ -116,6 +116,29 @@ vocab_map:
     - data isolation per client
     - startup speed
     - storage growth
+  accounting-reports:
+    - financial statements
+    - balance sheet
+    - income statement
+    - standard accounting reports
+    - client-ready reports
+    - report generation
+  data-ingestion-pipeline:
+    - CSV import
+    - PDF parsing
+    - automatic data entry
+    - transaction ingestion
+    - no manual data entry
+    - classification accuracy
+  business-seeding-api:
+    - demo data
+    - pilot setup
+    - sample business for evaluation
+  agentic-development:
+    - AI-powered development
+    - rapid feature delivery
+    - development velocity
+    - engineering leverage
 proof_preferences:
   - pilot results with existing clients
   - time savings per client

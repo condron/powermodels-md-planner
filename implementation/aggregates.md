@@ -1,14 +1,14 @@
 # Aggregates
 
-Generated: 2026-03-08 00:08:55
+Generated: 2026-03-27 19:42:20
 Source: `C:\Users\chris\source\repos\condron\md-planner\implementation-vault\PowerModels-src`
 
 | Aggregate | Path | Lines | Apply Methods | Context | Notes |
 |-----------|------|-------|---------------|---------|-------|
 | AccountBalance | `src/ModelServer/ModelServer/Domain/AccountingSystem/AccountBalance.cs` | 106 | 4 | ModelServer/AccountingSystem |  |
 | AccountingSystem | `src/ModelServer/ModelServer/Domain/AccountingSystem/AccountingSystem.cs` | 29 | 1 | ModelServer/AccountingSystem | No source ctor |
-| ChartOfAccounts | `src/ModelServer/ModelServer/Domain/AccountingSystem/ChartOfAccounts.cs` | 540 | 9 | ModelServer/AccountingSystem |  |
-| ClientWorkspace | `src/ModelServer/ModelServer/Domain/ClientWorkspace.cs` | 247 | 9 | ModelServer |  |
+| ChartOfAccounts | `src/ModelServer/ModelServer/Domain/AccountingSystem/ChartOfAccounts.cs` | 628 | 9 | ModelServer/AccountingSystem |  |
+| ClientWorkspace | `src/ModelServer/ModelServer/Domain/ClientWorkspace.cs` | 253 | 9 | ModelServer |  |
 | Contractor | `src/ModelServer/ModelServer/Domain/AccountingSystem/Contractor.cs` | 36 | 1 | ModelServer/AccountingSystem |  |
 | Counterparty | `src/ModelServer/ModelServer/Domain/AccountingSystem/Counterparty.cs` | 224 | 10 | ModelServer/AccountingSystem |  |
 | Customer | `src/ModelServer/ModelServer/Domain/AccountingSystem/Customer.cs` | 46 | 1 | ModelServer/AccountingSystem |  |
@@ -21,6 +21,8 @@ Source: `C:\Users\chris\source\repos\condron\md-planner\implementation-vault\Pow
 | Employee | `src/ModelServer/ModelServer/Domain/AccountingSystem/Employee.cs` | 36 | 1 | ModelServer/AccountingSystem |  |
 | EntrySet | `src/ModelServer/ModelServer/Domain/EntrySet.cs` | 169 | 7 | ModelServer |  |
 | FileStore | `src/ModelServer/ModelServer/Domain/FileStore.cs` | 98 | 3 | ModelServer |  |
+| Journal | `src/ModelServer/ModelServer/Domain/AccountingSystem/Journal.cs` | 68 | 3 | ModelServer/AccountingSystem |  |
+| JournalEntry | `src/ModelServer/ModelServer/Domain/AccountingSystem/JournalEntry.cs` | 290 | 14 | ModelServer/AccountingSystem |  |
 | ListDataTableMap | `src/ModelServer/ModelServer/Domain/ListDataTableMap.cs` | 369 | 9 | ModelServer |  |
 | ManagedFinancialModel | `src/TeamModelManagement/TeamModelMgmt/Domain/ManagedFinancialModel.cs` | 125 | 4 | TeamModelMgmt |  |
 | ManualTable | `src/ModelServer/ModelServer/Domain/ManualTable.cs` | 365 | 11 | ModelServer |  |
@@ -58,7 +60,7 @@ Source: `C:\Users\chris\source\repos\condron\md-planner\implementation-vault\Pow
 ### ChartOfAccounts
 
 - **Path:** `src/ModelServer/ModelServer/Domain/AccountingSystem/ChartOfAccounts.cs`
-- **Lines:** 540
+- **Lines:** 628
 - **Base class:** AggregateRoot
 - **Constructor pattern:** `:base(source)` ✓
 - **Register calls:** 9
@@ -68,7 +70,7 @@ Source: `C:\Users\chris\source\repos\condron\md-planner\implementation-vault\Pow
 ### ClientWorkspace
 
 - **Path:** `src/ModelServer/ModelServer/Domain/ClientWorkspace.cs`
-- **Lines:** 247
+- **Lines:** 253
 - **Base class:** AggregateRoot
 - **Constructor pattern:** `:base(source)` ✓
 - **Register calls:** 9
@@ -194,6 +196,26 @@ Source: `C:\Users\chris\source\repos\condron\md-planner\implementation-vault\Pow
 - **Register calls:** 3
 - **Apply methods:** 3
 - **Context:** ModelServer
+
+### Journal
+
+- **Path:** `src/ModelServer/ModelServer/Domain/AccountingSystem/Journal.cs`
+- **Lines:** 68
+- **Base class:** AggregateRoot
+- **Constructor pattern:** `:base(source)` ✓
+- **Register calls:** 3
+- **Apply methods:** 3
+- **Context:** ModelServer/AccountingSystem
+
+### JournalEntry
+
+- **Path:** `src/ModelServer/ModelServer/Domain/AccountingSystem/JournalEntry.cs`
+- **Lines:** 290
+- **Base class:** AggregateRoot
+- **Constructor pattern:** `:base(source)` ✓
+- **Register calls:** 14
+- **Apply methods:** 14
+- **Context:** ModelServer/AccountingSystem
 
 ### ListDataTableMap
 

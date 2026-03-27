@@ -1,10 +1,11 @@
 # Saga Catalog
 
-Last reviewed: 2026-03-08
+Last reviewed: 2026-03-27
 
 Source: GitHub Issues & PRs (`event-systems/powermodels`)
-Period: 2025-06-01 — 2026-03-07
-Domain-crossing PRs analyzed: 38 (PRs touching 2+ domain contexts: ModelServer, SpreadsheetAdapter, TeamModelMgmt, Connectors)
+Period: 2025-06-01 — 2026-03-27
+Branch: `joshkempner/journal-aggregate` (active development branch)
+Domain-crossing PRs analyzed: 38+ (PRs touching 2+ domain contexts: ModelServer, SpreadsheetAdapter, TeamModelMgmt, Connectors)
 
 ## Identified Workflow Chains
 
@@ -30,50 +31,63 @@ DataSource (upload CSV/PDF)
 **Key PRs:** #1617 (AI reconciliation), #1671 (CSV preprocessing), #1707 (reconcile uploaded files), #2064 (bug fixes for mapping/dates), #2093 (transaction extraction reliability)
 **Coordination pattern:** Implicit — handler services in SpreadsheetAdapter coordinate between domain aggregates and UI read models. No dedicated process manager class.
 
-### 2. Business Setup Workflow
+### 2. Business Setup Workflow (PMA/PME Split)
 
 **Epics:** #1526 (CoA), #2099 (Accounting phase 2)
 **Milestone:** RC3–March Demo
 
-**Flow:**
+**Two paths now exist:**
+
+**PMA (WithoutModels) — active:**
 ```
 ClientWorkspace (create workspace)
-  → Business (create business within workspace)
+  → Business (create business with description)
     → AccountingSystem (create 1:1 with business)
       → ChartOfAccounts (create with standard/empty/imported list)
         → Account[] (add root + child accounts)
-          → AccountBalance[] (optional opening balances)
-            → SpreadsheetAdapter (hydrate all read models)
-              → UIBehavior (create business workflow RM)
+          → AccountBalance[] (opening balances — new step)
+            → InitializeJournalDataSource
+              → SpreadsheetAdapter (hydrate all read models)
+                → UIBehavior (create business workflow RM)
 ```
+Guided by `NewBusinessWorkflowWithoutModelsVm`: Settings → CoA → Opening Balances → Journal → Create.
+
+**PME (WithModels) — on hold:**
+```
+Same steps 1-5, plus:
+  → CreateModel (financial model)
+    → Tasks setup
+```
+Guided by `NewBusinessWorkflowWithModelsVm`: Settings → CoA → Journal → Tasks → Create.
 
 **Contexts crossed:** ModelServer → ModelServer/AccountingSystem → SpreadsheetAdapter → UIBehavior → WPF
-**Aggregates involved:** ClientWorkspace, AccountingSystem, ChartOfAccounts, AccountBalance
+**Aggregates involved:** ClientWorkspace, AccountingSystem, ChartOfAccounts, AccountBalance, Journal
 **Key PRs:** #1700 (CoA setup options), #1755 (account subtypes), #2100 (opening balance UI), #2105 (opening balances during setup)
 **Coordination pattern:** Implicit — ClientWorkspaceService and AccountingSystemService coordinate the multi-step creation. Business setup triggers ~50-80 stream creations.
 
-### 3. Data Import Pipeline
+### 3. Data Import Pipeline (Composable)
 
 **Epics:** #1846 (import and view statements)
-**Milestone:** Shoebox RC4
+**Milestone:** Shoebox RC4 + journal-aggregate branch
 
-**Flow:**
+**Flow (updated with composable pipeline):**
 ```
 User uploads CSV/PDF
-  → FileStore (store imported file)
-    → DataSource (create data source record)
-      → DataElement[] (parse ~1,000 rows = ~1,001 events)
-        → DataTableDefinition (define table structure)
-          → DataTableMap / ListDataTableMap (map to financial model)
-            → ServerFinancialModel (table mapped to model)
-              → SpreadsheetAdapter RMs (fan-out to 40+ read models)
+  → DataIngestionPipeline (orchestrator)
+    → CsvReaderStep / PDFReaderStep (parse raw data)
+      → ColumnMappingStep (map source columns)
+        → TransactionNormalizerStep (normalize transactions)
+          → ClassificationRuleStep / AIClassificationStep (classify accounts)
+            → AddOrUpdateDataSourceStep (persist via DataSource aggregate)
+              → JournalPostingStep (post to Journal aggregates — new)
+                → SpreadsheetAdapter RMs (fan-out to read models)
 ```
 
 **Contexts crossed:** ModelServer → ModelServer/AccountingSystem → SpreadsheetAdapter
-**Aggregates involved:** FileStore, DataSource, DataElement, DataTableDefinition, DataTableMap, ListDataTableMap, ServerFinancialModel
+**Aggregates involved:** FileStore, DataSource, DataElement, Journal, JournalEntry, DataTableDefinition, DataTableMap, ListDataTableMap, ServerFinancialModel
 **Key PRs:** #1673 (boolean fields for LDTs/data sources), #1525 (RM threading simplification), #2031 (PDF validation UX), #2091 (expected balance on upload)
-**Coordination pattern:** Implicit — DataSourceService creates DataSource + DataElements; mapping services coordinate DataTableMap/ListDataTableMap with ServerFinancialModel. Highest write volume saga (~1,001 events per CSV import).
-**Data usage impact:** Single CSV upload generates ~1,001 events distributed across category streams. Events on `$ce-DataSource` fan out to 3 RMs; events on `$ce-DataElement` fan out to 1 RM.
+**Coordination pattern:** Implicit via composable `IDataIngestionStep` pipeline in SpreadsheetAdapter/Reconciliation/. Now includes journal posting step. Highest write volume saga (~1,001 events per CSV import).
+**Data usage impact:** Single CSV upload generates ~1,001 events distributed across category streams. Events on `$ce-DataSource` fan out to 3 RMs; events on `$ce-DataElement` fan out to 1 RM. New `$ce-Journal` and `$ce-JournalEntry` streams add 1–2 RM subscribers each.
 
 ### 4. Counterparty/Entity Management
 
@@ -134,7 +148,50 @@ TasklistItem (create task)
 **Key PRs:** #1725 (task lists), #1776 (recurring tasks), #1786 (semi-annual recurrence), #2024 (cross-workspace tasks), #2049 (workspace tasks in standalone app)
 **Coordination pattern:** Implicit — TasklistService (20 commands) coordinates with TeamModelMgmt for task metrics. **Only saga that crosses into TeamModelMgmt.**
 
-### 7. Standalone App Integration
+### 7. Journal Data Lifecycle (New)
+
+**Epics:** #2099 (Accounting phase 2)
+**Milestone:** journal-aggregate branch
+**Status:** In progress
+
+**Flow:**
+```
+DataIngestionPipeline (CSV/PDF import)
+  → Journal (create journal container per accounting system)
+    → JournalEntry[] (create individual transactions)
+      → JournalEntry categorization (assign accounts)
+        → JournalEntry recategorization (correct assignments)
+          → JournalEntry counterparty association
+            → JournalsRm + JournalEntriesRm (domain-layer read models)
+              → AccountingReportsContext RMs (BalanceSheetRm, IncomeStatementRm, etc.)
+```
+
+**Contexts crossed:** SpreadsheetAdapter (ingestion) → ModelServer (journal aggregates + domain RMs) → UIBehavior (AccountingReportsContext)
+**Aggregates involved:** Journal, JournalEntry, ChartOfAccounts (for account lookup)
+**Coordination pattern:** Implicit — JournalAggregatesService handles Journal + JournalEntry commands. Report RMs subscribe to journal events via AccountingReportsContext (bypasses SpreadsheetAdapter ACL).
+**Significance:** First workflow where read models bypass SpreadsheetAdapter entirely, establishing the migration pattern for PMA features.
+
+### 8. Accounting Reports (New)
+
+**Epics:** #2099 (Accounting phase 2)
+**Milestone:** journal-aggregate branch
+**Status:** In progress
+
+**Flow:**
+```
+Journal/JournalEntry events + ChartOfAccounts events
+  → AccountingReportsContext (wired in UIBehavior, parallel to ACL)
+    → BalanceSheetRm, IncomeStatementRm, CashFlowStatementRm
+    → GeneralLedgerRm, TrialBalanceRm
+    → IncomeExpenseSummaryRm, JournalReportRm
+      → UIBehavior ViewModels (report views)
+```
+
+**Contexts crossed:** ModelServer (events) → UIBehavior (AccountingReportsContext) — bypasses SpreadsheetAdapter
+**Aggregates consumed:** Journal, JournalEntry, ChartOfAccounts (read-only via events)
+**Coordination pattern:** Direct event subscription — no ACL translation. First parallel read-side interface.
+
+### 9. Standalone App Integration
 
 **Epics:** #2017 (standalone desktop app)
 **Milestone:** Shoebox RC5
@@ -155,7 +212,7 @@ App host (new WPF standalone, separate from Excel add-in)
 
 | Pattern | Count | Examples |
 |---------|-------|---------|
-| **Implicit (in handler services)** | 6 | All identified sagas — coordination buried in services |
+| **Implicit (in handler services)** | 8 | All identified sagas — coordination buried in services |
 | **Explicit (dedicated process manager)** | 0 | No dedicated saga/process manager classes found in PowerModels codebase |
 
 **All coordination is implicit.** There are no dedicated process manager or saga classes. Multi-aggregate workflows are coordinated by handler services that call `GetById` on multiple aggregates and send commands within the same handler invocation. This means:
@@ -181,9 +238,11 @@ Formal process manager base classes exist in `process-manager/Infrastructure/` r
 | Saga | Complexity | Aggregates | Contexts | Failure Impact | Priority |
 |------|-----------|-----------|----------|---------------|----------|
 | Reconciliation | High | 5 | 5 | Data corruption (journal entries) | 🔴 P0 |
-| Data Import | High | 7 | 3 | ~1,001 events committed with no rollback | 🔴 P0 |
+| Data Import | High | 9 | 3 | ~1,001 events committed with no rollback | 🔴 P0 |
+| Journal Data Lifecycle | High | 3 | 3 | Journal entry corruption, report inconsistency | 🔴 P0 |
 | Financial Model Mapping | High | 6 | 4 | God Aggregate coupling | 🟡 P1 |
-| Business Setup | Medium | 4 | 4 | 50-80 streams created atomically | 🟡 P1 |
+| Business Setup | Medium | 5 | 4 | 50-80 streams created atomically | 🟡 P1 |
+| Accounting Reports | Medium | 0 (read-only) | 2 | Report projection errors | 🟡 P1 |
 | Counterparty Management | Medium | 6 | 4 | Role consistency across entities | 🟢 P2 |
 | Task Management | Low | 3 | 4 | Low impact — task state only | 🟢 P2 |
 | Standalone App | Low | 0 | 5 | Host-level only, no domain coordination | 🟢 P3 |

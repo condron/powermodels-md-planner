@@ -1,8 +1,8 @@
 # Domain Model
 
-Last reviewed: 2026-03-08
+Last reviewed: 2026-03-27
 
-Generated: 2026-03-07 (seeded from pre-scanned context)
+Generated: 2026-03-27 (from `joshkempner/journal-aggregate` branch)
 Source: PowerModels codebase (via `implementation-vault/PowerModels-src` junction)
 
 ## Entity Hierarchy
@@ -12,15 +12,23 @@ Firm (implicit — TeamSettings singleton + the app installation)
  └── Customer (= ClientWorkspace, one per client of the firm)
       ├── metadata: contactName, email, phone, description
       └── Business[] (one or more per customer, generally 1 for now)
+           ├── description (added at creation)
            ├── Sandbox[] (development/testing copies of a business)
            └── AccountingSystem (1:1 with business, keyed by AccountingSystemId)
                 ├── ChartOfAccounts (1:1, ID = AccountingSystemId)
                 │    ├── Account[] (hierarchical: root + child accounts)
                 │    │    ├── AccountingCategory: Income|Expense|Asset|Liability|Equity|Dividend
                 │    │    ├── Subtype: 40+ (Revenue, Cogs, CurrentAssets, AccountsPayable, etc.)
-                │    │    └── CashPositionType: None|Checking|Savings|LOC|CreditCard|Cash
+                │    │    ├── CashPositionType: None|Checking|Savings|LOC|CreditCard|Cash
+                │    │    └── OpeningBalance (optional, set during business setup or when adding accounts)
                 │    └── GroupSet[] (named groupings of accounts)
                 │         └── Group[] → Account assignments
+                ├── Journal[] (journal data containers — proper domain aggregates)
+                │    └── JournalEntry[] (individual transactions with lines)
+                │         ├── lines: account, amount, counterparty, memo
+                │         ├── categorization, recategorization
+                │         └── association to counterparties
+                ├── JournalSchema (domain value object defining journal data schema)
                 ├── Counterparty[] (contact entities with roles)
                 │    ├── Organization mode (orgName required) or Individual mode (contactName required)
                 │    └── Roles [Flags]: Customer=1, Vendor=2, Employee=4, Contractor=8
@@ -58,6 +66,8 @@ Firm (implicit — TeamSettings singleton + the app installation)
 | AccountingSystem : ChartOfAccounts | 1 : 1 | ChartOfAccountsId = AccountingSystemId |
 | ChartOfAccounts : Account | 1 : N | Parent-child hierarchy |
 | Business : ServerFinancialModel | 1 : N | Multiple models per business |
+| AccountingSystem : Journal | 1 : N | Journal data containers per business |
+| Journal : JournalEntry | 1 : N | Individual transactions within a journal |
 | Business : DataSource | 1 : N | Multiple data feeds per business |
 | DataSource : DataSourceMapping | 1 : N | Column-to-account mappings per source |
 | AccountingSystem : DataTableDefinition | 1 : N | Schema definitions for data tables |
@@ -99,33 +109,72 @@ Owner accounts, employees — business-specific by nature. They exist only as Co
 
 - **No explicit fiscal year or period aggregates** — this is a known gap
 - `AccountBalance.asOfDate` (DateOnly) — point-in-time balance snapshots
-- `EntrySet.ManualEntry.appliedOn` (DateTime) — journal entry dates
+- `JournalEntry` — transaction dates on individual journal entries
+- `EntrySet.ManualEntry.appliedOn` (DateTime) — manual journal entry dates
 - `DataSource` updates tracked by startVersion/endVersion
+- `ChartOfAccounts` opening balances — point-in-time balance at business setup
 - Period/year logic lives in read models and application layer, not domain aggregates
+- **Accounting Reports** use `ReportPeriod` for temporal grouping (monthly, quarterly, annual)
 
 ## Business Creation Chain
+
+Two workflows exist, reflecting PMA/PME separation (in progress):
+
+### PMA (PowerModels Accounting) — WithoutModels path:
 
 ```
 1. CreateClientWorkspace(workspaceId, name, contact info)
    → ClientWorkspaceCreated
-2. AddBusiness(businessId, name, location)
+2. AddBusiness(businessId, name, description, location)
    → BusinessAdded
-3. CreateAccountingSystem(accountingSystemId)    ← accountingSystemId = new Guid
+3. CreateAccountingSystem(accountingSystemId)
    → AccountingSystemCreated
-4. CreateChartOfAccounts(chartOfAccountsId)      ← chartOfAccountsId = accountingSystemId
+4. CreateChartOfAccounts(chartOfAccountsId = accountingSystemId)
    → ChartOfAccountsCreated
-5. [Optional] AddRootAccount / AddChildAccount   ← populates account hierarchy
-6. [Optional] InitializeJournalDataSource        ← sets up journal feed
-7. [Optional] CreateModel                        ← creates financial model
+5. AddRootAccount / AddChildAccount              ← populates account hierarchy
+6. [Optional] Set opening balances per account   ← new: opening balance step
+7. InitializeJournalDataSource                   ← sets up journal feed
 ```
 
-The `NewBusinessWorkflowVm` guides users through this as: Settings → CoA → Journal → Tasks → Create.
+Guided by `NewBusinessWorkflowWithoutModelsVm`: Settings → CoA → Opening Balances → Journal → Create.
 
-## Data Sources and the Ledger
+### PME (PowerModels Excel) — WithModels path (on hold):
+
+```
+Same steps 1-5, plus:
+6. CreateModel                                   ← creates financial model
+7. [Optional] Tasks setup
+```
+
+Guided by `NewBusinessWorkflowWithModelsVm`: Settings → CoA → Journal → Tasks → Create.
+
+## Journal Data — Domain Aggregates
+
+Journal data has been promoted from application-layer concepts to proper domain aggregates:
+
+- **Journal** aggregate — container for journal entries within an accounting system
+- **JournalEntry** aggregate — individual transactions with lines (account, amount, counterparty, memo), categorization, recategorization, and counterparty association
+- **JournalSchema** — domain value object defining the schema for journal data
+- **JournalAggregatesService** — command handler for Journal and JournalEntry commands
+- **JournalsRm**, **JournalEntriesRm** — domain-layer read models in ModelServer
+
+This replaces the previous pattern where journal was just a `DataSource` with `IsJournal` flag. The `JournalService` in SpreadsheetAdapter now works with these domain aggregates.
+
+## Data Sources and the Ingestion Pipeline
 
 - **DataSource** represents raw external data (CSV uploads, PDF extracts, API feeds)
 - **DataElement** represents individual records within a source
-- `DataSource.IsJournal` flag marks a source as journal data
-- **JournalService** (SpreadsheetAdapter) processes journal data into transactions
 - **EntrySet** handles manual journal entries (corrections, adjustments)
-- Journal entries don't decompose into per-account debits/credits at the domain level — that's handled by read models
+
+**Data Ingestion Pipeline** (SpreadsheetAdapter/Reconciliation/) — composable steps:
+```
+DataIngestionPipeline (orchestrator)
+ └── IDataIngestionStep[] (composable pipeline steps)
+      ├── CsvReaderStep / PDFReaderStep           ← parse raw data
+      ├── ColumnMappingStep                       ← map source columns to standard fields
+      ├── TransactionNormalizerStep               ← normalize transaction data
+      ├── ClassificationRuleStep                  ← rule-based account classification
+      ├── AIClassificationStep                    ← AI-powered classification (SemanticKernel)
+      ├── AddOrUpdateDataSourceStep               ← persist to domain via DataSource aggregate
+      └── JournalPostingStep                      ← post to Journal aggregates
+```

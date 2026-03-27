@@ -101,6 +101,25 @@ vocab_map:
     - automatic trial balance
     - less tedious data entry
     - feedback valued
+  accounting-reports:
+    - financial statements
+    - balance sheet
+    - trial balance
+    - report generation
+    - standard reports
+  data-ingestion-pipeline:
+    - CSV import
+    - PDF parsing
+    - automatic data entry
+    - transaction import
+    - less manual work
+  business-seeding-api:
+    - demo data
+    - training environment
+    - practice business
+  agentic-development:
+    - AI-powered development
+    - faster feature delivery
 proof_preferences:
   - hands-on demos with real scenarios
   - side-by-side workflow comparisons

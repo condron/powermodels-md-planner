@@ -1,18 +1,25 @@
 # Application Topology
 
-Last reviewed: 2026-03-08
+Last reviewed: 2026-03-27
 
-Generated: 2026-03-07 (seeded from pre-scanned context)
+Generated: 2026-03-27 (from `joshkempner/journal-aggregate` branch)
 Source: PowerModels codebase (via `implementation-vault/PowerModels-src` junction)
 
 ## Application Hosts
 
 | Host | Type | Entry Point | Storage | Purpose |
 |------|------|-------------|---------|---------|
-| **PowerModels.App** | WPF Desktop | App.xaml.cs → HostConfiguration | `%LocalAppData%\PowerModels` | Primary standalone accounting app |
-| **PowerModels.Excel** | ExcelDNA XLL Add-in | ThisAddIn.cs | `%LocalAppData%\PowerModels` | Excel-integrated financial modeling |
+| **PowerModels.App (PMA)** | WPF Desktop | App.xaml.cs → HostConfiguration | `%LocalAppData%\PowerModels` | **Active** — Standalone desktop accounting app, primary delivery target |
+| **PowerModels.Excel (PME)** | ExcelDNA XLL Add-in | ThisAddIn.cs | `%LocalAppData%\PowerModels` | **On hold** — Excel-integrated financial modeling |
 | **TeamModelMgmt** | ASP.NET Blazor Server | Program.cs | SQL Server (PowerModelsContext) + LocalDataStore | Team collaboration, model management |
 | **QBConnector** | Windows desktop | QBConnector add-in | `%LocalAppData%\PowerModels` | QuickBooks data sync |
+
+## Solutions
+
+| Solution | Scope | CI Workflow | Purpose |
+|----------|-------|-------------|--------|
+| **PowerModels.sln** | Full — all projects | `ci.yaml` (skips Draft PRs) | Complete build |
+| **PowerModelsAccounting.slnx** | PMA subset — App, WPF, UIBehavior, Domain, SpreadsheetAdapter (no Excel) | `ci-accounting.yaml` (runs on all PRs incl. drafts) | Focused PMA development |
 
 ## Database Topology
 
@@ -94,14 +101,15 @@ PowerModels.App startup:
 ### Presentation Hosts
 
 ```
-WPF App:
+PMA (WPF App — primary):
   PowerModels.App
     → MainWindow.xaml + MainWindowVm
     → ContextService (workspace/business management)
     → UIBehavior ViewModels (ReactiveUI + SourceGenerators)
+    → AccountingReportsContext (report read models — first parallel read-side interface)
     → WPF Views (XAML, no domain logic)
 
-Excel Add-in:
+PME (Excel Add-in — on hold):
   ThisAddIn (ExcelDNA)
     → Static InternalBus / ExternalBus (SpreadsheetContextBus)
     → ModelContext (per open workbook)

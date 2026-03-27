@@ -102,6 +102,25 @@ vocab_map:
     - long tail monetization
     - shoebox to trial balance system
     - early traction
+  accounting-reports:
+    - financial statements
+    - product completeness
+    - standard accounting output
+  data-ingestion-pipeline:
+    - data import automation
+    - onboarding speed
+    - time-to-value
+  business-seeding-api:
+    - demo environment
+    - instant evaluation
+    - product showcase
+  agentic-development:
+    - AI-powered development
+    - multi-agent system
+    - engineering leverage
+    - small team scaling
+    - technical moat
+    - development velocity
 proof_preferences:
   - founder background and track record
   - customer interviews and pain validation

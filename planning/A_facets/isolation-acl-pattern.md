@@ -22,8 +22,9 @@ claims:
   - ModelServerReadContext and ModelServerWriteContext enforce strict read/write separation
   - Workspace isolation uses ConcurrentDictionary keyed by workspaceId
   - SpreadsheetContextMetadata propagates routing info without exposing domain internals
-  - NullBus prevents event re-publishing during aggregate replay in reconciliation
+  - Replay safety now handled internally by ReactiveDomain 0.14.0 — NullBus removed
   - No UI code can bypass the ACL — enforced by project references and bus routing
+  - JournalAggregatesService added to ModelServerWriteContext for Journal and JournalEntry commands
 evidence_refs:
   - technical-codebase-review
 owner: technical-team
@@ -41,7 +42,7 @@ The PowerModels ACL enforces strict boundaries between UI and domain through a c
 - **SpreadsheetContextService**: Singleton orchestrator, 130+ handler interfaces, routes by metadata
 - **ClientWorkspaceContext**: Per-workspace isolation, manages business and sandbox lifecycle
 - **ModelServerReadContext**: Wires read models (FinancialModelListRm, AccountBalancesRm, CounterpartiesRm, etc.)
-- **ModelServerWriteContext**: Wires services (AccountingSystemService, FinancialModelService, DataSourceService, etc.)
+- **ModelServerWriteContext**: Wires services (AccountingSystemService, FinancialModelService, DataSourceService, JournalAggregatesService, etc.)
 - **SpreadsheetContext**: Per-workbook, translates UI gestures into domain commands
 
 ## Isolation Guarantees
@@ -53,11 +54,11 @@ The PowerModels ACL enforces strict boundaries between UI and domain through a c
 | Workspace isolation | ConcurrentDictionary<Guid, ClientWorkspaceContext> |
 | Model isolation | Dictionary<Guid, SpreadsheetContext> |
 | Metadata propagation | SpreadsheetContextMetadata on every message |
-| Replay safety | NullBus during ReconciliationBootstrap |
+| Replay safety | Handled internally by ReactiveDomain 0.14.0 (NullBus removed) |
 
 ## Design Rationale
 
-The ACL exists because the domain model uses ReactiveDomain primitives (AggregateRoot, Command, Event) that should not leak into UI code. The adapter translates between UI-level gestures (sheet changes, form submissions) and domain-level commands (CreateChartOfAccounts, UpdateAccount). This enables the domain to evolve independently of the UI.
+The ACL exists because the domain model uses ReactiveDomain primitives (AggregateRoot, Command, Event) that should not leak into UI code. The adapter translates between UI-level gestures (sheet changes, form submissions) and domain-level commands (CreateChartOfAccounts, UpdateAccount). This enables the domain to evolve independently of the UI. Note: the Accounting Reports subsystem in PMA bypasses this ACL pattern — report RMs subscribe directly to domain event streams via AccountingReportsContext, establishing the migration path away from SpreadsheetAdapter.
 
 ## Implementation Reference
 

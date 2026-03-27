@@ -104,6 +104,29 @@ vocab_map:
     - no more manual data entry
     - shoebox client handling
     - early feedback influence
+  accounting-reports:
+    - financial statements
+    - balance sheet
+    - income statement
+    - trial balance
+    - general ledger
+    - standard accounting reports
+    - report generation
+  data-ingestion-pipeline:
+    - CSV import
+    - PDF parsing
+    - transaction ingestion
+    - automatic data entry
+    - classification suggestions
+    - no manual data entry
+  business-seeding-api:
+    - demo data
+    - sample business
+    - try before you buy
+  agentic-development:
+    - AI-powered development
+    - rapid feature delivery
+    - automated quality checks
 proof_preferences:
   - side-by-side comparisons with current process
   - explicit uncertainty surfacing

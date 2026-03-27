@@ -104,6 +104,23 @@ vocab_map:
     - messy books solution
     - CPE topic potential
     - proven before broad rollout
+  accounting-reports:
+    - financial statements
+    - standard reporting
+    - member firm output quality
+    - professional reports
+  data-ingestion-pipeline:
+    - data import automation
+    - transaction ingestion
+    - member firm efficiency
+  business-seeding-api:
+    - demo environment
+    - member evaluation
+    - CPE demonstration
+  agentic-development:
+    - AI-powered development
+    - rapid feature delivery
+    - innovation velocity
 proof_preferences:
   - pilot results from member firms
   - member satisfaction data

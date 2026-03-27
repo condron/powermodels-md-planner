@@ -1,10 +1,11 @@
 # Defect Analysis
 
-Last reviewed: 2026-03-08
+Last reviewed: 2026-03-27
 
 Source: GitHub Issues (`event-systems/powermodels`)
-Period: 2025-06-01 — 2026-03-07 (9 months)
-Total defects: 66 (59 closed, 7 open)
+Period: 2025-06-01 — 2026-03-27 (10 months)
+Branch: `joshkempner/journal-aggregate` (active development branch)
+Total defects: 66+ (59+ closed, 7+ open)
 Classification: Body pattern "Describe the bug" + title keyword matching
 
 ## Defects by Bounded Context
@@ -20,7 +21,7 @@ Mapped via PR file paths to scan-data.json artifact locations:
 | Connectors | 24 | 3 | 27 | 11% | 🟢 Integration layer |
 | UIBehavior | 20 | 3 | 23 | 13% | 🟢 UI components |
 | WPF | 17 | 2 | 19 | 11% | 🟢 Desktop UI |
-| App | 14 | 0 | 14 | 0% | 🟢 New host — no defects yet |
+| App | 14+ | 0 | 14+ | 0% | 🟢 PMA host — no defects yet (primary target since RC5) |
 | TeamModelMgmt | 5 | 0 | 5 | 0% | 🟢 Stable — minimal activity |
 
 **SpreadsheetAdapter has the highest defect rate (15%)** despite being the ACL bridge. This is where domain events are translated into read model projections — the boundary where data format mismatches and state sync issues surface.
@@ -149,4 +150,6 @@ ServerFinancialModel itself is not directly defect-prone — **defects manifest 
 | #2089 | Performance in Recon and Categorize views | Slow UI | UIBehavior — read model query performance |
 | #1978 | List of transactions doesn't always load | Timeout | SpreadsheetAdapter — read model hydration |
 
-Only 3 explicitly performance-related defects in 9 months. This is low but may indicate that **performance issues aren't reported as defects** — they're accepted as expected behavior. The data-usage-and-storage analysis (per-category-stream amplification — max 9× on `$ce-ServerFinancialModel`, plus full category stream replay on startup for 46 ReadModelBase RMs) suggests performance issues are latent and will surface as businesses mature.
+Only 3 explicitly performance-related defects in 10 months. This is low but may indicate that **performance issues aren't reported as defects** — they're accepted as expected behavior. The data-usage-and-storage analysis (per-category-stream amplification — max 9× on `$ce-ServerFinancialModel`, plus full category stream replay on startup for ~53 ReadModelBase RMs) suggests performance issues are latent and will surface as businesses mature.
+
+**New risk from journal-aggregate branch:** The addition of ~10 new read models (journal domain RMs + 7 accounting report RMs) increases total RM count from ~80 to ~90. The new `$ce-Journal` and `$ce-JournalEntry` category streams add new replay targets on startup. The AccountingReportsContext RMs bypass the SpreadsheetAdapter ACL and subscribe directly to domain events — a new subscription pattern that may need monitoring.

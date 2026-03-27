@@ -38,6 +38,26 @@ vocab_map:
     - read write separation
     - ModelServerReadContext wiring
     - ModelServerWriteContext wiring
+  accounting-reports:
+    - report read models
+    - AccountingReportsContext
+    - parallel read-side interface
+    - report subscriber fan-out
+    - new category stream subscriptions
+  data-ingestion-pipeline:
+    - write volume driver
+    - CSV import events
+    - highest event generation operation
+    - DataSource aggregate writes
+    - journal posting events
+  business-seeding-api:
+    - deterministic test data
+    - seed data event counts
+    - known-state testing
+  agentic-development:
+    - automated code generation
+    - agent-driven development
+    - skill-based architecture knowledge
 proof_preferences:
   - stream count and event count metrics per business maturity tier
   - startup time measurements at different event counts

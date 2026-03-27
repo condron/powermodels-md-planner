@@ -112,6 +112,27 @@ vocab_map:
     - infrastructure efficiency
     - performance headroom
     - append-only architecture
+  accounting-reports:
+    - financial statements
+    - standard reporting
+    - product completeness
+    - accounting output quality
+  data-ingestion-pipeline:
+    - data import automation
+    - transaction ingestion
+    - onboarding speed
+    - time-to-value
+  business-seeding-api:
+    - demo environment
+    - instant evaluation
+    - product showcase
+  agentic-development:
+    - AI-powered development
+    - multi-agent system
+    - engineering leverage
+    - development velocity
+    - small team scaling
+    - technical moat
 proof_preferences:
   - customer cohort data and retention
   - sales efficiency metrics (CAC, payback period)

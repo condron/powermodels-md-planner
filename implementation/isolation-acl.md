@@ -1,8 +1,8 @@
 # Isolation & Anti-Corruption Layer
 
-Last reviewed: 2026-03-08
+Last reviewed: 2026-03-27
 
-Generated: 2026-03-07 (seeded from pre-scanned context)
+Generated: 2026-03-27 (from `joshkempner/journal-aggregate` branch)
 Source: PowerModels codebase (via `implementation-vault/PowerModels-src` junction)
 
 ## Context Hierarchy
@@ -15,7 +15,7 @@ ClientWorkspaceContextService
 ClientWorkspaceContext (per workspace)
     ├── ModelServerContext[] (per business/sandbox)
     │   ├── ModelServerReadContext (read models: FinancialModelListRm, AccountBalancesRm, etc.)
-    │   └── ModelServerWriteContext (services: AccountingSystemService, FinancialModelService, etc.)
+    │   └── ModelServerWriteContext (services: AccountingSystemService, FinancialModelService, JournalAggregatesService, etc.)
     └── SpreadsheetContext[] (per model/workbook)
         └── Translates UI gestures → domain commands
 ```
@@ -33,6 +33,8 @@ UI queries domain state only through read models wired here:
 - CounterpartiesRm
 - FileStoreRm
 - AccountingSystemRm
+- JournalsRm (domain-layer, Journal aggregate)
+- JournalEntriesRm (domain-layer, JournalEntry aggregate)
 
 ### ModelServerWriteContext
 
@@ -42,6 +44,7 @@ All domain changes through services wired here:
 - ClientWorkspaceService (workspace + business lifecycle, 9 commands)
 - FinancialModelService
 - DataSourceService
+- JournalAggregatesService (Journal + JournalEntry commands)
 - ManualTableService
 - DataTableDefinitionService
 - EntrySetService
@@ -84,17 +87,26 @@ UI-layer read models (not wired through ModelServerReadContext):
 | Workspace isolation | `ConcurrentDictionary<Guid, ClientWorkspaceContext>` keyed by workspaceId |
 | Model isolation | `Dictionary<Guid, SpreadsheetContext>` keyed by workbookContextId |
 | Metadata propagation | SpreadsheetContextMetadata attached to every message — routing without exposing internals |
-| Replay safety | NullBus prevents re-publishing during aggregate replay in ReconciliationBootstrap |
+| Replay safety | Handled internally by ReactiveDomain 0.14.0 (NullBus removed) |
+
+## Accounting Reports Context (Parallel Read-Side)
+
+The `AccountingReportsContext` is the first read-side interface that bypasses the SpreadsheetAdapter ACL entirely. Report read models subscribe directly to domain event streams:
+- BalanceSheetRm, IncomeStatementRm, CashFlowStatementRm
+- GeneralLedgerRm, TrialBalanceRm, IncomeExpenseSummaryRm, JournalReportRm
+- Wired in UIBehavior, not through ModelServerReadContext
+- Establishes the migration path away from SpreadsheetAdapter for PMA features
 
 ## Key ACL Files
 
 | File | Lines | Role |
 |------|-------|------|
-| SpreadsheetContextService.cs | ~2,600 | Main orchestrator, 130+ handlers |
+| SpreadsheetContextService.cs | ~1,973 | Main orchestrator, 130+ handlers |
 | SpreadsheetContext.cs | ~1,500+ | UI gesture → domain command translation |
-| ClientWorkspaceContext.cs | ~500+ | Workspace isolation boundary |
+| ClientWorkspaceContext.cs | ~1,183 | Workspace isolation boundary |
 | ClientWorkspaceContextService.cs | ~300+ | Workspace lifecycle management |
 | ModelServerReadContext.cs | — | Read model wiring |
-| ModelServerWriteContext.cs | — | Service wiring |
+| ModelServerWriteContext.cs | — | Service wiring (incl. JournalAggregatesService) |
+| AccountingReportsContext.cs | ~44 | Report RM wiring (parallel to ACL) |
 | SpreadsheetContextBus.cs | ~100 | Metadata decorator for buses |
 | SpreadsheetContextMetadata.cs | ~10 | Record(ClientId, WorkspaceId?, WorkbookContextId?) |

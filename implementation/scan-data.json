@@ -1,19 +1,19 @@
 {
-  "generated": "2026-03-08 00:08:55",
+  "generated": "2026-03-27 19:42:20",
   "codebasePath": "C:\\Users\\chris\\source\\repos\\condron\\md-planner\\implementation-vault\\PowerModels-src",
   "stats": {
-    "aggregates": 27,
-    "commands": 249,
-    "events": 443,
-    "handlers": 22,
-    "readModels": 80,
-    "testFiles": 154
+    "aggregates": 29,
+    "commands": 289,
+    "events": 514,
+    "handlers": 23,
+    "readModels": 84,
+    "testFiles": 187
   },
   "aggregates": [
     {
       "name": "ClientWorkspace",
       "path": "src/ModelServer/ModelServer/Domain/ClientWorkspace.cs",
-      "lines": 247,
+      "lines": 253,
       "baseClass": "AggregateRoot",
       "applyMethods": 9,
       "registerCalls": 9,
@@ -200,7 +200,7 @@
     {
       "name": "ChartOfAccounts",
       "path": "src/ModelServer/ModelServer/Domain/AccountingSystem/ChartOfAccounts.cs",
-      "lines": 540,
+      "lines": 628,
       "baseClass": "AggregateRoot",
       "applyMethods": 9,
       "registerCalls": 9,
@@ -286,6 +286,28 @@
       "isGod": false
     },
     {
+      "name": "Journal",
+      "path": "src/ModelServer/ModelServer/Domain/AccountingSystem/Journal.cs",
+      "lines": 68,
+      "baseClass": "AggregateRoot",
+      "applyMethods": 3,
+      "registerCalls": 3,
+      "hasSourceCtor": true,
+      "context": "ModelServer/AccountingSystem",
+      "isGod": false
+    },
+    {
+      "name": "JournalEntry",
+      "path": "src/ModelServer/ModelServer/Domain/AccountingSystem/JournalEntry.cs",
+      "lines": 290,
+      "baseClass": "AggregateRoot",
+      "applyMethods": 14,
+      "registerCalls": 14,
+      "hasSourceCtor": true,
+      "context": "ModelServer/AccountingSystem",
+      "isGod": false
+    },
+    {
       "name": "Product",
       "path": "src/ModelServer/ModelServer/Domain/AccountingSystem/Product.cs",
       "lines": 90,
@@ -310,8 +332,12 @@
   ],
   "commands": [
     {
-      "name": "CreateEntity",
+      "name": "QueryMessage",
       "path": "src/Connectors/QBConnector.Core/Messages/QuickbooksMsgs.cs"
+    },
+    {
+      "name": "ValidateLicense",
+      "path": "src/CustomUI/PowerModels.Toolkit/Messages/LicensingMessages.cs"
     },
     {
       "name": "ActivateClientWorkspace",
@@ -342,11 +368,19 @@
       "path": "src/CustomUI/PowerModels.UIBehavior/Messages/UiMsgs.cs"
     },
     {
-      "name": "NewLocalDbContext",
+      "name": "NewFileBasedBusiness",
       "path": "src/CustomUI/PowerModels.UIBehavior/Messages/UiMsgs.cs"
     },
     {
-      "name": "SaveImportedFile",
+      "name": "NewFileBasedBusinessWithModels",
+      "path": "src/CustomUI/PowerModels.UIBehavior/Messages/UiMsgs.cs"
+    },
+    {
+      "name": "NewLocalDbBusiness",
+      "path": "src/CustomUI/PowerModels.UIBehavior/Messages/UiMsgs.cs"
+    },
+    {
+      "name": "NewLocalDbBusinessWithModels",
       "path": "src/CustomUI/PowerModels.UIBehavior/Messages/UiMsgs.cs"
     },
     {
@@ -358,7 +392,7 @@
       "path": "src/Excel/PowerModels.Excel.Core/Messages/AddInMsgs.cs"
     },
     {
-      "name": "ConnectToModel",
+      "name": "ModelLoaded",
       "path": "src/Excel/PowerModels.Excel.Core/Messages/AddInMsgs.cs"
     },
     {
@@ -378,16 +412,8 @@
       "path": "src/Excel/PowerModels.Excel.Core/Messages/AddInMsgs.cs"
     },
     {
-      "name": "ModelOverviewRowsDeselected",
+      "name": "ModelOverviewRowSelected",
       "path": "src/Excel/PowerModels.Excel.Core/Messages/AddInMsgs.cs"
-    },
-    {
-      "name": "EndJournalExploration",
-      "path": "src/Excel/PowerModels.Excel.Core/Messages/AddInMsgs.cs"
-    },
-    {
-      "name": "ValidateLicense",
-      "path": "src/Excel/PowerModels.Excel.Toolkit/Messages/LicensingMessages.cs"
     },
     {
       "name": "CreateAccountBalance",
@@ -425,7 +451,27 @@
       "msgsClass": "ChartOfAccountsMsgs"
     },
     {
+      "name": "AddRootCashAccount",
+      "path": "src/ModelServer/ModelServer/Messages/ChartOfAccountsCommands.cs",
+      "msgsClass": "ChartOfAccountsMsgs"
+    },
+    {
+      "name": "AddRootExternalCashAccount",
+      "path": "src/ModelServer/ModelServer/Messages/ChartOfAccountsCommands.cs",
+      "msgsClass": "ChartOfAccountsMsgs"
+    },
+    {
       "name": "AddChildAccount",
+      "path": "src/ModelServer/ModelServer/Messages/ChartOfAccountsCommands.cs",
+      "msgsClass": "ChartOfAccountsMsgs"
+    },
+    {
+      "name": "AddChildCashAccount",
+      "path": "src/ModelServer/ModelServer/Messages/ChartOfAccountsCommands.cs",
+      "msgsClass": "ChartOfAccountsMsgs"
+    },
+    {
+      "name": "AddChildExternalCashAccount",
       "path": "src/ModelServer/ModelServer/Messages/ChartOfAccountsCommands.cs",
       "msgsClass": "ChartOfAccountsMsgs"
     },
@@ -580,6 +626,21 @@
       "msgsClass": "CustomerMsgs"
     },
     {
+      "name": "CreateDataSource",
+      "path": "src/ModelServer/ModelServer/Messages/DataSourceCommands.cs",
+      "msgsClass": "DataSourceMsgs"
+    },
+    {
+      "name": "UpdateDataSource",
+      "path": "src/ModelServer/ModelServer/Messages/DataSourceCommands.cs",
+      "msgsClass": "DataSourceMsgs"
+    },
+    {
+      "name": "UpdateDataSourceWithInternalData",
+      "path": "src/ModelServer/ModelServer/Messages/DataSourceCommands.cs",
+      "msgsClass": "DataSourceMsgs"
+    },
+    {
       "name": "AddSampleData",
       "path": "src/ModelServer/ModelServer/Messages/DataSourceCommands.cs",
       "msgsClass": "DataSourceMsgs"
@@ -596,6 +657,11 @@
     },
     {
       "name": "UpdateRawData",
+      "path": "src/ModelServer/ModelServer/Messages/DataSourceCommands.cs",
+      "msgsClass": "DataSourceMsgs"
+    },
+    {
+      "name": "RequestOriginDataPush",
       "path": "src/ModelServer/ModelServer/Messages/DataSourceCommands.cs",
       "msgsClass": "DataSourceMsgs"
     },
@@ -624,11 +690,11 @@
       "path": "src/ModelServer/ModelServer/Messages/DataSourceMappingMsgs.cs"
     },
     {
-      "name": "AssociateEntrySet",
+      "name": "DataSourceMappingCreated",
       "path": "src/ModelServer/ModelServer/Messages/DataSourceMappingMsgs.cs"
     },
     {
-      "name": "DisassociateEntrySet",
+      "name": "EntrySetAssociated",
       "path": "src/ModelServer/ModelServer/Messages/DataSourceMappingMsgs.cs"
     },
     {
@@ -667,12 +733,37 @@
       "msgsClass": "DataTableDefinitionMsgs"
     },
     {
+      "name": "UpdatePerRowMap",
+      "path": "src/ModelServer/ModelServer/Messages/DataTableMapCommands.cs",
+      "msgsClass": "DataTableMapMsgs"
+    },
+    {
+      "name": "UpdateSingleRowMap",
+      "path": "src/ModelServer/ModelServer/Messages/DataTableMapCommands.cs",
+      "msgsClass": "DataTableMapMsgs"
+    },
+    {
+      "name": "UpdateGroupedMap",
+      "path": "src/ModelServer/ModelServer/Messages/DataTableMapCommands.cs",
+      "msgsClass": "DataTableMapMsgs"
+    },
+    {
       "name": "AssociateDataElementToRow",
       "path": "src/ModelServer/ModelServer/Messages/DataTableMapCommands.cs",
       "msgsClass": "DataTableMapMsgs"
     },
     {
+      "name": "AssociateDataElementsToRows",
+      "path": "src/ModelServer/ModelServer/Messages/DataTableMapCommands.cs",
+      "msgsClass": "DataTableMapMsgs"
+    },
+    {
       "name": "RemoveDataElementToRowAssociation",
+      "path": "src/ModelServer/ModelServer/Messages/DataTableMapCommands.cs",
+      "msgsClass": "DataTableMapMsgs"
+    },
+    {
+      "name": "RemoveDataElementToRowAssociations",
       "path": "src/ModelServer/ModelServer/Messages/DataTableMapCommands.cs",
       "msgsClass": "DataTableMapMsgs"
     },
@@ -691,27 +782,27 @@
       "path": "src/ModelServer/ModelServer/Messages/EntrySetMsgs.cs"
     },
     {
-      "name": "RenameEntrySet",
+      "name": "EntrySetAdded",
       "path": "src/ModelServer/ModelServer/Messages/EntrySetMsgs.cs"
     },
     {
-      "name": "RemoveEntrySet",
+      "name": "EntrySetRenamed",
       "path": "src/ModelServer/ModelServer/Messages/EntrySetMsgs.cs"
     },
     {
-      "name": "AddManualEntry",
+      "name": "EntrySetRemoved",
       "path": "src/ModelServer/ModelServer/Messages/EntrySetMsgs.cs"
     },
     {
-      "name": "RenameManualEntry",
+      "name": "ManualEntryAdded",
       "path": "src/ModelServer/ModelServer/Messages/EntrySetMsgs.cs"
     },
     {
-      "name": "CorrectManualEntry",
+      "name": "ManualEntryRenamed",
       "path": "src/ModelServer/ModelServer/Messages/EntrySetMsgs.cs"
     },
     {
-      "name": "RemoveManualEntry",
+      "name": "ManualEntryCorrected",
       "path": "src/ModelServer/ModelServer/Messages/EntrySetMsgs.cs"
     },
     {
@@ -735,7 +826,7 @@
       "msgsClass": "FinancialModelMsgs"
     },
     {
-      "name": "EditModel",
+      "name": "CreateModelFromSolution",
       "path": "src/ModelServer/ModelServer/Messages/FinancialModelCommands.cs",
       "msgsClass": "FinancialModelMsgs"
     },
@@ -745,39 +836,94 @@
       "msgsClass": "FinancialModelMsgs"
     },
     {
-      "name": "CompleteChanges",
+      "name": "ModelCreated",
       "path": "src/ModelServer/ModelServer/Messages/FinancialModelMsgs.cs",
       "msgsClass": "FinancialModelMsgs"
     },
     {
-      "name": "ReviewModel",
+      "name": "ChangesCompleted",
       "path": "src/ModelServer/ModelServer/Messages/FinancialModelMsgs.cs",
       "msgsClass": "FinancialModelMsgs"
     },
     {
-      "name": "ApproveModel",
+      "name": "ModelReviewed",
       "path": "src/ModelServer/ModelServer/Messages/FinancialModelMsgs.cs",
       "msgsClass": "FinancialModelMsgs"
     },
     {
-      "name": "RevokeModelApproval",
+      "name": "ModelApproved",
       "path": "src/ModelServer/ModelServer/Messages/FinancialModelMsgs.cs",
       "msgsClass": "FinancialModelMsgs"
     },
     {
-      "name": "RequestReview",
+      "name": "ModelApprovalRevoked",
       "path": "src/ModelServer/ModelServer/Messages/FinancialModelMsgs.cs",
       "msgsClass": "FinancialModelMsgs"
     },
     {
-      "name": "RequestApproval",
+      "name": "ReviewRequested",
       "path": "src/ModelServer/ModelServer/Messages/FinancialModelMsgs.cs",
       "msgsClass": "FinancialModelMsgs"
     },
     {
-      "name": "RecordUserReviewOfUpdates",
+      "name": "ApprovalRequested",
       "path": "src/ModelServer/ModelServer/Messages/FinancialModelMsgs.cs",
       "msgsClass": "FinancialModelMsgs"
+    },
+    {
+      "name": "CreateJournal",
+      "path": "src/ModelServer/ModelServer/Messages/JournalCommands.cs",
+      "msgsClass": "JournalMsgs"
+    },
+    {
+      "name": "AddJournalEntryFromTransaction",
+      "path": "src/ModelServer/ModelServer/Messages/JournalCommands.cs",
+      "msgsClass": "JournalMsgs"
+    },
+    {
+      "name": "AddManualJournalEntry",
+      "path": "src/ModelServer/ModelServer/Messages/JournalCommands.cs",
+      "msgsClass": "JournalMsgs"
+    },
+    {
+      "name": "MoveJournalEntry",
+      "path": "src/ModelServer/ModelServer/Messages/JournalCommands.cs",
+      "msgsClass": "JournalMsgs"
+    },
+    {
+      "name": "UpdateJournalLines",
+      "path": "src/ModelServer/ModelServer/Messages/JournalEntryCommands.cs",
+      "msgsClass": "JournalEntryMsgs"
+    },
+    {
+      "name": "AssociateTransaction",
+      "path": "src/ModelServer/ModelServer/Messages/JournalEntryCommands.cs",
+      "msgsClass": "JournalEntryMsgs"
+    },
+    {
+      "name": "ClearTransactionAssociation",
+      "path": "src/ModelServer/ModelServer/Messages/JournalEntryCommands.cs",
+      "msgsClass": "JournalEntryMsgs"
+    },
+    {
+      "name": "RecategorizeLines",
+      "path": "src/ModelServer/ModelServer/Messages/JournalEntryCommands.cs",
+      "msgsClass": "JournalEntryMsgs"
+    },
+    {
+      "name": "UpdatePerRowMap",
+      "path": "src/ModelServer/ModelServer/Messages/ListDataTableMapCommands.cs",
+      "msgsClass": "ListDataTableMapMsgs"
+    },
+    {
+      "name": "UpdateSingleRowMap",
+      "path": "src/ModelServer/ModelServer/Messages/ListDataTableMapCommands.cs",
+      "msgsClass": "ListDataTableMapMsgs"
+    },
+    {
+      "name": "UpdateGroupedMap",
+      "path": "src/ModelServer/ModelServer/Messages/ListDataTableMapCommands.cs",
+      "msgsClass": "ListDataTableMapMsgs"
     },
     {
       "name": "AssociateDataElementToRow",
@@ -785,7 +931,17 @@
       "msgsClass": "ListDataTableMapMsgs"
     },
     {
+      "name": "AssociateDataElementsToRows",
+      "path": "src/ModelServer/ModelServer/Messages/ListDataTableMapCommands.cs",
+      "msgsClass": "ListDataTableMapMsgs"
+    },
+    {
       "name": "RemoveDataElementToRowAssociation",
+      "path": "src/ModelServer/ModelServer/Messages/ListDataTableMapCommands.cs",
+      "msgsClass": "ListDataTableMapMsgs"
+    },
+    {
+      "name": "RemoveDataElementToRowAssociations",
       "path": "src/ModelServer/ModelServer/Messages/ListDataTableMapCommands.cs",
       "msgsClass": "ListDataTableMapMsgs"
     },
@@ -875,6 +1031,11 @@
       "msgsClass": "ManualTableMapMsgs"
     },
     {
+      "name": "AssociateManualTableRowsToModelRows",
+      "path": "src/ModelServer/ModelServer/Messages/ManualTableMapCommands.cs",
+      "msgsClass": "ManualTableMapMsgs"
+    },
+    {
       "name": "RemoveManualTableRowToModelRowAssociation",
       "path": "src/ModelServer/ModelServer/Messages/ManualTableMapCommands.cs",
       "msgsClass": "ManualTableMapMsgs"
@@ -885,36 +1046,51 @@
       "msgsClass": "ManualTableMapMsgs"
     },
     {
+      "name": "AssociateMetadataGroupingToModelRows",
+      "path": "src/ModelServer/ModelServer/Messages/ManualTableMapCommands.cs",
+      "msgsClass": "ManualTableMapMsgs"
+    },
+    {
       "name": "ClearMetadataGroupingAssociations",
       "path": "src/ModelServer/ModelServer/Messages/ManualTableMapCommands.cs",
       "msgsClass": "ManualTableMapMsgs"
+    },
+    {
+      "name": "CreateProduct",
+      "path": "src/ModelServer/ModelServer/Messages/ProductCommands.cs",
+      "msgsClass": "ProductMsgs"
+    },
+    {
+      "name": "UpdateProduct",
+      "path": "src/ModelServer/ModelServer/Messages/ProductCommands.cs",
+      "msgsClass": "ProductMsgs"
     },
     {
       "name": "AddSeries",
       "path": "src/ModelServer/ModelServer/Messages/ReferenceDataMsgs.cs"
     },
     {
-      "name": "ChangeSeriesInitialValues",
+      "name": "SeriesAdded",
       "path": "src/ModelServer/ModelServer/Messages/ReferenceDataMsgs.cs"
     },
     {
-      "name": "RenameSeries",
+      "name": "SeriesInitialValuesChanged",
       "path": "src/ModelServer/ModelServer/Messages/ReferenceDataMsgs.cs"
     },
     {
-      "name": "RemoveSeries",
+      "name": "SeriesRenamed",
       "path": "src/ModelServer/ModelServer/Messages/ReferenceDataMsgs.cs"
     },
     {
-      "name": "AddDatumToSeries",
+      "name": "SeriesRemoved",
       "path": "src/ModelServer/ModelServer/Messages/ReferenceDataMsgs.cs"
     },
     {
-      "name": "ChangeDatumValues",
+      "name": "DatumAddedToSeries",
       "path": "src/ModelServer/ModelServer/Messages/ReferenceDataMsgs.cs"
     },
     {
-      "name": "RemoveDatumFromSeries",
+      "name": "DatumValuesChanged",
       "path": "src/ModelServer/ModelServer/Messages/ReferenceDataMsgs.cs"
     },
     {
@@ -1076,15 +1252,15 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/ClientWorkspaceContextMsgs.cs"
     },
     {
-      "name": "ActivateClientWorkspace",
+      "name": "ClientWorkspacesAvailable",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/ClientWorkspaceContextMsgs.cs"
     },
     {
-      "name": "AddBusiness",
+      "name": "ClientWorkspaceActivated",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/ClientWorkspaceContextMsgs.cs"
     },
     {
-      "name": "AddSandbox",
+      "name": "BusinessAdded",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/ClientWorkspaceContextMsgs.cs"
     },
     {
@@ -1104,7 +1280,7 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/DevMsgs.cs"
     },
     {
-      "name": "UpdateForecastJournalEntries",
+      "name": "Customer",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/PredictiveForecastingMsgs.cs"
     },
     {
@@ -1132,7 +1308,11 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "ModelCommandEnvelope",
+      "name": "BusinessContextChanged",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
+      "name": "FileDownloadRequested",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -1140,11 +1320,11 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "OpenModel",
+      "name": "BeginBulkUpdate",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "NewModel",
+      "name": "ModelClosed",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -1200,11 +1380,7 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "SetChangesToReviewedByUser",
-      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
-    },
-    {
-      "name": "AddTableToModelSheet",
+      "name": "WorkbookNameChanged",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -1212,7 +1388,7 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "DeleteModelTable",
+      "name": "ModelTableAvailable",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -1220,39 +1396,55 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "DuplicateModelTable",
+      "name": "ModelTableDisplayOptionsChanged",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "RequestLatestModelWorksheet",
+      "name": "TableUpdated",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "RequestLatestRowValues",
+      "name": "RowUpdated",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "UpdateGroupSettings",
+      "name": "RowAdded",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "DuplicateGroup",
+      "name": "GroupHeaderRowAdded",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "RenameListDataTable",
+      "name": "ModelTableMoved",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "UpdateListDataTableRow",
+      "name": "ListDataTableRenamed",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "SortManualEntriesByDate",
+      "name": "ListDataTableRowUpdated",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "CreateEmptyJournal",
+      "name": "ManualEntrySetAssociationsAvailable",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
+      "name": "DataSourceAdded",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
+      "name": "InitializeJournalDataSource",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
+      "name": "UpdateDataSource",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
+      "name": "UpdateDataSourceAndModelMaps",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -1268,7 +1460,15 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "UpdateDataTableDefinition",
+      "name": "AddAndUpdateJournalEntries",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
+      "name": "AddOpeningBalances",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
+      "name": "DataSourceUpdated",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -1280,7 +1480,11 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "UpdateMaps",
+      "name": "DataTablesMappedToModel",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
+      "name": "RemoveMaps",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -1292,31 +1496,39 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "RepublishDataSourcesAndTables",
+      "name": "DefinedDataTableMapAdded",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "RenameTableSummaryRow",
+      "name": "DataSourceUsageInModelUpdated",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "UpdateTableSummaryCustomFormula",
+      "name": "TableSummaryRowRenamed",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "DeleteDataSources",
+      "name": "TableSummaryRowUpdated",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "CreateAndMapDataTablesFromTemplate",
+      "name": "DataSourceArchived",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "AddAndUpdateStatementTxTypes",
+      "name": "JournalUpdated",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "ImportTransactionFiles",
+      "name": "UpdateStatementTxTypeNamesInJournal",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
+      "name": "PDFReadStarted",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
+      "name": "ExtractStatementsSummary",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -1324,7 +1536,7 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "AddAccountBalanceWithFiles",
+      "name": "AccountBalance",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -1336,7 +1548,7 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "UpdateCounterpartyNameInJournal",
+      "name": "SupportingFile",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -1352,7 +1564,7 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "RegisterClient",
+      "name": "TasklistItemUpdated",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/UserTasklistMsgs.cs"
     },
     {
@@ -1364,23 +1576,23 @@
       "path": "src/TeamModelManagement/TeamModelMgmt/Messages/ModelMgmtMessages.cs"
     },
     {
-      "name": "UpdateModelData",
+      "name": "ModelCreated",
       "path": "src/TeamModelManagement/TeamModelMgmt/Messages/ModelMgmtMessages.cs"
     },
     {
-      "name": "PublishModel",
+      "name": "ModelDataUpdated",
       "path": "src/TeamModelManagement/TeamModelMgmt/Messages/ModelMgmtMessages.cs"
     },
     {
-      "name": "AddDataSource",
+      "name": "ModelPublished",
       "path": "src/TeamModelManagement/TeamModelMgmt/Messages/ModelMgmtMessages.cs"
     },
     {
-      "name": "ConfigureNotifications",
+      "name": "DataSourceAdded",
       "path": "src/TeamModelManagement/TeamModelMgmt/Messages/ModelMgmtMessages.cs"
     },
     {
-      "name": "AddNotification",
+      "name": "NotificationsConfigured",
       "path": "src/TeamModelManagement/TeamModelMgmt/Messages/ModelMgmtMessages.cs"
     },
     {
@@ -1388,15 +1600,15 @@
       "path": "src/TeamModelManagement/TeamModelMgmt/Messages/ModelMgmtMessages.cs"
     },
     {
-      "name": "ConfigurePublishingSchedule",
+      "name": "NotificationsCleared",
       "path": "src/TeamModelManagement/TeamModelMgmt/Messages/ModelMgmtMessages.cs"
     },
     {
-      "name": "CreateReport",
+      "name": "PublishingScheduleConfigured",
       "path": "src/TeamModelManagement/TeamModelMgmt/Messages/ModelMgmtMessages.cs"
     },
     {
-      "name": "CreateDataSource",
+      "name": "ReportCreated",
       "path": "src/TeamModelManagement/TeamModelMgmt/Messages/ModelMgmtMessages.cs"
     },
     {
@@ -1446,7 +1658,7 @@
       "path": "src/Utilities/QModel/QModelMsgs.cs"
     },
     {
-      "name": "Import",
+      "name": "ExportVendors",
       "path": "src/Utilities/QModel/QModelMsgs.cs"
     },
     {
@@ -1454,11 +1666,11 @@
       "path": "src/Connectors/QBConnector.Core/Messages/QuickbooksMsgs.cs"
     },
     {
-      "name": "EntityCreated",
+      "name": "CreateEntity",
       "path": "src/Connectors/QBConnector.Core/Messages/QuickbooksMsgs.cs"
     },
     {
-      "name": "Synchronize",
+      "name": "GetVendors",
       "path": "src/Connectors/QBConnector.Core/Messages/QuickbooksMsgs.cs"
     },
     {
@@ -1470,7 +1682,19 @@
       "path": "src/Connectors/QBConnector.Core/Messages/QuickbooksMsgs.cs"
     },
     {
-      "name": "ModelServerConnected",
+      "name": "ReadLicense",
+      "path": "src/CustomUI/PowerModels.Toolkit/Messages/LicensingMessages.cs"
+    },
+    {
+      "name": "ReadLicenseResponse",
+      "path": "src/CustomUI/PowerModels.Toolkit/Messages/LicensingMessages.cs"
+    },
+    {
+      "name": "LicenseValidationFailed",
+      "path": "src/CustomUI/PowerModels.Toolkit/Messages/LicensingMessages.cs"
+    },
+    {
+      "name": "ActivateClientWorkspace",
       "path": "src/CustomUI/PowerModels.UIBehavior/Messages/UiMsgs.cs"
     },
     {
@@ -1478,7 +1702,7 @@
       "path": "src/CustomUI/PowerModels.UIBehavior/Messages/UiMsgs.cs"
     },
     {
-      "name": "DataSourceProviderAvailable",
+      "name": "SaveImportedFile",
       "path": "src/CustomUI/PowerModels.UIBehavior/Messages/UiMsgs.cs"
     },
     {
@@ -1487,6 +1711,10 @@
     },
     {
       "name": "UpdateFromExternalDataSourceRequested",
+      "path": "src/CustomUI/PowerModels.UIBehavior/Messages/UiMsgs.cs"
+    },
+    {
+      "name": "DataFromExternalDataSourceRetrieved",
       "path": "src/CustomUI/PowerModels.UIBehavior/Messages/UiMsgs.cs"
     },
     {
@@ -1510,7 +1738,7 @@
       "path": "src/Excel/PowerModels.Excel.Core/Messages/AddInMsgs.cs"
     },
     {
-      "name": "ModelLoaded",
+      "name": "OpenModel",
       "path": "src/Excel/PowerModels.Excel.Core/Messages/AddInMsgs.cs"
     },
     {
@@ -1518,15 +1746,7 @@
       "path": "src/Excel/PowerModels.Excel.Core/Messages/AddInMsgs.cs"
     },
     {
-      "name": "FormulasUpdated",
-      "path": "src/Excel/PowerModels.Excel.Core/Messages/AddInMsgs.cs"
-    },
-    {
-      "name": "RibbonContextUpdated",
-      "path": "src/Excel/PowerModels.Excel.Core/Messages/AddInMsgs.cs"
-    },
-    {
-      "name": "ModelOverviewRowSelected",
+      "name": "ConnectToModel",
       "path": "src/Excel/PowerModels.Excel.Core/Messages/AddInMsgs.cs"
     },
     {
@@ -1534,20 +1754,8 @@
       "path": "src/Excel/PowerModels.Excel.Core/Messages/AddInMsgs.cs"
     },
     {
-      "name": "ConnectToDataSourceRequested",
+      "name": "EndJournalExploration",
       "path": "src/Excel/PowerModels.Excel.Core/Messages/AddInMsgs.cs"
-    },
-    {
-      "name": "ReadLicense",
-      "path": "src/Excel/PowerModels.Excel.Toolkit/Messages/LicensingMessages.cs"
-    },
-    {
-      "name": "LicenseValidated",
-      "path": "src/Excel/PowerModels.Excel.Toolkit/Messages/LicensingMessages.cs"
-    },
-    {
-      "name": "LicenseValidationFailed",
-      "path": "src/Excel/PowerModels.Excel.Toolkit/Messages/LicensingMessages.cs"
     },
     {
       "name": "AccountBalanceCreated",
@@ -1730,7 +1938,23 @@
       "msgsClass": "CustomerMsgs"
     },
     {
+      "name": "DataElementCreated",
+      "path": "src/ModelServer/ModelServer/Messages/DataElementMsgs.cs"
+    },
+    {
+      "name": "DataElementUpdated",
+      "path": "src/ModelServer/ModelServer/Messages/DataElementMsgs.cs"
+    },
+    {
+      "name": "DataElementUpdateRequested",
+      "path": "src/ModelServer/ModelServer/Messages/DataElementMsgs.cs"
+    },
+    {
       "name": "DataElementRemoved",
+      "path": "src/ModelServer/ModelServer/Messages/DataElementMsgs.cs"
+    },
+    {
+      "name": "MetadataUpdated",
       "path": "src/ModelServer/ModelServer/Messages/DataElementMsgs.cs"
     },
     {
@@ -1738,7 +1962,27 @@
       "path": "src/ModelServer/ModelServer/Messages/DataElementMsgs.cs"
     },
     {
+      "name": "DataSourceCreated",
+      "path": "src/ModelServer/ModelServer/Messages/DataSourceEvents.cs",
+      "msgsClass": "DataSourceMsgs"
+    },
+    {
       "name": "RawDataAdded",
+      "path": "src/ModelServer/ModelServer/Messages/DataSourceEvents.cs",
+      "msgsClass": "DataSourceMsgs"
+    },
+    {
+      "name": "ProviderInfoAdded",
+      "path": "src/ModelServer/ModelServer/Messages/DataSourceEvents.cs",
+      "msgsClass": "DataSourceMsgs"
+    },
+    {
+      "name": "DataSourceUpdated",
+      "path": "src/ModelServer/ModelServer/Messages/DataSourceEvents.cs",
+      "msgsClass": "DataSourceMsgs"
+    },
+    {
+      "name": "DataSourceInternalDataUpdated",
       "path": "src/ModelServer/ModelServer/Messages/DataSourceEvents.cs",
       "msgsClass": "DataSourceMsgs"
     },
@@ -1768,6 +2012,11 @@
       "msgsClass": "DataSourceMsgs"
     },
     {
+      "name": "OriginDataPushRequested",
+      "path": "src/ModelServer/ModelServer/Messages/DataSourceEvents.cs",
+      "msgsClass": "DataSourceMsgs"
+    },
+    {
       "name": "DataSourceArchived",
       "path": "src/ModelServer/ModelServer/Messages/DataSourceEvents.cs",
       "msgsClass": "DataSourceMsgs"
@@ -1788,16 +2037,21 @@
       "msgsClass": "DataSourceMsgs"
     },
     {
-      "name": "DataSourceMappingCreated",
+      "name": "CreateDataSourceMapping",
       "path": "src/ModelServer/ModelServer/Messages/DataSourceMappingMsgs.cs"
     },
     {
-      "name": "EntrySetAssociated",
+      "name": "AssociateEntrySet",
       "path": "src/ModelServer/ModelServer/Messages/DataSourceMappingMsgs.cs"
     },
     {
-      "name": "EntrySetDisassociated",
+      "name": "DisassociateEntrySet",
       "path": "src/ModelServer/ModelServer/Messages/DataSourceMappingMsgs.cs"
+    },
+    {
+      "name": "DataTableDefinitionCreated",
+      "path": "src/ModelServer/ModelServer/Messages/DataTableDefinitionEvents.cs",
+      "msgsClass": "DataTableDefinitionMsgs"
     },
     {
       "name": "DataTableDeleted",
@@ -1845,12 +2099,52 @@
       "msgsClass": "DataTableMapMsgs"
     },
     {
+      "name": "EntriesMappedPerRow",
+      "path": "src/ModelServer/ModelServer/Messages/DataTableMapEvents.cs",
+      "msgsClass": "DataTableMapMsgs"
+    },
+    {
+      "name": "EntriesMappedToSingleRow",
+      "path": "src/ModelServer/ModelServer/Messages/DataTableMapEvents.cs",
+      "msgsClass": "DataTableMapMsgs"
+    },
+    {
+      "name": "EntriesMappedByGroup",
+      "path": "src/ModelServer/ModelServer/Messages/DataTableMapEvents.cs",
+      "msgsClass": "DataTableMapMsgs"
+    },
+    {
+      "name": "PerRowMapUpdated",
+      "path": "src/ModelServer/ModelServer/Messages/DataTableMapEvents.cs",
+      "msgsClass": "DataTableMapMsgs"
+    },
+    {
+      "name": "SingleRowMapUpdated",
+      "path": "src/ModelServer/ModelServer/Messages/DataTableMapEvents.cs",
+      "msgsClass": "DataTableMapMsgs"
+    },
+    {
+      "name": "GroupedMapUpdated",
+      "path": "src/ModelServer/ModelServer/Messages/DataTableMapEvents.cs",
+      "msgsClass": "DataTableMapMsgs"
+    },
+    {
       "name": "DataElementAssociatedToRow",
       "path": "src/ModelServer/ModelServer/Messages/DataTableMapEvents.cs",
       "msgsClass": "DataTableMapMsgs"
     },
     {
+      "name": "DataElementsAssociatedToRows",
+      "path": "src/ModelServer/ModelServer/Messages/DataTableMapEvents.cs",
+      "msgsClass": "DataTableMapMsgs"
+    },
+    {
       "name": "DataElementToRowAssociationRemoved",
+      "path": "src/ModelServer/ModelServer/Messages/DataTableMapEvents.cs",
+      "msgsClass": "DataTableMapMsgs"
+    },
+    {
+      "name": "DataElementToRowAssociationsRemoved",
       "path": "src/ModelServer/ModelServer/Messages/DataTableMapEvents.cs",
       "msgsClass": "DataTableMapMsgs"
     },
@@ -1865,31 +2159,31 @@
       "msgsClass": "EmployeeMsgs"
     },
     {
-      "name": "EntrySetAdded",
+      "name": "AddEntrySet",
       "path": "src/ModelServer/ModelServer/Messages/EntrySetMsgs.cs"
     },
     {
-      "name": "EntrySetRenamed",
+      "name": "RenameEntrySet",
       "path": "src/ModelServer/ModelServer/Messages/EntrySetMsgs.cs"
     },
     {
-      "name": "EntrySetRemoved",
+      "name": "RemoveEntrySet",
       "path": "src/ModelServer/ModelServer/Messages/EntrySetMsgs.cs"
     },
     {
-      "name": "ManualEntryAdded",
+      "name": "AddManualEntry",
       "path": "src/ModelServer/ModelServer/Messages/EntrySetMsgs.cs"
     },
     {
-      "name": "ManualEntryRenamed",
+      "name": "RenameManualEntry",
       "path": "src/ModelServer/ModelServer/Messages/EntrySetMsgs.cs"
     },
     {
-      "name": "ManualEntryCorrected",
+      "name": "CorrectManualEntry",
       "path": "src/ModelServer/ModelServer/Messages/EntrySetMsgs.cs"
     },
     {
-      "name": "ManualEntryRemoved",
+      "name": "RemoveManualEntry",
       "path": "src/ModelServer/ModelServer/Messages/EntrySetMsgs.cs"
     },
     {
@@ -1912,12 +2206,12 @@
       "msgsClass": "FileStoreMsgs"
     },
     {
-      "name": "ModelCreated",
+      "name": "CreateModel",
       "path": "src/ModelServer/ModelServer/Messages/FinancialModelMsgs.cs",
       "msgsClass": "FinancialModelMsgs"
     },
     {
-      "name": "BeginTransaction",
+      "name": "ModelCellFormatDefined",
       "path": "src/ModelServer/ModelServer/Messages/FinancialModelMsgs.cs",
       "msgsClass": "FinancialModelMsgs"
     },
@@ -1927,7 +2221,7 @@
       "msgsClass": "FinancialModelMsgs"
     },
     {
-      "name": "ModelEdited",
+      "name": "BeginBulkEdit",
       "path": "src/ModelServer/ModelServer/Messages/FinancialModelMsgs.cs",
       "msgsClass": "FinancialModelMsgs"
     },
@@ -1937,12 +2231,12 @@
       "msgsClass": "FinancialModelMsgs"
     },
     {
-      "name": "ModelArchived",
+      "name": "RenameModel",
       "path": "src/ModelServer/ModelServer/Messages/FinancialModelMsgs.cs",
       "msgsClass": "FinancialModelMsgs"
     },
     {
-      "name": "ArchivedModelRestored",
+      "name": "RestoreArchivedModel",
       "path": "src/ModelServer/ModelServer/Messages/FinancialModelMsgs.cs",
       "msgsClass": "FinancialModelMsgs"
     },
@@ -1957,57 +2251,57 @@
       "msgsClass": "FinancialModelMsgs"
     },
     {
-      "name": "ChangesCompleted",
+      "name": "ModelTableWorksheetAdded",
       "path": "src/ModelServer/ModelServer/Messages/FinancialModelMsgs.cs",
       "msgsClass": "FinancialModelMsgs"
     },
     {
-      "name": "ModelReviewed",
+      "name": "ReviewModel",
       "path": "src/ModelServer/ModelServer/Messages/FinancialModelMsgs.cs",
       "msgsClass": "FinancialModelMsgs"
     },
     {
-      "name": "ModelApproved",
+      "name": "ApproveModel",
       "path": "src/ModelServer/ModelServer/Messages/FinancialModelMsgs.cs",
       "msgsClass": "FinancialModelMsgs"
     },
     {
-      "name": "ModelApprovalRevoked",
+      "name": "RevokeModelApproval",
       "path": "src/ModelServer/ModelServer/Messages/FinancialModelMsgs.cs",
       "msgsClass": "FinancialModelMsgs"
     },
     {
-      "name": "ReviewRequested",
+      "name": "RequestReview",
       "path": "src/ModelServer/ModelServer/Messages/FinancialModelMsgs.cs",
       "msgsClass": "FinancialModelMsgs"
     },
     {
-      "name": "ApprovalRequested",
+      "name": "RequestApproval",
       "path": "src/ModelServer/ModelServer/Messages/FinancialModelMsgs.cs",
       "msgsClass": "FinancialModelMsgs"
     },
     {
-      "name": "ModelUpdatesReviewedByUser",
+      "name": "RecordUserReviewOfUpdates",
       "path": "src/ModelServer/ModelServer/Messages/FinancialModelMsgs.cs",
       "msgsClass": "FinancialModelMsgs"
     },
     {
-      "name": "DataSourceUpdated",
+      "name": "UpdateDataSource",
       "path": "src/ModelServer/ModelServer/Messages/FinancialModelMsgs.cs",
       "msgsClass": "FinancialModelMsgs"
     },
     {
-      "name": "PencilEditApplied",
+      "name": "DataTableDefinitionAdded",
       "path": "src/ModelServer/ModelServer/Messages/FinancialModelMsgs.cs",
       "msgsClass": "FinancialModelMsgs"
     },
     {
-      "name": "PencilEditRetained",
+      "name": "RetainPencilEdit",
       "path": "src/ModelServer/ModelServer/Messages/FinancialModelMsgs.cs",
       "msgsClass": "FinancialModelMsgs"
     },
     {
-      "name": "UserDefinedWorksheetsAdded",
+      "name": "ConstantsTableCreated",
       "path": "src/ModelServer/ModelServer/Messages/FinancialModelMsgs.cs",
       "msgsClass": "FinancialModelMsgs"
     },
@@ -2015,6 +2309,51 @@
       "name": "UserDefinedWorksheetsRemoved",
       "path": "src/ModelServer/ModelServer/Messages/FinancialModelMsgs.cs",
       "msgsClass": "FinancialModelMsgs"
+    },
+    {
+      "name": "JournalEntryCreated",
+      "path": "src/ModelServer/ModelServer/Messages/JournalEntryEvents.cs",
+      "msgsClass": "JournalEntryMsgs"
+    },
+    {
+      "name": "AssociatedWithTransaction",
+      "path": "src/ModelServer/ModelServer/Messages/JournalEntryEvents.cs",
+      "msgsClass": "JournalEntryMsgs"
+    },
+    {
+      "name": "TransactionAssociationCleared",
+      "path": "src/ModelServer/ModelServer/Messages/JournalEntryEvents.cs",
+      "msgsClass": "JournalEntryMsgs"
+    },
+    {
+      "name": "JournalLinesUpdated",
+      "path": "src/ModelServer/ModelServer/Messages/JournalEntryEvents.cs",
+      "msgsClass": "JournalEntryMsgs"
+    },
+    {
+      "name": "JournalLine",
+      "path": "src/ModelServer/ModelServer/Messages/JournalEntryEvents.cs",
+      "msgsClass": "JournalEntryMsgs"
+    },
+    {
+      "name": "CategorizedAsDefault",
+      "path": "src/ModelServer/ModelServer/Messages/JournalEntryEvents.cs",
+      "msgsClass": "JournalEntryMsgs"
+    },
+    {
+      "name": "JournalCreated",
+      "path": "src/ModelServer/ModelServer/Messages/JournalEvents.cs",
+      "msgsClass": "JournalMsgs"
+    },
+    {
+      "name": "JournalEntryAdded",
+      "path": "src/ModelServer/ModelServer/Messages/JournalEvents.cs",
+      "msgsClass": "JournalMsgs"
+    },
+    {
+      "name": "JournalEntryRemoved",
+      "path": "src/ModelServer/ModelServer/Messages/JournalEvents.cs",
+      "msgsClass": "JournalMsgs"
     },
     {
       "name": "ListDataTableMapCreated",
@@ -2027,12 +2366,52 @@
       "msgsClass": "ListDataTableMapMsgs"
     },
     {
+      "name": "EntriesMappedPerRow",
+      "path": "src/ModelServer/ModelServer/Messages/ListDataTableMapEvents.cs",
+      "msgsClass": "ListDataTableMapMsgs"
+    },
+    {
+      "name": "EntriesMappedToSingleRow",
+      "path": "src/ModelServer/ModelServer/Messages/ListDataTableMapEvents.cs",
+      "msgsClass": "ListDataTableMapMsgs"
+    },
+    {
+      "name": "EntriesMappedByGroup",
+      "path": "src/ModelServer/ModelServer/Messages/ListDataTableMapEvents.cs",
+      "msgsClass": "ListDataTableMapMsgs"
+    },
+    {
+      "name": "PerRowMapUpdated",
+      "path": "src/ModelServer/ModelServer/Messages/ListDataTableMapEvents.cs",
+      "msgsClass": "ListDataTableMapMsgs"
+    },
+    {
+      "name": "SingleRowMapUpdated",
+      "path": "src/ModelServer/ModelServer/Messages/ListDataTableMapEvents.cs",
+      "msgsClass": "ListDataTableMapMsgs"
+    },
+    {
+      "name": "GroupedMapUpdated",
+      "path": "src/ModelServer/ModelServer/Messages/ListDataTableMapEvents.cs",
+      "msgsClass": "ListDataTableMapMsgs"
+    },
+    {
       "name": "DataElementAssociatedToRow",
       "path": "src/ModelServer/ModelServer/Messages/ListDataTableMapEvents.cs",
       "msgsClass": "ListDataTableMapMsgs"
     },
     {
+      "name": "DataElementsAssociatedToRows",
+      "path": "src/ModelServer/ModelServer/Messages/ListDataTableMapEvents.cs",
+      "msgsClass": "ListDataTableMapMsgs"
+    },
+    {
       "name": "DataElementToRowAssociationRemoved",
+      "path": "src/ModelServer/ModelServer/Messages/ListDataTableMapEvents.cs",
+      "msgsClass": "ListDataTableMapMsgs"
+    },
+    {
+      "name": "DataElementToRowAssociationsRemoved",
       "path": "src/ModelServer/ModelServer/Messages/ListDataTableMapEvents.cs",
       "msgsClass": "ListDataTableMapMsgs"
     },
@@ -2152,6 +2531,11 @@
       "msgsClass": "ManualTableMapMsgs"
     },
     {
+      "name": "ManualTableRowsAssociatedToModelRows",
+      "path": "src/ModelServer/ModelServer/Messages/ManualTableMapEvents.cs",
+      "msgsClass": "ManualTableMapMsgs"
+    },
+    {
       "name": "ManualTableRowToModelRowAssociationRemoved",
       "path": "src/ModelServer/ModelServer/Messages/ManualTableMapEvents.cs",
       "msgsClass": "ManualTableMapMsgs"
@@ -2162,36 +2546,51 @@
       "msgsClass": "ManualTableMapMsgs"
     },
     {
+      "name": "MetadataGroupingAssociatedToModelRows",
+      "path": "src/ModelServer/ModelServer/Messages/ManualTableMapEvents.cs",
+      "msgsClass": "ManualTableMapMsgs"
+    },
+    {
       "name": "MetadataGroupingAssociationsCleared",
       "path": "src/ModelServer/ModelServer/Messages/ManualTableMapEvents.cs",
       "msgsClass": "ManualTableMapMsgs"
     },
     {
-      "name": "SeriesAdded",
+      "name": "ProductCreated",
+      "path": "src/ModelServer/ModelServer/Messages/ProductEvents.cs",
+      "msgsClass": "ProductMsgs"
+    },
+    {
+      "name": "ProductUpdated",
+      "path": "src/ModelServer/ModelServer/Messages/ProductEvents.cs",
+      "msgsClass": "ProductMsgs"
+    },
+    {
+      "name": "AddSeries",
       "path": "src/ModelServer/ModelServer/Messages/ReferenceDataMsgs.cs"
     },
     {
-      "name": "SeriesInitialValuesChanged",
+      "name": "ChangeSeriesInitialValues",
       "path": "src/ModelServer/ModelServer/Messages/ReferenceDataMsgs.cs"
     },
     {
-      "name": "SeriesRenamed",
+      "name": "RenameSeries",
       "path": "src/ModelServer/ModelServer/Messages/ReferenceDataMsgs.cs"
     },
     {
-      "name": "SeriesRemoved",
+      "name": "RemoveSeries",
       "path": "src/ModelServer/ModelServer/Messages/ReferenceDataMsgs.cs"
     },
     {
-      "name": "DatumAddedToSeries",
+      "name": "AddDatumToSeries",
       "path": "src/ModelServer/ModelServer/Messages/ReferenceDataMsgs.cs"
     },
     {
-      "name": "DatumValuesChanged",
+      "name": "ChangeDatumValues",
       "path": "src/ModelServer/ModelServer/Messages/ReferenceDataMsgs.cs"
     },
     {
-      "name": "DatumRemovedFromSeries",
+      "name": "RemoveDatumFromSeries",
       "path": "src/ModelServer/ModelServer/Messages/ReferenceDataMsgs.cs"
     },
     {
@@ -2361,7 +2760,7 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/AccountingSystemClientMsgs.cs"
     },
     {
-      "name": "CashAccountTransactionsLoaded",
+      "name": "AccountBalance",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/AccountingSystemClientMsgs.cs"
     },
     {
@@ -2369,11 +2768,15 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/AccountingSystemClientMsgs.cs"
     },
     {
+      "name": "CashTransaction",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/AccountingSystemClientMsgs.cs"
+    },
+    {
       "name": "WorkspaceListRequested",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/ClientWorkspaceContextMsgs.cs"
     },
     {
-      "name": "ClientWorkspacesAvailable",
+      "name": "CreateFileBasedClientWorkspace",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/ClientWorkspaceContextMsgs.cs"
     },
     {
@@ -2385,7 +2788,7 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/ClientWorkspaceContextMsgs.cs"
     },
     {
-      "name": "ClientWorkspaceActivated",
+      "name": "ActivateClientWorkspace",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/ClientWorkspaceContextMsgs.cs"
     },
     {
@@ -2393,11 +2796,11 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/ClientWorkspaceContextMsgs.cs"
     },
     {
-      "name": "BusinessAdded",
+      "name": "AddBusiness",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/ClientWorkspaceContextMsgs.cs"
     },
     {
-      "name": "SandboxAdded",
+      "name": "AddSandbox",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/ClientWorkspaceContextMsgs.cs"
     },
     {
@@ -2429,7 +2832,7 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/ConnectionMsgs.cs"
     },
     {
-      "name": "ModelServerConnectionFailed",
+      "name": "LocalModelServerConnected",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/ConnectionMsgs.cs"
     },
     {
@@ -2437,7 +2840,15 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/ConnectionMsgs.cs"
     },
     {
+      "name": "NewLocalBusinessWithModelsRequested",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/ConnectionMsgs.cs"
+    },
+    {
       "name": "NewRemoteBusinessRequested",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/ConnectionMsgs.cs"
+    },
+    {
+      "name": "NewRemoteBusinessWithModelsRequested",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/ConnectionMsgs.cs"
     },
     {
@@ -2453,7 +2864,23 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/ConnectionMsgs.cs"
     },
     {
+      "name": "DataElementAssociatedToRow",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/DataMapMsgs.cs"
+    },
+    {
+      "name": "DataElementsAssociatedToRows",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/DataMapMsgs.cs"
+    },
+    {
       "name": "DataElementDisassociatedFromRow",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/DataMapMsgs.cs"
+    },
+    {
+      "name": "DataElementsDisassociatedFromRows",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/DataMapMsgs.cs"
+    },
+    {
+      "name": "MappingUpdated",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/DataMapMsgs.cs"
     },
     {
@@ -2473,7 +2900,23 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/DataMapMsgs.cs"
     },
     {
+      "name": "ManualTableRowsAssociatedToModelRows",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/DataMapMsgs.cs"
+    },
+    {
       "name": "ManualTableRowDisassociatedFromModelRow",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/DataMapMsgs.cs"
+    },
+    {
+      "name": "ManualTableRowsDisassociatedFromModelRows",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/DataMapMsgs.cs"
+    },
+    {
+      "name": "ManualTableMetadataGroupingAssociatedToModelRows",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/DataMapMsgs.cs"
+    },
+    {
+      "name": "ManualTableMetadataGroupingDisassociatedFromModelRows",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/DataMapMsgs.cs"
     },
     {
@@ -2489,11 +2932,15 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/PredictiveForecastingMsgs.cs"
     },
     {
+      "name": "ProductDefinition",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/PredictiveForecastingMsgs.cs"
+    },
+    {
       "name": "ProductDefinitionList",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/PredictiveForecastingMsgs.cs"
     },
     {
-      "name": "Employee",
+      "name": "UpdateForecastJournalEntries",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/PredictiveForecastingMsgs.cs"
     },
     {
@@ -2525,11 +2972,11 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SolutionTemplateMsgs.cs"
     },
     {
-      "name": "SolutionAvailable",
+      "name": "PublicTemplateAvailable",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SolutionTemplateMsgs.cs"
     },
     {
-      "name": "BusinessContextChanged",
+      "name": "WorkspaceCommandEnvelope",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -2549,7 +2996,7 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "FileDownloadRequested",
+      "name": "UploadFiles",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -2561,7 +3008,11 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "BeginBulkUpdate",
+      "name": "FilesAvailableForDownload",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
+      "name": "AccountStatement",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -2673,11 +3124,11 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "ModelClosed",
+      "name": "OpenModel",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "WorkbookNameChanged",
+      "name": "NewModel",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -2693,11 +3144,11 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "ModelLoadingComplete",
+      "name": "TemplateDetails",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "ModelTableAvailable",
+      "name": "AddTableToModelSheet",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -2753,7 +3204,7 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "ModelTableDisplayOptionsChanged",
+      "name": "DeleteModelTable",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -2761,11 +3212,11 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "TableUpdated",
+      "name": "DuplicateModelTable",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "RowUpdated",
+      "name": "RequestLatestModelWorksheet",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -2773,7 +3224,11 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "RowAdded",
+      "name": "RequestLatestRowValues",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
+      "name": "UntypedRowAdded",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -2781,7 +3236,7 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "RowNotesUpdated",
+      "name": "RowTypeConvertedToComposite",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -2837,6 +3292,10 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
+      "name": "TableReferencesAvailable",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
       "name": "ReadableFormulaUpdated",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
@@ -2861,7 +3320,7 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "GroupHeaderRowAdded",
+      "name": "UpdateGroupSettings",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -2893,15 +3352,19 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "ModelTableMoved",
+      "name": "DuplicateGroup",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "ListDataTableDeleted",
+      "name": "ModelTablesReordered",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "ListDataTableRenamed",
+      "name": "ListDataTableAvailable",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
+      "name": "RenameListDataTable",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -2909,11 +3372,11 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "ListDataTableContentsUpdated",
+      "name": "ListDataTableFormulaFieldUpdated",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "ListDataTableSnapshotMarkerAdded",
+      "name": "ListDataTableRowAdded",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -2921,7 +3384,11 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "ReferenceDataAvailable",
+      "name": "UpdateListDataTableRow",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
+      "name": "ListDataTableRowDeleted",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -2989,7 +3456,7 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "ManualEntrySetAssociationsAvailable",
+      "name": "SortManualEntriesByDate",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -3005,19 +3472,43 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "DataSourceAdded",
+      "name": "AddDataSource",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "DataTablesMappedToModel",
+      "name": "DataSourceInfo",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "DefinedDataTableMapRemoved",
+      "name": "DataSourceAvailable",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "ListDataTableMapRemoved",
+      "name": "CreateEmptyJournal",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
+      "name": "DataSourceUpdatedWithInternalData",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
+      "name": "UpdateDataTableDefinition",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
+      "name": "UpdateMaps",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
+      "name": "PerRowDefinedDataTableMapAdded",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
+      "name": "ListDataTableMapAdded",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
+      "name": "PerRowListDataTableMapAdded",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -3025,7 +3516,7 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "ManualTableMapRemoved",
+      "name": "PerRowManualTableMapAdded",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -3037,11 +3528,15 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "DataSourceUsageInModelUpdated",
+      "name": "RepublishDataSourcesAndTables",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
       "name": "DataSourceUpdateAsTableRequested",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
+      "name": "DataSourceUpdateAsTableAvailable",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -3053,7 +3548,19 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
+      "name": "JournalDataAvailableForDataExploration",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
       "name": "JournalDataUpdateRequested",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
+      "name": "JournalDataUpdated",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
+      "name": "DataSourceVersionBase",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -3065,7 +3572,15 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
+      "name": "DataTableAvailable",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
       "name": "DataTableAvailableForEditing",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
+      "name": "DataTableDefinitionAvailable",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -3089,6 +3604,10 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
+      "name": "ProviderInfoAvailable",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
       "name": "DataSourceSampleAvailable",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
@@ -3098,6 +3617,10 @@
     },
     {
       "name": "ManualTableWorksheetRenamed",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
+      "name": "ManualTableAvailableAsDataTable",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -3145,11 +3668,11 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "TableSummaryRowRenamed",
+      "name": "RenameTableSummaryRow",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "TableSummaryRowUpdated",
+      "name": "UpdateTableSummaryCustomFormula",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -3173,7 +3696,7 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "DataSourceArchived",
+      "name": "DeleteDataSources",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -3197,11 +3720,11 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "JournalUpdated",
+      "name": "CreateAndMapDataTablesFromTemplate",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "PDFReadStarted",
+      "name": "AddAndUpdateStatementTxTypes",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -3213,7 +3736,7 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "TransactionsExtractionStarted",
+      "name": "ImportTransactionFiles",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -3233,11 +3756,11 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "StatementSummaryExtracted",
+      "name": "ExtractedWord",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
-      "name": "ImportFileStarted",
+      "name": "StatementSummary",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -3261,7 +3784,15 @@
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
+      "name": "AddAccountBalanceWithFiles",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
       "name": "ReconciliationPreprocessorAvailable",
+      "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
+    },
+    {
+      "name": "ReconciliationPreprocessorsUnavailable",
       "path": "src/ModelServer/SpreadsheetAdapter/Messages/SpreadSheetMsgs.cs"
     },
     {
@@ -3277,43 +3808,43 @@
       "path": "src/ModelServer/SpreadsheetAdapter.Tests/Messages/MessageHelperTests.cs"
     },
     {
-      "name": "ModelCreated",
+      "name": "CreateModel",
       "path": "src/TeamModelManagement/TeamModelMgmt/Messages/ModelMgmtMessages.cs"
     },
     {
-      "name": "ModelDataUpdated",
+      "name": "UpdateModelData",
       "path": "src/TeamModelManagement/TeamModelMgmt/Messages/ModelMgmtMessages.cs"
     },
     {
-      "name": "ModelPublished",
+      "name": "PublishModel",
       "path": "src/TeamModelManagement/TeamModelMgmt/Messages/ModelMgmtMessages.cs"
     },
     {
-      "name": "DataSourceAdded",
+      "name": "AddDataSource",
       "path": "src/TeamModelManagement/TeamModelMgmt/Messages/ModelMgmtMessages.cs"
     },
     {
-      "name": "NotificationsConfigured",
+      "name": "ConfigureNotifications",
       "path": "src/TeamModelManagement/TeamModelMgmt/Messages/ModelMgmtMessages.cs"
     },
     {
-      "name": "NotificationsCleared",
+      "name": "AddNotification",
       "path": "src/TeamModelManagement/TeamModelMgmt/Messages/ModelMgmtMessages.cs"
     },
     {
-      "name": "PublishingScheduleConfigured",
+      "name": "ConfigurePublishingSchedule",
       "path": "src/TeamModelManagement/TeamModelMgmt/Messages/ModelMgmtMessages.cs"
     },
     {
-      "name": "ReportCreated",
+      "name": "CreateReport",
       "path": "src/TeamModelManagement/TeamModelMgmt/Messages/ModelMgmtMessages.cs"
     },
     {
-      "name": "DataSourceCreated",
+      "name": "CreateDataSource",
       "path": "src/TeamModelManagement/TeamModelMgmt/Messages/ModelMgmtMessages.cs"
     },
     {
-      "name": "ModelWorkflowConfigured",
+      "name": "ConfigureModelWorkflow",
       "path": "src/TeamModelManagement/TeamModelMgmt/Messages/TeamSettingsMsgs.cs"
     },
     {
@@ -3359,13 +3890,17 @@
     {
       "name": "AccountingSystemService",
       "path": "src/ModelServer/ModelServer/Services/AccountingSystemService.cs",
-      "lines": 401,
-      "commandCount": 34,
+      "lines": 446,
+      "commandCount": 38,
       "handledCommands": [
         "CreateAccountingSystem",
         "CreateChartOfAccounts",
         "AddRootAccount",
+        "AddRootCashAccount",
+        "AddRootExternalCashAccount",
         "AddChildAccount",
+        "AddChildCashAccount",
+        "AddChildExternalCashAccount",
         "UpdateAccount",
         "AddGroupSet",
         "RemoveGroupSet",
@@ -3418,7 +3953,19 @@
         "AddRootAccount": [
           "ChartOfAccounts"
         ],
+        "AddRootCashAccount": [
+          "ChartOfAccounts"
+        ],
+        "AddRootExternalCashAccount": [
+          "ChartOfAccounts"
+        ],
         "AddChildAccount": [
+          "ChartOfAccounts"
+        ],
+        "AddChildCashAccount": [
+          "ChartOfAccounts"
+        ],
+        "AddChildExternalCashAccount": [
           "ChartOfAccounts"
         ],
         "UpdateAccount": [
@@ -3680,7 +4227,7 @@
     {
       "name": "DataTableDefinitionService",
       "path": "src/ModelServer/ModelServer/Services/DataTableDefinitionService.cs",
-      "lines": 91,
+      "lines": 92,
       "commandCount": 7,
       "handledCommands": [
         "DeleteDataTable",
@@ -4435,9 +4982,55 @@
       "context": "ModelServer"
     },
     {
+      "name": "JournalAggregatesService",
+      "path": "src/ModelServer/ModelServer/Services/JournalAggregatesService.cs",
+      "lines": 147,
+      "commandCount": 8,
+      "handledCommands": [
+        "CreateJournal",
+        "AddJournalEntryFromTransaction",
+        "AddManualJournalEntry",
+        "MoveJournalEntry",
+        "UpdateJournalLines",
+        "AssociateTransaction",
+        "ClearTransactionAssociation",
+        "RecategorizeLines"
+      ],
+      "referencedAggregates": [
+        "Journal",
+        "JournalEntry"
+      ],
+      "commandAggregateMap": {
+        "AddJournalEntryFromTransaction": [
+          "Journal",
+          "JournalEntry"
+        ],
+        "AddManualJournalEntry": [
+          "Journal",
+          "JournalEntry"
+        ],
+        "MoveJournalEntry": [
+          "Journal"
+        ],
+        "UpdateJournalLines": [
+          "JournalEntry"
+        ],
+        "AssociateTransaction": [
+          "JournalEntry"
+        ],
+        "ClearTransactionAssociation": [
+          "JournalEntry"
+        ],
+        "RecategorizeLines": [
+          "JournalEntry"
+        ]
+      },
+      "context": "ModelServer"
+    },
+    {
       "name": "ManualTableService",
       "path": "src/ModelServer/ModelServer/Services/ManualTableService.cs",
-      "lines": 171,
+      "lines": 175,
       "commandCount": 12,
       "handledCommands": [
         "CreateDataTable",
@@ -4584,7 +5177,7 @@
     {
       "name": "UserDefinedWorksheetsService",
       "path": "src/ModelServer/ModelServer/Services/UserDefinedWorksheetsService.cs",
-      "lines": 72,
+      "lines": 74,
       "commandCount": 4,
       "handledCommands": [
         "AddUserDefinedWorksheets",
@@ -4773,7 +5366,7 @@
     {
       "name": "TransactionsRm",
       "path": "src/CustomUI/PowerModels.UIBehavior/Components/TransactionWorkflow/ReadModels/TransactionsRm.cs",
-      "lines": 431,
+      "lines": 432,
       "commandCount": 0,
       "handledCommands": [],
       "referencedAggregates": [],
@@ -5252,6 +5845,30 @@
       "context": "ModelServer"
     },
     {
+      "name": "JournalEntriesRm",
+      "path": "src/ModelServer/ModelServer/Services/JournalEntriesRm.cs",
+      "lines": 27,
+      "baseClass": "ReadModelBase",
+      "eventCount": 1,
+      "consumedEvents": [
+        "JournalEntryMsgs.JournalEntryCreated"
+      ],
+      "outputType": "HashSet-based",
+      "context": "ModelServer"
+    },
+    {
+      "name": "JournalsRm",
+      "path": "src/ModelServer/ModelServer/Services/JournalsRm.cs",
+      "lines": 61,
+      "baseClass": "ReadModelBase",
+      "eventCount": 1,
+      "consumedEvents": [
+        "JournalMsgs.JournalCreated"
+      ],
+      "outputType": "HashSet-based",
+      "context": "ModelServer"
+    },
+    {
       "name": "ModelListRm",
       "path": "src/ModelServer/ModelServer/Services/ModelListRm.cs",
       "lines": 54,
@@ -5421,7 +6038,7 @@
     {
       "name": "ClientWorkspaceContextRm",
       "path": "src/ModelServer/SpreadsheetAdapter/ReadModels/ClientWorkspaceContextRm.cs",
-      "lines": 171,
+      "lines": 173,
       "baseClass": "ReadModelBase",
       "eventCount": 10,
       "consumedEvents": [
@@ -5477,7 +6094,7 @@
     {
       "name": "DataSourceRm",
       "path": "src/ModelServer/SpreadsheetAdapter/ReadModels/DataSourceRm.cs",
-      "lines": 963,
+      "lines": 964,
       "baseClass": "ReadModelBase",
       "eventCount": 11,
       "consumedEvents": [
@@ -5641,7 +6258,7 @@
     {
       "name": "FinancialModelRm",
       "path": "src/ModelServer/SpreadsheetAdapter/ReadModels/FinancialModelRm.cs",
-      "lines": 2982,
+      "lines": 2988,
       "baseClass": "ReadModelBase",
       "eventCount": 49,
       "consumedEvents": [
@@ -5961,6 +6578,23 @@
       "context": "App"
     },
     {
+      "name": "AccountingReportBase",
+      "path": "src/CustomUI/PowerModels.UIBehavior/Components/Reports/AccountingReportBase.cs",
+      "lines": 179,
+      "baseClass": "ReadModelBase",
+      "eventCount": 6,
+      "consumedEvents": [
+        "ChartOfAccountsMsgs.ChartOfAccountsCreated",
+        "ChartOfAccountsMsgs.AccountAdded",
+        "ChartOfAccountsMsgs.AccountUpdated",
+        "DataElementMsgs.DataElementCreated",
+        "DataElementMsgs.DataElementUpdated",
+        "DataElementMsgs.DataElementRemoved"
+      ],
+      "outputType": "Dictionary-based",
+      "context": "UIBehavior"
+    },
+    {
       "name": "AccountBalancesRm",
       "path": "src/ModelServer/SpreadsheetAdapter/ReadModels/AccountingSystem/AccountBalancesRm.cs",
       "lines": 106,
@@ -5979,7 +6613,7 @@
     {
       "name": "ChartOfAccountsRm",
       "path": "src/ModelServer/SpreadsheetAdapter/ReadModels/AccountingSystem/ChartOfAccountsRm.cs",
-      "lines": 167,
+      "lines": 466,
       "baseClass": "ReadModelBase",
       "eventCount": 4,
       "consumedEvents": [
@@ -6056,7 +6690,7 @@
     {
       "name": "JournalCashAccountsRm",
       "path": "src/ModelServer/SpreadsheetAdapter/ReadModels/AccountingSystem/JournalCashAccountsRm.cs",
-      "lines": 153,
+      "lines": 158,
       "baseClass": "TransientSubscriber",
       "eventCount": 2,
       "consumedEvents": [
@@ -6069,7 +6703,7 @@
     {
       "name": "JournalDataRm",
       "path": "src/ModelServer/SpreadsheetAdapter/ReadModels/AccountingSystem/JournalDataRm.cs",
-      "lines": 81,
+      "lines": 82,
       "baseClass": "TransientSubscriber",
       "eventCount": 1,
       "consumedEvents": [
@@ -6228,6 +6862,18 @@
       "context": "UIBehavior"
     },
     {
+      "name": "JournalDataRm",
+      "path": "src/CustomUI/PowerModels.UIBehavior/Components/AccountingSystem/ReadModels/JournalDataRm.cs",
+      "lines": 125,
+      "baseClass": "TransientSubscriber",
+      "eventCount": 1,
+      "consumedEvents": [
+        "AccountingSystemClientMsgs.JournalUpdated"
+      ],
+      "outputType": "SourceCache\u003CJournalLineModel, Guid\u003E",
+      "context": "UIBehavior"
+    },
+    {
       "name": "SolutionLibraryRm",
       "path": "src/CustomUI/PowerModels.UIBehavior/Components/ModelTemplating/ReadModels/SolutionLibraryRm.cs",
       "lines": 121,
@@ -6271,14 +6917,14 @@
     {
       "name": "PreprocessorsRm",
       "path": "src/CustomUI/PowerModels.UIBehavior/Components/TransactionWorkflow/ReadModels/PreprocessorsRm.cs",
-      "lines": 39,
+      "lines": 47,
       "baseClass": "TransientSubscriber",
       "eventCount": 2,
       "consumedEvents": [
         "ReconciliationPreprocessorsAvailable",
         "ReconciliationPreprocessorAvailable"
       ],
-      "outputType": "HashSet-based",
+      "outputType": "SourceCache\u003Cstring, string\u003E",
       "context": "UIBehavior"
     },
     {
@@ -6344,7 +6990,8 @@
       "hasStateGuard": false,
       "referencedAggregates": [
         "AccountingSystem",
-        "ChartOfAccounts"
+        "ChartOfAccounts",
+        "Journal"
       ]
     },
     {
@@ -6355,6 +7002,16 @@
       "hasStateGuard": false,
       "referencedAggregates": [
         "ClientWorkspace"
+      ]
+    },
+    {
+      "path": "src/CustomUI/PowerModels.UIBehavior.Tests/ContextReadModels/DataSourceListRmTests.cs",
+      "fileName": "DataSourceListRmTests.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": false,
+      "referencedAggregates": [
+        "Journal"
       ]
     },
     {
@@ -6911,6 +7568,37 @@
       ]
     },
     {
+      "path": "src/ModelServer/ModelServer.Tests/Services/JournalAggregatesServiceTests.cs",
+      "fileName": "JournalAggregatesServiceTests.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": true,
+      "referencedAggregates": [
+        "Journal",
+        "JournalEntry"
+      ]
+    },
+    {
+      "path": "src/ModelServer/ModelServer.Tests/Services/JournalEntriesRmTests.cs",
+      "fileName": "JournalEntriesRmTests.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": false,
+      "referencedAggregates": [
+        "JournalEntry"
+      ]
+    },
+    {
+      "path": "src/ModelServer/ModelServer.Tests/Services/JournalsRmTests.cs",
+      "fileName": "JournalsRmTests.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": false,
+      "referencedAggregates": [
+        "Journal"
+      ]
+    },
+    {
       "path": "src/ModelServer/ModelServer.Tests/Services/ListDataTableTestsForFinancialModelService.cs",
       "fileName": "ListDataTableTestsForFinancialModelService.cs",
       "hasRestoreFromEvents": false,
@@ -7030,7 +7718,8 @@
         "AccountingSystem",
         "ChartOfAccounts",
         "DataElement",
-        "DataSource"
+        "DataSource",
+        "Journal"
       ]
     },
     {
@@ -7043,7 +7732,8 @@
         "AccountingSystem",
         "ChartOfAccounts",
         "DataElement",
-        "DataSource"
+        "DataSource",
+        "Journal"
       ]
     },
     {
@@ -7289,7 +7979,8 @@
       "hasIdempotency": false,
       "hasStateGuard": false,
       "referencedAggregates": [
-        "TasklistItem"
+        "TasklistItem",
+        "JournalEntry"
       ]
     },
     {
@@ -7309,7 +8000,53 @@
       "hasIdempotency": false,
       "hasStateGuard": false,
       "referencedAggregates": [
-        "TasklistItem"
+        "TasklistItem",
+        "JournalEntry"
+      ]
+    },
+    {
+      "path": "src/ModelServer/SpreadsheetAdapter.Tests/Seeding/BusinessLoaderTests.cs",
+      "fileName": "BusinessLoaderTests.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": false,
+      "referencedAggregates": [
+        "ChartOfAccounts"
+      ]
+    },
+    {
+      "path": "src/ModelServer/SpreadsheetAdapter.Tests/Seeding/SeedDataLoaderTests.cs",
+      "fileName": "SeedDataLoaderTests.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": true,
+      "referencedAggregates": [
+        "ChartOfAccounts",
+        "Counterparty",
+        "Customer",
+        "Employee",
+        "Vendor"
+      ]
+    },
+    {
+      "path": "src/ModelServer/SpreadsheetAdapter.Tests/Seeding/SeedDataValidatorTests.cs",
+      "fileName": "SeedDataValidatorTests.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": false,
+      "referencedAggregates": [
+        "ChartOfAccounts",
+        "Vendor"
+      ]
+    },
+    {
+      "path": "src/ModelServer/SpreadsheetAdapter.Tests/Seeding/TestData.cs",
+      "fileName": "TestData.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": false,
+      "referencedAggregates": [
+        "ChartOfAccounts"
       ]
     },
     {
@@ -7436,6 +8173,158 @@
       ]
     },
     {
+      "path": "src/Utilities/UITestRunner/Tests/IncomeExpenseSummaryTest.cs",
+      "fileName": "IncomeExpenseSummaryTest.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": false,
+      "referencedAggregates": [
+        "Contractor"
+      ]
+    },
+    {
+      "path": "src/Utilities/UITestRunner/Tests/JournalExplorerTest.cs",
+      "fileName": "JournalExplorerTest.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": false,
+      "referencedAggregates": [
+        "Counterparty",
+        "Journal"
+      ]
+    },
+    {
+      "path": "src/Utilities/UITestRunner/Tests/JournalReportTest.cs",
+      "fileName": "JournalReportTest.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": false,
+      "referencedAggregates": [
+        "Journal"
+      ]
+    },
+    {
+      "path": "src/Utilities/UITestRunner/Tests/TabNavigationTest.cs",
+      "fileName": "TabNavigationTest.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": false,
+      "referencedAggregates": [
+        "Journal"
+      ]
+    },
+    {
+      "path": "src/CustomUI/PowerModels.UIBehavior.Tests/Components/Reports/AccountingReportBaseTests.cs",
+      "fileName": "AccountingReportBaseTests.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": false,
+      "referencedAggregates": [
+        "ChartOfAccounts"
+      ]
+    },
+    {
+      "path": "src/CustomUI/PowerModels.UIBehavior.Tests/Components/Reports/BalanceSheetRmIntegrationTests.cs",
+      "fileName": "BalanceSheetRmIntegrationTests.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": false,
+      "referencedAggregates": [
+        "ChartOfAccounts",
+        "DataElement",
+        "DataSource",
+        "Journal"
+      ]
+    },
+    {
+      "path": "src/CustomUI/PowerModels.UIBehavior.Tests/Components/Reports/CashFlowStatementRmIntegrationTests.cs",
+      "fileName": "CashFlowStatementRmIntegrationTests.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": false,
+      "referencedAggregates": [
+        "ChartOfAccounts",
+        "DataElement",
+        "DataSource",
+        "Journal"
+      ]
+    },
+    {
+      "path": "src/CustomUI/PowerModels.UIBehavior.Tests/Components/Reports/GeneralLedgerRmIntegrationTests.cs",
+      "fileName": "GeneralLedgerRmIntegrationTests.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": false,
+      "referencedAggregates": [
+        "ChartOfAccounts",
+        "DataElement",
+        "DataSource",
+        "Journal"
+      ]
+    },
+    {
+      "path": "src/CustomUI/PowerModels.UIBehavior.Tests/Components/Reports/IncomeExpenseSummaryRmIntegrationTests.cs",
+      "fileName": "IncomeExpenseSummaryRmIntegrationTests.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": false,
+      "referencedAggregates": [
+        "ChartOfAccounts",
+        "DataElement",
+        "DataSource",
+        "Journal"
+      ]
+    },
+    {
+      "path": "src/CustomUI/PowerModels.UIBehavior.Tests/Components/Reports/IncomeStatementRmIntegrationTests.cs",
+      "fileName": "IncomeStatementRmIntegrationTests.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": false,
+      "referencedAggregates": [
+        "ChartOfAccounts",
+        "DataElement",
+        "DataSource",
+        "Journal"
+      ]
+    },
+    {
+      "path": "src/CustomUI/PowerModels.UIBehavior.Tests/Components/Reports/JournalReportRmIntegrationTests.cs",
+      "fileName": "JournalReportRmIntegrationTests.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": false,
+      "referencedAggregates": [
+        "ChartOfAccounts",
+        "DataElement",
+        "DataSource",
+        "Journal"
+      ]
+    },
+    {
+      "path": "src/CustomUI/PowerModels.UIBehavior.Tests/Components/Reports/TrialBalanceRmIntegrationTests.cs",
+      "fileName": "TrialBalanceRmIntegrationTests.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": false,
+      "referencedAggregates": [
+        "ChartOfAccounts",
+        "DataElement",
+        "DataSource",
+        "Journal"
+      ]
+    },
+    {
+      "path": "src/CustomUI/PowerModels.UIBehavior.Tests/Components/Reports/TrialBalanceRmTests.cs",
+      "fileName": "TrialBalanceRmTests.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": false,
+      "referencedAggregates": [
+        "ChartOfAccounts"
+      ]
+    },
+    {
       "path": "src/ModelServer/ModelServer.Tests/Domain/AccountingSystem/AccountingSystemTests.cs",
       "fileName": "AccountingSystemTests.cs",
       "hasRestoreFromEvents": false,
@@ -7541,6 +8430,38 @@
       ]
     },
     {
+      "path": "src/ModelServer/ModelServer.Tests/Domain/AccountingSystem/JournalEntryCreationTests.cs",
+      "fileName": "JournalEntryCreationTests.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": true,
+      "referencedAggregates": [
+        "ChartOfAccounts",
+        "JournalEntry"
+      ]
+    },
+    {
+      "path": "src/ModelServer/ModelServer.Tests/Domain/AccountingSystem/JournalEntryUpdateLinesTests.cs",
+      "fileName": "JournalEntryUpdateLinesTests.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": true,
+      "hasStateGuard": true,
+      "referencedAggregates": [
+        "ChartOfAccounts",
+        "JournalEntry"
+      ]
+    },
+    {
+      "path": "src/ModelServer/ModelServer.Tests/Domain/AccountingSystem/JournalTests.cs",
+      "fileName": "JournalTests.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": true,
+      "hasStateGuard": true,
+      "referencedAggregates": [
+        "Journal"
+      ]
+    },
+    {
       "path": "src/ModelServer/ModelServer.Tests/Domain/AccountingSystem/ProductTests.cs",
       "fileName": "ProductTests.cs",
       "hasRestoreFromEvents": false,
@@ -7571,14 +8492,36 @@
       ]
     },
     {
-      "path": "src/ModelServer/SpreadsheetAdapter.Tests/Reconciliation/Steps/AIStepTests.cs",
-      "fileName": "AIStepTests.cs",
+      "path": "src/ModelServer/SpreadsheetAdapter.Tests/Reconciliation/Models/JournalSchemaTests.cs",
+      "fileName": "JournalSchemaTests.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": false,
+      "referencedAggregates": [
+        "Product"
+      ]
+    },
+    {
+      "path": "src/ModelServer/SpreadsheetAdapter.Tests/Reconciliation/Steps/JournalPostingStepTests.cs",
+      "fileName": "JournalPostingStepTests.cs",
       "hasRestoreFromEvents": false,
       "hasIdempotency": false,
       "hasStateGuard": false,
       "referencedAggregates": [
         "AccountingSystem",
-        "ChartOfAccounts"
+        "ChartOfAccounts",
+        "Customer",
+        "Journal"
+      ]
+    },
+    {
+      "path": "src/ModelServer/SpreadsheetAdapter.Tests/Reconciliation/Steps/TranscationNormalizerStepTests.cs",
+      "fileName": "TranscationNormalizerStepTests.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": true,
+      "referencedAggregates": [
+        "AccountingSystem"
       ]
     },
     {
@@ -7638,6 +8581,18 @@
       ]
     },
     {
+      "path": "src/CustomUI/PowerModels.UIBehavior.Tests/Components/AccountingSystem/ReadModels/JournalDataRmTests.cs",
+      "fileName": "JournalDataRmTests.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": false,
+      "referencedAggregates": [
+        "AccountingSystem",
+        "ChartOfAccounts",
+        "Product"
+      ]
+    },
+    {
       "path": "src/CustomUI/PowerModels.UIBehavior.Tests/Components/AccountingSystem/ViewModels/AddJournalEntriesVmTests.cs",
       "fileName": "AddJournalEntriesVmTests.cs",
       "hasRestoreFromEvents": false,
@@ -7680,7 +8635,7 @@
       "fileName": "EditJournalEntriesVmTests.cs",
       "hasRestoreFromEvents": false,
       "hasIdempotency": false,
-      "hasStateGuard": true,
+      "hasStateGuard": false,
       "referencedAggregates": [
         "AccountingSystem",
         "ChartOfAccounts",
@@ -7699,8 +8654,53 @@
       ]
     },
     {
-      "path": "src/CustomUI/PowerModels.UIBehavior.Tests/Components/AccountingSystem/ViewModels/NewExternalAccountVmTests.cs",
-      "fileName": "NewExternalAccountVmTests.cs",
+      "path": "src/CustomUI/PowerModels.UIBehavior.Tests/Components/AccountingSystem/ViewModels/InitOpeningBalanceVmTests.cs",
+      "fileName": "InitOpeningBalanceVmTests.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": false,
+      "referencedAggregates": [
+        "AccountingSystem",
+        "ChartOfAccounts"
+      ]
+    },
+    {
+      "path": "src/CustomUI/PowerModels.UIBehavior.Tests/Components/AccountingSystem/ViewModels/JournalExplorerVmTests.cs",
+      "fileName": "JournalExplorerVmTests.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": false,
+      "referencedAggregates": [
+        "AccountingSystem",
+        "ChartOfAccounts",
+        "Product"
+      ]
+    },
+    {
+      "path": "src/CustomUI/PowerModels.UIBehavior.Tests/Components/AccountingSystem/ViewModels/NewAccountOpeningBalanceVmTests.cs",
+      "fileName": "NewAccountOpeningBalanceVmTests.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": false,
+      "referencedAggregates": [
+        "AccountingSystem",
+        "ChartOfAccounts"
+      ]
+    },
+    {
+      "path": "src/CustomUI/PowerModels.UIBehavior.Tests/Components/AccountingSystem/ViewModels/NewBusinessOpeningBalancesStepVmTests.cs",
+      "fileName": "NewBusinessOpeningBalancesStepVmTests.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": false,
+      "referencedAggregates": [
+        "AccountingSystem",
+        "ChartOfAccounts"
+      ]
+    },
+    {
+      "path": "src/CustomUI/PowerModels.UIBehavior.Tests/Components/AccountingSystem/ViewModels/NewExternalCashAccountVmTests.cs",
+      "fileName": "NewExternalCashAccountVmTests.cs",
       "hasRestoreFromEvents": false,
       "hasIdempotency": false,
       "hasStateGuard": false,
@@ -7802,7 +8802,8 @@
       "hasStateGuard": false,
       "referencedAggregates": [
         "AccountingSystem",
-        "ChartOfAccounts"
+        "ChartOfAccounts",
+        "Journal"
       ]
     },
     {
@@ -7813,7 +8814,8 @@
       "hasStateGuard": false,
       "referencedAggregates": [
         "AccountingSystem",
-        "ChartOfAccounts"
+        "ChartOfAccounts",
+        "Journal"
       ]
     },
     {
@@ -7825,7 +8827,28 @@
       "referencedAggregates": [
         "AccountingSystem",
         "ChartOfAccounts",
-        "CustomStatementTxType"
+        "CustomStatementTxType",
+        "Journal"
+      ]
+    },
+    {
+      "path": "src/CustomUI/PowerModels.UIBehavior.Tests/Components/Tasklists/ReadModels/SingleUserTasklistRmTests.cs",
+      "fileName": "SingleUserTasklistRmTests.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": false,
+      "referencedAggregates": [
+        "JournalEntry"
+      ]
+    },
+    {
+      "path": "src/CustomUI/PowerModels.UIBehavior.Tests/Components/Tasklists/ReadModels/SingleWorkspaceTasklistRmTests.cs",
+      "fileName": "SingleWorkspaceTasklistRmTests.cs",
+      "hasRestoreFromEvents": false,
+      "hasIdempotency": false,
+      "hasStateGuard": false,
+      "referencedAggregates": [
+        "JournalEntry"
       ]
     },
     {

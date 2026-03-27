@@ -117,6 +117,37 @@ vocab_map:
     - no snapshots
     - append-only persistence
     - storage scaling
+  accounting-reports:
+    - financial statements
+    - balance sheet
+    - income statement
+    - report builder DSL
+    - first PMA read-side feature
+    - parallel projection layer
+    - report-builder agent
+  data-ingestion-pipeline:
+    - CSV import
+    - PDF parsing
+    - composable pipeline
+    - data import automation
+    - transaction normalization
+    - AI classification
+  business-seeding-api:
+    - headless business creation
+    - SeedTestBusiness
+    - Business Loader
+    - deterministic testing
+    - demo environment
+    - seed data
+  agentic-development:
+    - multi-agent system
+    - AI-powered development
+    - skill dispatching
+    - feature-builder agent
+    - report-builder agent
+    - 4-way parallel review
+    - workflow-as-code
+    - primary development model
 proof_preferences:
   - customer feedback and product validation
   - team accomplishments and milestones

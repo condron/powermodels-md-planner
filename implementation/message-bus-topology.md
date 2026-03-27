@@ -1,8 +1,8 @@
 # Message Bus Topology
 
-Last reviewed: 2026-03-08
+Last reviewed: 2026-03-27
 
-Generated: 2026-03-07 (seeded from pre-scanned context)
+Generated: 2026-03-27 (from `joshkempner/journal-aggregate` branch)
 Source: PowerModels codebase (via `implementation-vault/PowerModels-src` junction)
 
 ## Bus Types
@@ -12,7 +12,7 @@ Source: PowerModels codebase (via `implementation-vault/PowerModels-src` junctio
 | LocalBus | `Dispatcher` | App-internal communication (created in App.xaml.cs) |
 | ExternalBus | `Dispatcher` | Server communication (SpreadsheetContextService.Bus) |
 | SpreadsheetContextBus | Decorator | Wraps either bus, auto-attaches SpreadsheetContextMetadata (clientId, workspaceId, workbookContextId) |
-| NullBus | Stub | Replay safety — prevents re-publishing events during aggregate replay (used in ReconciliationBootstrap) |
+| ~~NullBus~~ | Removed in R-D 0.14.0 | Previously used for replay safety; now handled internally by ReactiveDomain |
 | InMemoryBus | Test-only | Used in test fixtures |
 
 ## Two-Bus Architecture
@@ -47,10 +47,12 @@ The `SpreadsheetContextBus` decorator auto-attaches `SpreadsheetContextMetadata`
    Calls aggregate method → aggregate raises domain event via Apply()
    Repository.Save() persists events and publishes to bus
        ↓
-5. READ MODEL PROJECTION
-   SpreadsheetAdapter read models (e.g., FinancialModelRm) catch domain events
-   Project into denormalized views
-   Publish client-facing messages (AccountingSystemClientMsgs.*, SpreadSheetMsgs.*)
+5. READ MODEL PROJECTION (two paths)
+   a. SpreadsheetAdapter read models (e.g., FinancialModelRm) catch domain events
+      Project into denormalized views
+      Publish client-facing messages (AccountingSystemClientMsgs.*, SpreadSheetMsgs.*)
+   b. AccountingReportsContext read models (e.g., BalanceSheetRm) catch domain events directly
+      Project into report views (first parallel read-side interface, bypasses ACL)
        ↓
 6. UI UPDATE
    UIBehavior read models (e.g., CounterpartiesRm) catch client messages
@@ -62,7 +64,7 @@ The `SpreadsheetContextBus` decorator auto-attaches `SpreadsheetContextMetadata`
 
 | Layer | Namespace | Examples | Direction |
 |-------|-----------|----------|-----------|
-| **Domain** | `ModelServer.Messages` | ChartOfAccountsMsgs, FinancialModelMsgs, DataSourceCommands/Events | Internal to domain |
+| **Domain** | `ModelServer.Messages` | ChartOfAccountsMsgs, FinancialModelMsgs, DataSourceCommands/Events, JournalMsgs, JournalEntryMsgs | Internal to domain |
 | **ACL** | `SpreadsheetAdapter.Messages` | SpreadSheetMsgs, ConnectionMsgs, ClientWorkspaceContextMsgs, DataMapMsgs, AccountingSystemClientMsgs, PredictiveForecastingMsgs | Bridge layer |
 | **UI** | `PowerModels.UIBehavior.Messages` | UiMsgs | UI-to-ACL only |
 

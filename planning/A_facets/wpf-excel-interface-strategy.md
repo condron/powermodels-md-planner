@@ -7,15 +7,22 @@ synonyms:
   - WPF and Excel
   - Windows desktop application
   - power user Excel access
+  - PMA primary
+  - PME on hold
+  - PowerModels Accounting
+  - standalone desktop app
 links_to_facets:
   - professional-judgment-preservation
   - ai-empowerment-strategy
+  - accounting-reports
 claims:
-  - WPF is the primary interface for core workflows
-  - Excel provides advanced modeling capabilities for tax accountants
+  - PMA (PowerModels Accounting) is the primary delivery target — all new features go here
+  - PME (PowerModels Excel) is on hold for new development
+  - PMA still routes through SpreadsheetAdapter — dropping this dependency is a planned architectural change
   - Dual interface meets different user needs and skill levels
   - Windows desktop application aligns with accounting firm IT environments
-  - Excel access for power users preserves flexibility
+  - PMA has its own focused solution (PowerModelsAccounting.slnx) and CI workflow (ci-accounting.yaml)
+  - Accounting Reports subsystem is the first feature built directly in PMA bypassing the ACL pattern
 evidence_refs:
   - technical-codebase-review
 owner: product-team
@@ -26,7 +33,7 @@ status: active
 
 ## Description
 
-PowerModels uses a **dual interface strategy**: WPF (Windows Presentation Foundation) as the primary interface for core preparation workflows, with Excel access for advanced modeling and power user scenarios. This balances professional-grade user experience with the flexibility accountants expect.
+PowerModels uses a **dual interface strategy**: PMA (WPF standalone desktop app) as the primary delivery target for core preparation workflows, with PME (Excel add-in) for advanced modeling. **PME is currently on hold** — all new features target PMA. PMA still routes through SpreadsheetAdapter (originally built for Excel); dropping this dependency is a planned architectural change.
 
 ## Interface Strategy
 
@@ -139,10 +146,11 @@ PowerModels uses a **dual interface strategy**: WPF (Windows Presentation Founda
    - Template marketplace
 
 ### Technical Stack
-- **WPF**: .NET Core, MVVM pattern, modern UI framework
-- **Excel DNA**: .NET-based Excel add-in framework
-- **Backend**: Event-sourced architecture (same for both interfaces)
+- **WPF**: .NET 10, ReactiveUI + MVVM, modern UI framework
+- **Excel DNA**: .NET-based Excel add-in framework (PME — on hold)
+- **Backend**: Event-sourced architecture via ReactiveDomain 0.14.0 (same for both interfaces)
 - **Data sync**: Both interfaces write to same event store
+- **Focused CI**: PowerModelsAccounting.slnx + ci-accounting.yaml for PMA-only builds
 
 ## User Experience Flow
 

@@ -1,6 +1,6 @@
 # God Aggregate: ServerFinancialModel
 
-Generated: 2026-03-08 00:08:55
+Generated: 2026-03-27 19:42:20
 Path: `src/ModelServer/ModelServer/Domain/ServerFinancialModel.cs`
 Lines: 3557
 

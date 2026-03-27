@@ -1,13 +1,13 @@
 # Message Map
 
-Generated: 2026-03-08 00:08:55
+Generated: 2026-03-27 19:42:20
 
 ## By Handler
 
 ### AccountingSystemService
 
 - **Path:** `src/ModelServer/ModelServer/Services/AccountingSystemService.cs`
-- **Commands:** 34
+- **Commands:** 38
 - **Aggregates:** AccountBalance, AccountingSystem, ChartOfAccounts, Contractor, Counterparty, Customer, Employee, Product, Vendor
 
 | Command |
@@ -15,7 +15,11 @@ Generated: 2026-03-08 00:08:55
 | CreateAccountingSystem |
 | CreateChartOfAccounts |
 | AddRootAccount |
+| AddRootCashAccount |
+| AddRootExternalCashAccount |
 | AddChildAccount |
+| AddChildCashAccount |
+| AddChildExternalCashAccount |
 | UpdateAccount |
 | AddGroupSet |
 | RemoveGroupSet |
@@ -365,6 +369,23 @@ Generated: 2026-03-08 00:08:55
 - **Aggregates:** 
 
 
+### JournalAggregatesService
+
+- **Path:** `src/ModelServer/ModelServer/Services/JournalAggregatesService.cs`
+- **Commands:** 8
+- **Aggregates:** Journal, JournalEntry
+
+| Command |
+|---------|
+| CreateJournal |
+| AddJournalEntryFromTransaction |
+| AddManualJournalEntry |
+| MoveJournalEntry |
+| UpdateJournalLines |
+| AssociateTransaction |
+| ClearTransactionAssociation |
+| RecategorizeLines |
+
 ### ListDataTableModelMappingService
 
 - **Path:** `src/ModelServer/SpreadsheetAdapter/Services/ListDataTableModelMappingService.cs`
@@ -497,7 +518,7 @@ Generated: 2026-03-08 00:08:55
 
 | Handler | Handler Total | Also Touches |
 |---------|---------------|--------------|
-| AccountingSystemService | 34 | AccountingSystem, ChartOfAccounts, Contractor, Counterparty, Customer, Employee, Product, Vendor |
+| AccountingSystemService | 38 | AccountingSystem, ChartOfAccounts, Contractor, Counterparty, Customer, Employee, Product, Vendor |
 
 <details><summary>Commands for AccountBalance</summary>
 
@@ -509,7 +530,7 @@ Generated: 2026-03-08 00:08:55
 
 | Handler | Handler Total | Also Touches |
 |---------|---------------|--------------|
-| AccountingSystemService | 34 | AccountBalance, ChartOfAccounts, Contractor, Counterparty, Customer, Employee, Product, Vendor |
+| AccountingSystemService | 38 | AccountBalance, ChartOfAccounts, Contractor, Counterparty, Customer, Employee, Product, Vendor |
 
 <details><summary>Commands for AccountingSystem</summary>
 
@@ -521,11 +542,11 @@ Generated: 2026-03-08 00:08:55
 
 | Handler | Handler Total | Also Touches |
 |---------|---------------|--------------|
-| AccountingSystemService | 34 | AccountBalance, AccountingSystem, Contractor, Counterparty, Customer, Employee, Product, Vendor |
+| AccountingSystemService | 38 | AccountBalance, AccountingSystem, Contractor, Counterparty, Customer, Employee, Product, Vendor |
 
 <details><summary>Commands for ChartOfAccounts</summary>
 
-**AccountingSystemService:** CreateChartOfAccounts, AddRootAccount, AddChildAccount, UpdateAccount, AddGroupSet, RemoveGroupSet, AddGroupToSet, RemoveGroupFromSet, AddAccountToGroup, RemoveAccountFromGroup
+**AccountingSystemService:** CreateChartOfAccounts, AddRootAccount, AddRootCashAccount, AddRootExternalCashAccount, AddChildAccount, AddChildCashAccount, AddChildExternalCashAccount, UpdateAccount, AddGroupSet, RemoveGroupSet, AddGroupToSet, RemoveGroupFromSet, AddAccountToGroup, RemoveAccountFromGroup
 
 </details>
 
@@ -545,7 +566,7 @@ Generated: 2026-03-08 00:08:55
 
 | Handler | Handler Total | Also Touches |
 |---------|---------------|--------------|
-| AccountingSystemService | 34 | AccountBalance, AccountingSystem, ChartOfAccounts, Counterparty, Customer, Employee, Product, Vendor |
+| AccountingSystemService | 38 | AccountBalance, AccountingSystem, ChartOfAccounts, Counterparty, Customer, Employee, Product, Vendor |
 
 <details><summary>Commands for Contractor</summary>
 
@@ -557,7 +578,7 @@ Generated: 2026-03-08 00:08:55
 
 | Handler | Handler Total | Also Touches |
 |---------|---------------|--------------|
-| AccountingSystemService | 34 | AccountBalance, AccountingSystem, ChartOfAccounts, Contractor, Customer, Employee, Product, Vendor |
+| AccountingSystemService | 38 | AccountBalance, AccountingSystem, ChartOfAccounts, Contractor, Customer, Employee, Product, Vendor |
 
 <details><summary>Commands for Counterparty</summary>
 
@@ -569,7 +590,7 @@ Generated: 2026-03-08 00:08:55
 
 | Handler | Handler Total | Also Touches |
 |---------|---------------|--------------|
-| AccountingSystemService | 34 | AccountBalance, AccountingSystem, ChartOfAccounts, Contractor, Counterparty, Employee, Product, Vendor |
+| AccountingSystemService | 38 | AccountBalance, AccountingSystem, ChartOfAccounts, Contractor, Counterparty, Employee, Product, Vendor |
 
 <details><summary>Commands for Customer</summary>
 
@@ -656,7 +677,7 @@ Generated: 2026-03-08 00:08:55
 
 | Handler | Handler Total | Also Touches |
 |---------|---------------|--------------|
-| AccountingSystemService | 34 | AccountBalance, AccountingSystem, ChartOfAccounts, Contractor, Counterparty, Customer, Product, Vendor |
+| AccountingSystemService | 38 | AccountBalance, AccountingSystem, ChartOfAccounts, Contractor, Counterparty, Customer, Product, Vendor |
 
 <details><summary>Commands for Employee</summary>
 
@@ -685,6 +706,30 @@ Generated: 2026-03-08 00:08:55
 <details><summary>Commands for FileStore</summary>
 
 **FileStoreService:** CreateFileStore, DeleteFileStore, AddFile
+
+</details>
+
+### Journal
+
+| Handler | Handler Total | Also Touches |
+|---------|---------------|--------------|
+| JournalAggregatesService | 8 | JournalEntry |
+
+<details><summary>Commands for Journal</summary>
+
+**JournalAggregatesService:** AddJournalEntryFromTransaction, AddManualJournalEntry, MoveJournalEntry
+
+</details>
+
+### JournalEntry
+
+| Handler | Handler Total | Also Touches |
+|---------|---------------|--------------|
+| JournalAggregatesService | 8 | Journal |
+
+<details><summary>Commands for JournalEntry</summary>
+
+**JournalAggregatesService:** AddJournalEntryFromTransaction, AddManualJournalEntry, UpdateJournalLines, AssociateTransaction, ClearTransactionAssociation, RecategorizeLines
 
 </details>
 
@@ -740,7 +785,7 @@ Generated: 2026-03-08 00:08:55
 
 | Handler | Handler Total | Also Touches |
 |---------|---------------|--------------|
-| AccountingSystemService | 34 | AccountBalance, AccountingSystem, ChartOfAccounts, Contractor, Counterparty, Customer, Employee, Vendor |
+| AccountingSystemService | 38 | AccountBalance, AccountingSystem, ChartOfAccounts, Contractor, Counterparty, Customer, Employee, Vendor |
 
 <details><summary>Commands for Product</summary>
 
@@ -800,7 +845,7 @@ Generated: 2026-03-08 00:08:55
 
 | Handler | Handler Total | Also Touches |
 |---------|---------------|--------------|
-| AccountingSystemService | 34 | AccountBalance, AccountingSystem, ChartOfAccounts, Contractor, Counterparty, Customer, Employee, Product |
+| AccountingSystemService | 38 | AccountBalance, AccountingSystem, ChartOfAccounts, Contractor, Counterparty, Customer, Employee, Product |
 
 <details><summary>Commands for Vendor</summary>
 

@@ -19,10 +19,12 @@ links_to_facets:
 claims:
   - Every AppendToStream auto-creates $ce and $et projection streams synchronously
   - Repository replays full aggregate stream from position 0 on every GetById with no snapshots
-  - Read amplification is per-category-stream, not global — max 9x on `$ce-ServerFinancialModel` (hottest stream). 46 ReadModelBase RMs subscribe to category streams; 34 TransientSubscriber RMs are bus-only with zero startup cost
+  - Read amplification is per-category-stream, not global — max 9x on `$ce-ServerFinancialModel` (hottest stream)
+  - ~90 read models on journal-aggregate branch (up from 80 on main) — includes 7 accounting report RMs and new journal RMs
   - Stream growth is unbounded with no compaction pruning or archival mechanism
   - Mature business accumulates 15K-30K events in 3-6 MB with 200-400 streams
-  - Opening a business replays entire $All stream across all subscribers
+  - New `$ce-Journal` and `$ce-JournalEntry` category streams from journal aggregate promotion
+  - Opening a business replays category streams across ReadModelBase subscribers (~46+ RMs)
   - PowerModelsContext contains no domain data only ASP.NET Identity tables
   - DataStore uses Protobuf3 with PersistentAllStream writing all events to a single file per business
 evidence_refs:
@@ -35,7 +37,7 @@ status: active
 
 ## Description
 
-PowerModels uses a custom in-memory event store (DataStore) with Protobuf3 disk persistence, one per business. Every event written triggers synchronous projection stream creation and fan-out to 60+ read model subscribers. There are no snapshots, no compaction, and no incremental loading — the full event history is replayed on every business open and every aggregate load. This architecture trades storage efficiency and startup speed for simplicity and guaranteed consistency.
+PowerModels uses a custom in-memory event store (DataStore) with Protobuf3 disk persistence, one per business. Every event written triggers synchronous projection stream creation and fan-out to ~90 read model subscribers (up from 80 with journal aggregates and accounting reports). There are no snapshots, no compaction, and no incremental loading — the full event history is replayed on every business open and every aggregate load. This architecture trades storage efficiency and startup speed for simplicity and guaranteed consistency.
 
 ## Key Points
 

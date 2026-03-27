@@ -107,6 +107,25 @@ vocab_map:
     - storage efficiency
     - scaling characteristics
     - performance architecture
+  accounting-reports:
+    - financial statements
+    - standard reporting
+    - product completeness
+    - market readiness
+  data-ingestion-pipeline:
+    - data import automation
+    - onboarding efficiency
+    - time-to-value
+  business-seeding-api:
+    - demo capability
+    - investor presentation
+    - product showcase
+  agentic-development:
+    - AI-powered development
+    - multi-agent system
+    - engineering leverage
+    - development velocity
+    - team scaling strategy
 proof_preferences:
   - board-level KPIs and variance analysis
   - strategic milestone achievement

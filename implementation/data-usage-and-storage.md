@@ -1,8 +1,8 @@
 # Data Usage and Storage
 
-Last reviewed: 2026-03-08
+Last reviewed: 2026-03-27
 
-Generated: 2026-03-07 (seeded from pre-scanned context)
+Generated: 2026-03-27 (from `joshkempner/journal-aggregate` branch)
 Source: PowerModels codebase (via `implementation-vault/PowerModels-src` junction)
 
 ## Stream Types and Auto-Creation
@@ -60,9 +60,11 @@ Every `AppendToStream()` call in DataStore triggers synchronous creation of proj
 
 | Category | Count | Subscription | Startup Cost |
 |----------|-------|-------------|-------------|
-| ReadModelBase | 46 | Category streams (`$ce-*`) via `Start<TAgg>()` — replays from position 0 | Per-stream replay |
-| TransientSubscriber | 34 | Bus (live only) — no stream replay, active only when UI context is open | None |
-| **Total** | **80** | | |
+| ReadModelBase | ~53 | Category streams (`$ce-*`) via `Start<TAgg>()` — replays from position 0 | Per-stream replay |
+| TransientSubscriber | ~37 | Bus (live only) — no stream replay, active only when UI context is open | None |
+| **Total** | **~90** | | |
+
+*Counts increased from 80 on main to ~90 on journal-aggregate branch due to journal domain RMs (JournalsRm, JournalEntriesRm) and 7 accounting report RMs (BalanceSheetRm, IncomeStatementRm, CashFlowStatementRm, GeneralLedgerRm, TrialBalanceRm, IncomeExpenseSummaryRm, JournalReportRm).*
 
 **Category stream fan-out** (top streams by subscriber count):
 
@@ -72,6 +74,8 @@ Every `AppendToStream()` call in DataStore triggers synchronous creation of proj
 | `$ce-DataSource` | 3 | |
 | `$ce-ManagedFinancialModel` | 3 | |
 | `$ce-ManualTable` | 3 | |
+| `$ce-Journal` | 1–2 | New — journal aggregate promotion |
+| `$ce-JournalEntry` | 1–2 | New — journal entry aggregate promotion |
 | Most other streams | 1–2 | |
 
 **Amplification is per-category-stream, not global.** A single `AccountAdded` event fans out to ~1–2 RMs (on `$ce-ChartOfAccounts`), while a `DataTableMapped` event fans out to ~9 RMs (on `$ce-ServerFinancialModel`). The previous ~65× estimate incorrectly assumed all subscribers receive every event.
@@ -82,7 +86,7 @@ Every `AppendToStream()` call in DataStore triggers synchronous creation of proj
 - 9 ReadModelBase RMs on `$ce-ServerFinancialModel` (ModelTemplateRm, FinancialModelRm, FinancialModelListRm, ModelListRm, ModelWorksheetTablesRm, DataTableFromTemplateRm, ModelVerificationRM, ModelsRm, SingleModelTaskMetricsRm)
 - Active TransientSubscriber RMs in UIBehavior (FinancialModelTablesRm, DataTableMapsRm, etc.) — only when UI is open
 
-**Startup cost:** Opening a business reads the full PersistentAllStream file into the in-memory DataStore (fixed cost). Then 46 ReadModelBase RMs each replay their category streams from position 0. For a 15K-event business where ServerFinancialModel has ~5K events, the hottest stream alone produces 5K × 9 = ~45K handler invocations. Total startup invocations depend on the per-stream event distribution, not a flat multiplier across all events.
+**Startup cost:** Opening a business reads the full PersistentAllStream file into the in-memory DataStore (fixed cost). Then ~53 ReadModelBase RMs each replay their category streams from position 0. For a 15K-event business where ServerFinancialModel has ~5K events, the hottest stream alone produces 5K × 9 = ~45K handler invocations. Total startup invocations depend on the per-stream event distribution, not a flat multiplier across all events.
 
 ## Disk Persistence Format
 

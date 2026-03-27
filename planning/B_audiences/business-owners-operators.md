@@ -93,6 +93,22 @@ vocab_map:
     - no bookkeeping needed
     - automatic from documents
     - someone figures it out for me
+  accounting-reports:
+    - financial statements
+    - balance sheet
+    - income statement
+    - clear reports
+    - timely financials
+  data-ingestion-pipeline:
+    - automatic data entry
+    - no manual work
+    - bank statement import
+  business-seeding-api:
+    - demo experience
+    - see it in action
+  agentic-development:
+    - faster improvements
+    - rapid feature delivery
 proof_preferences:
   - faster close cycles
   - reduced back-and-forth with accountant
